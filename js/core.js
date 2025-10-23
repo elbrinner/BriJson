@@ -45,6 +45,7 @@ class Core {
         this.expandAllBtn = document.getElementById('expandAllBtn');
         this.collapseAllBtn = document.getElementById('collapseAllBtn');
         this.fullscreenBtn = document.getElementById('fullscreenBtn');
+    this.nextMatchBtn = document.getElementById('nextMatchBtn');
         this.modalContainer = document.getElementById('modal-container');
     }
 
@@ -73,6 +74,7 @@ class Core {
         this.expandAllBtn?.addEventListener('click', () => this._expandAll());
         this.collapseAllBtn?.addEventListener('click', () => this._collapseAll());
         this.fullscreenBtn?.addEventListener('click', () => this._toggleFullscreen());
+    this.nextMatchBtn?.addEventListener('click', () => this._gotoNextMatch());
 
         // Búsqueda con debounce
         const debouncedSearch = Utils.debounce((value) => {
@@ -1017,6 +1019,14 @@ class Core {
                     // Insertar el buscador inmediatamente antes del grupo de botones
                     const buttonsGroup = this.expandAllBtn?.parentElement || toolbar.lastElementChild;
                     toolbar.insertBefore(input, buttonsGroup);
+
+                    // Mover el botón de siguiente junto al buscador para una composición elegante
+                    const nextBtn = document.getElementById('nextMatchBtn');
+                    if (nextBtn) {
+                        nextBtn.style.padding = '8px';
+                        nextBtn.style.borderRadius = '9999px';
+                        toolbar.insertBefore(nextBtn, buttonsGroup);
+                    }
                 }
 
                 // Compactar espacio entre botones
@@ -1092,6 +1102,14 @@ class Core {
                 // Restaurar separación por defecto del grupo de botones
                 const buttonsGroup = this.expandAllBtn?.parentElement;
                 if (buttonsGroup) buttonsGroup.style.gap = '';
+
+                // Devolver el botón de siguiente al grupo de botones si existe
+                const nextBtn = document.getElementById('nextMatchBtn');
+                if (nextBtn && buttonsGroup) {
+                    buttonsGroup.insertBefore(nextBtn, buttonsGroup.firstChild);
+                    nextBtn.style.padding = '';
+                    nextBtn.style.borderRadius = '';
+                }
             } catch {}
         }
     }
@@ -1120,6 +1138,17 @@ class Core {
         } else {
             // Fallback
             this.treeRenderer.highlightSearch(query);
+        }
+    }
+
+    /**
+     * Ir a la siguiente coincidencia en el árbol
+     * @private
+     */
+    _gotoNextMatch() {
+        if (!this.treeRenderer) return;
+        if (typeof this.treeRenderer.nextMatch === 'function') {
+            this.treeRenderer.nextMatch();
         }
     }
 

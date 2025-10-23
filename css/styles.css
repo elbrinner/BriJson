@@ -459,6 +459,12 @@ body {
     box-shadow: 0 0 0 2px #fdd835;
     animation: highlight-pulse 0.3s ease-in-out;
 }
+/* Match activo (actual) */
+.json-search-current {
+    outline: 2px solid #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+    border-radius: 6px;
+}
 
 @keyframes highlight-pulse {
     0% {

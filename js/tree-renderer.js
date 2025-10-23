@@ -16,7 +16,8 @@ class TreeRenderer {
         this.expandedNodes = new Set();
         this.visibleNodes = [];
         this.scrollTop = 0;
-        this.totalHeight = 0;
+    this.totalHeight = 0;
+    this.currentMatchIndex = -1;
 
         this._init();
     }
@@ -600,15 +601,8 @@ class TreeRenderer {
 
         // Resaltar y llevar al primer match visible
         this.highlightSearch(searchTerm, caseSensitive);
-
-        const term = caseSensitive ? searchTerm : searchTerm.toLowerCase();
-        const first = Array.from(this.nodesContainer.querySelectorAll('.json-node')).find(el => {
-            const text = caseSensitive ? el.textContent : el.textContent.toLowerCase();
-            return text.includes(term);
-        });
-        if (first && typeof first.scrollIntoView === 'function') {
-            first.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+        this.currentMatchIndex = -1;
+        this.nextMatch();
     }
 
     /**
@@ -618,7 +612,25 @@ class TreeRenderer {
         const nodes = this.nodesContainer.querySelectorAll('.json-node');
         for (const node of nodes) {
             node.classList.remove('json-search-highlight');
+            node.classList.remove('json-search-current');
         }
+        this.currentMatchIndex = -1;
+    }
+
+    /**
+     * Mueve el foco al siguiente match resaltado
+     */
+    nextMatch() {
+        const matches = Array.from(this.nodesContainer.querySelectorAll('.json-node.json-search-highlight'));
+        if (matches.length === 0) return;
+
+        const prev = this.nodesContainer.querySelector('.json-node.json-search-current');
+        if (prev) prev.classList.remove('json-search-current');
+
+        this.currentMatchIndex = (this.currentMatchIndex + 1) % matches.length;
+        const target = matches[this.currentMatchIndex];
+        target.classList.add('json-search-current');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /**

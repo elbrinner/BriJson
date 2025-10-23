@@ -516,6 +516,56 @@ class TreeRenderer {
     }
 
     /**
+     * Expande todos los ancestros necesarios para revelar rutas dadas
+     * @param {string[]} paths - Rutas con formato a.b[0].c
+     */
+    expandPaths(paths = []) {
+        if (!paths || paths.length === 0) return;
+
+        // Asegurar raíz expandida
+        this.expandedNodes.add('root');
+
+        for (const p of paths) {
+            this._expandAncestorsForPath(p);
+        }
+
+        // Reconstruir árbol para aplicar la expansión
+        this.visibleNodes = [];
+        this._buildFlatTree(this.treeData);
+        this._renderAllNodes();
+    }
+
+    /**
+     * Dado un path, agrega a expandedNodes cada contenedor (objeto/array) y, si corresponde, el item del array
+     * @private
+     */
+    _expandAncestorsForPath(path) {
+        if (!path) return;
+
+        const tokens = path.split('.');
+        let accum = '';
+
+        for (const token of tokens) {
+            const m = token.match(/^(.*?)(\[(\d+)\])?$/);
+            if (!m) continue;
+            const key = m[1];
+            const hasIndex = !!m[2];
+            const idx = m[3];
+
+            const containerPath = accum ? `${accum}.${key}` : key;
+            if (containerPath) this.expandedNodes.add(containerPath);
+
+            if (hasIndex) {
+                const itemPath = `${containerPath}[${idx}]`;
+                this.expandedNodes.add(itemPath);
+                accum = itemPath;
+            } else {
+                accum = containerPath;
+            }
+        }
+    }
+
+    /**
      * Busca y resalta nodos
      */
     highlightSearch(searchTerm, caseSensitive = false) {
@@ -530,6 +580,34 @@ class TreeRenderer {
             } else {
                 node.classList.remove('json-search-highlight');
             }
+        }
+    }
+
+    /**
+     * Revela rutas y resalta resultados; hace scroll al primero
+     * @param {{path:string}[]} results
+     * @param {string} searchTerm
+     * @param {boolean} caseSensitive
+     */
+    revealSearchResults(results, searchTerm, caseSensitive = false) {
+        if (!results || results.length === 0) {
+            this.clearSearchHighlight();
+            return;
+        }
+
+        const uniquePaths = Array.from(new Set(results.map(r => r.path).filter(Boolean)));
+        this.expandPaths(uniquePaths);
+
+        // Resaltar y llevar al primer match visible
+        this.highlightSearch(searchTerm, caseSensitive);
+
+        const term = caseSensitive ? searchTerm : searchTerm.toLowerCase();
+        const first = Array.from(this.nodesContainer.querySelectorAll('.json-node')).find(el => {
+            const text = caseSensitive ? el.textContent : el.textContent.toLowerCase();
+            return text.includes(term);
+        });
+        if (first && typeof first.scrollIntoView === 'function') {
+            first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 

@@ -235,35 +235,25 @@ class Core {
      */
     _updateStats() {
         if (!this.statsContainer || !this.jsonParser) return;
-
         const stats = this.jsonParser.getStats(this.currentJson);
 
-        this.statsContainer.innerHTML = `
-            <div class="stats-item">
-                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.size')) || 'Tamaño'}:</span>
-                <span class="stats-value">${Utils.formatBytes(stats.size)}</span>
-            </div>
-            <div class="stats-item">
-                <span class="stats-label">${(globalThis.I18n && (I18n.t('stats.lines') || I18n.t('stats.title'))) || 'Líneas'}:</span>
-                <span class="stats-value">${stats.lines}</span>
-            </div>
-            <div class="stats-item">
-                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.keys')) || 'Claves'}:</span>
-                <span class="stats-value">${stats.keys}</span>
-            </div>
-            <div class="stats-item">
-                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.objects')) || 'Objetos'}:</span>
-                <span class="stats-value">${stats.objects}</span>
-            </div>
-            <div class="stats-item">
-                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.arrays')) || 'Arrays'}:</span>
-                <span class="stats-value">${stats.arrays}</span>
-            </div>
-            <div class="stats-item">
-                <span class="stats-label">${(globalThis.I18n && (I18n.t('stats.depth') + ' (max.)')) || 'Profundidad máx.'}:</span>
-                <span class="stats-value">${stats.maxDepth}</span>
-            </div>
-        `;
+        const values = {
+            size: Utils.formatBytes(stats.size),
+            lines: stats.lines,
+            keys: stats.keys,
+            objects: stats.objects,
+            arrays: stats.arrays,
+            depth: stats.maxDepth
+        };
+
+        // Actualizar los contadores en las tarjetas existentes
+        const nodes = this.statsContainer.querySelectorAll('.stat-value');
+        for (const el of nodes) {
+            const key = el.dataset.stat;
+            if (!key) continue;
+            const val = values[key];
+            if (val !== undefined) el.textContent = val;
+        }
     }
 
     /**
@@ -945,7 +935,7 @@ class Core {
         } else {
             // Entrar en modo fullscreen (solo árbol)
             this._enterTreeOnlyMode();
-            this.fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            this.fullscreenBtn.innerHTML = '<i class="fas fa-xmark"></i>';
             this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.enter')) || 'Modo árbol completo activado');
         }
     }
@@ -958,9 +948,13 @@ class Core {
         const editorPanel = document.querySelector('.editor-panel');
         const treePanel = document.querySelector('.tree-panel');
         const toolbar = document.querySelector('.toolbar');
+        const stats = document.getElementById('json-stats');
 
         if (editorPanel) {
             editorPanel.style.display = 'none';
+        }
+        if (stats) {
+            stats.style.display = 'none';
         }
         if (treePanel) {
             treePanel.classList.add('fullscreen-mode');
@@ -983,8 +977,52 @@ class Core {
             toolbar.style.zIndex = '1001';
             toolbar.style.background = 'rgba(255, 255, 255, 0.95)';
             toolbar.style.borderRadius = '6px';
-            toolbar.style.padding = '8px';
+            toolbar.style.padding = '6px 8px';
             toolbar.style.boxShadow = '0 2px 12px rgba(0,0,0,0.2)';
+            // Alinear elementos (buscador + botones) al extremo derecho y juntos
+            toolbar.style.display = 'flex';
+            toolbar.style.alignItems = 'center';
+            toolbar.style.justifyContent = 'flex-end';
+            toolbar.style.gap = '8px';
+
+            // Ocultar cabecera/título e ícono de la vista de árbol en modo fullscreen
+            const titleEl = toolbar.querySelector('h2');
+            if (titleEl) titleEl.style.display = 'none';
+
+            // Compactar botones: ocultar textos en expand/collapse
+            try {
+                const compactTargets = [
+                    document.getElementById('expandAllBtn'),
+                    document.getElementById('collapseAllBtn')
+                ];
+                for (const btn of compactTargets) {
+                    btn && (btn.style.padding = '8px');
+                    const span = btn?.querySelector('span');
+                    if (span) span.style.display = 'none';
+                }
+
+                // Añadir buscador compacto en toolbar
+                if (!document.getElementById('fullscreen-search-input')) {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.id = 'fullscreen-search-input';
+                    input.dataset.i18nPlaceholder = 'search.placeholder';
+                    input.placeholder = (globalThis.I18n && I18n.t('search.placeholder')) || 'Buscar en JSON...';
+                    input.className = 'w-56 md:w-72 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500';
+                    // No margen extra; usamos gap del contenedor
+
+                    const handler = Utils.debounce((value) => this._onSearchInput(value), 300);
+                    input.addEventListener('input', (e) => handler(e.target.value));
+
+                    // Insertar el buscador inmediatamente antes del grupo de botones
+                    const buttonsGroup = this.expandAllBtn?.parentElement || toolbar.lastElementChild;
+                    toolbar.insertBefore(input, buttonsGroup);
+                }
+
+                // Compactar espacio entre botones
+                const buttonsGroup = this.expandAllBtn?.parentElement;
+                if (buttonsGroup) buttonsGroup.style.gap = '6px';
+            } catch {}
         }
     }
 
@@ -996,9 +1034,13 @@ class Core {
         const editorPanel = document.querySelector('.editor-panel');
         const treePanel = document.querySelector('.tree-panel');
         const toolbar = document.querySelector('.toolbar');
+        const stats = document.getElementById('json-stats');
 
         if (editorPanel) {
             editorPanel.style.display = '';
+        }
+        if (stats) {
+            stats.style.display = '';
         }
         if (treePanel) {
             treePanel.classList.remove('fullscreen-mode');
@@ -1023,6 +1065,34 @@ class Core {
             toolbar.style.borderRadius = '';
             toolbar.style.padding = '';
             toolbar.style.boxShadow = '';
+            toolbar.style.display = '';
+            toolbar.style.alignItems = '';
+            toolbar.style.justifyContent = '';
+            toolbar.style.gap = '';
+
+            // Restaurar visibilidad del título
+            const titleEl = toolbar.querySelector('h2');
+            if (titleEl) titleEl.style.display = '';
+
+            try {
+                // Restaurar textos de botones
+                const restoreTargets = [
+                    document.getElementById('expandAllBtn'),
+                    document.getElementById('collapseAllBtn')
+                ];
+                for (const btn of restoreTargets) {
+                    const span = btn?.querySelector('span');
+                    if (span) span.style.display = '';
+                    btn && (btn.style.padding = '');
+                }
+                // Eliminar buscador de fullscreen
+                const fsInput = document.getElementById('fullscreen-search-input');
+                if (fsInput) fsInput.remove();
+
+                // Restaurar separación por defecto del grupo de botones
+                const buttonsGroup = this.expandAllBtn?.parentElement;
+                if (buttonsGroup) buttonsGroup.style.gap = '';
+            } catch {}
         }
     }
 
@@ -1038,13 +1108,18 @@ class Core {
             return;
         }
 
-        // Resaltar en árbol
-        this.treeRenderer.highlightSearch(query);
-
-        // Buscar en JSON usando el parser
+        // Buscar en JSON usando el parser y expandir hasta las coincidencias
         if (this.jsonParser) {
             const results = this.jsonParser.search(this.currentJson, query);
-            console.log('Resultados de búsqueda:', results);
+            if (results && results.length > 0) {
+                this.treeRenderer.revealSearchResults(results, query);
+            } else {
+                // Si no hay resultados por parser, al menos intenta resaltar por texto visible
+                this.treeRenderer.highlightSearch(query);
+            }
+        } else {
+            // Fallback
+            this.treeRenderer.highlightSearch(query);
         }
     }
 

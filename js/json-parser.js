@@ -300,17 +300,10 @@ class JsonParser {
         for (const [index, item] of arr.entries()) {
             const currentPath = path ? `${path}[${index}]` : `[${index}]`;
 
-            if (typeof item === 'string') {
-                const value = caseSensitive ? item : item.toLowerCase();
-                if (value.includes(searchTerm)) {
-                    results.push({
-                        path: currentPath,
-                        value: item,
-                        type: 'string'
-                    });
-                }
-            } else if (typeof item === 'object' && item !== null) {
+            if (typeof item === 'object' && item !== null) {
                 this._searchInObject(item, searchTerm, caseSensitive, results, currentPath);
+            } else {
+                this._pushIfMatches(currentPath, item, searchTerm, caseSensitive, results);
             }
         }
     }
@@ -333,16 +326,10 @@ class JsonParser {
             }
 
             // Buscar en el valor
-            if (typeof value === 'string') {
-                if (this._matchesSearch(value, searchTerm, caseSensitive)) {
-                    results.push({
-                        path: currentPath,
-                        value: value,
-                        type: 'string'
-                    });
-                }
-            } else if (typeof value === 'object' && value !== null) {
+            if (typeof value === 'object' && value !== null) {
                 this._searchInObject(value, searchTerm, caseSensitive, results, currentPath);
+            } else {
+                this._pushIfMatches(currentPath, value, searchTerm, caseSensitive, results);
             }
         }
     }
@@ -352,8 +339,24 @@ class JsonParser {
      * @private
      */
     _matchesSearch(text, searchTerm, caseSensitive) {
-        const processedText = caseSensitive ? text : text.toLowerCase();
+        const processedText = caseSensitive ? String(text) : String(text).toLowerCase();
         return processedText.includes(searchTerm);
+    }
+
+    /**
+     * Empuja un resultado si el valor coincide con la búsqueda (para primitivos)
+     * @private
+     */
+    _pushIfMatches(path, value, searchTerm, caseSensitive, results) {
+        const text = String(value);
+        const processed = caseSensitive ? text : text.toLowerCase();
+        if (processed.includes(searchTerm)) {
+            results.push({
+                path,
+                value,
+                type: typeof value === 'string' ? 'string' : 'primitive'
+            });
+        }
     }
 
     /**

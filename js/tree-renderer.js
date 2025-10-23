@@ -51,7 +51,7 @@ class TreeRenderer {
             if (!nodeElement) return;
 
             const nodeId = nodeElement.dataset.nodeId;
-            if (e.target.classList.contains('json-toggle') || e.target.closest('.json-toggle')) {
+            if (e.target.classList.contains('toggle-icon') || e.target.closest('.toggle-icon')) {
                 this._toggleNode(nodeId);
             }
         });
@@ -234,7 +234,8 @@ class TreeRenderer {
     _createNodeElement(node) {
         const element = Utils.createElement('div', {
             className: `json-node json-node-${node.type}`,
-            'data-node-id': node.id
+            'data-node-id': node.id,
+            'data-depth': node.depth
         });
 
         element.style.paddingLeft = `${node.depth * this.options.indentSize}px`;
@@ -356,8 +357,8 @@ class TreeRenderer {
      * @private
      */
     _createToggleButton(isExpanded) {
-        const icon = isExpanded ? 'fa-chevron-down' : 'fa-chevron-right';
-        return `<button class="json-toggle"><i class="fas ${icon}"></i></button>`;
+        const expandedClass = isExpanded ? 'expanded' : 'collapsed';
+        return `<span class="toggle-icon ${expandedClass}"><i class="fas fa-chevron-right"></i></span>`;
     }
 
     /**

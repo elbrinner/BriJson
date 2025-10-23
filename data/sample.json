@@ -1,0 +1,86 @@
+{
+  "usuario": {
+    "id": 12345,
+    "nombre": "María García",
+    "email": "maria.garcia@example.com",
+    "activo": true,
+    "fechaRegistro": "2023-10-15T10:30:00Z",
+    "perfil": {
+      "edad": 28,
+      "ciudad": "Madrid",
+      "pais": "España",
+      "hobbies": ["lectura", "senderismo", "fotografía"],
+      "redesSociales": {
+        "twitter": "@mariagarcia",
+        "linkedin": "maria-garcia-dev",
+        "github": "mariagarcia"
+      }
+    }
+  },
+  "configuracion": {
+    "tema": "oscuro",
+    "idioma": "es",
+    "notificaciones": {
+      "email": true,
+      "push": false,
+      "sms": true
+    },
+    "privacidad": {
+      "perfilPublico": false,
+      "mostrarEmail": false,
+      "permitirMensajes": true
+    }
+  },
+  "actividades": [
+    {
+      "id": 1,
+      "tipo": "login",
+      "fecha": "2024-01-15T08:30:00Z",
+      "dispositivo": "Chrome Desktop",
+      "ubicacion": "Madrid, España"
+    },
+    {
+      "id": 2,
+      "tipo": "actualizacion_perfil",
+      "fecha": "2024-01-14T15:45:00Z",
+      "dispositivo": "Safari Mobile",
+      "ubicacion": "Barcelona, España"
+    },
+    {
+      "id": 3,
+      "tipo": "compra",
+      "fecha": "2024-01-13T12:20:00Z",
+      "dispositivo": "Firefox Desktop",
+      "ubicacion": "Madrid, España",
+      "detalles": {
+        "producto": "Curso de JavaScript Avanzado",
+        "precio": 49.99,
+        "moneda": "EUR"
+      }
+    }
+  ],
+  "estadisticas": {
+    "totalLogins": 156,
+    "ultimaActividad": "2024-01-15T08:30:00Z",
+    "puntuacion": 8.7,
+    "nivel": "Avanzado",
+    "logros": [
+      "Primer login",
+      "Perfil completo",
+      "Primera compra",
+      "Usuario activo"
+    ],
+    "metricas": {
+      "tiempoPromedioSesion": 25.5,
+      "paginasVisitadas": 234,
+      "comentarios": 12,
+      "likes": 45
+    }
+  },
+  "preferencias": {
+    "categoriasInteres": ["tecnología", "desarrollo", "diseño", "negocios"],
+    "frecuenciaNewsletter": "semanal",
+    "zonasHorarias": ["Europe/Madrid", "America/New_York"],
+    "configuracionAvanzada": null
+  }
+}

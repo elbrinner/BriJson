@@ -218,6 +218,8 @@ class Core {
         // Actualizar árbol
         if (this.treeRenderer) {
             this.treeRenderer.render(data);
+            // Expandir automáticamente el primer nivel
+            this.treeRenderer.expandToDepth(1);
         }
 
         // Actualizar estadísticas

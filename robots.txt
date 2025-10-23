@@ -1,0 +1,12 @@
+# robots.txt para BriJson - Editor JSON Online Gratuito
+# https://www.elbrinner.com/json
+
+User-agent: *
+Allow: /
+Disallow: /data/
+
+# Sitemap
+Sitemap: https://www.elbrinner.com/json/sitemap.xml
+
+# Crawl delay (opcional, ajusta según necesidad)
+Crawl-delay: 1

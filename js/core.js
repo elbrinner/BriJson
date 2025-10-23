@@ -74,10 +74,14 @@ class Core {
         this.collapseAllBtn?.addEventListener('click', () => this._collapseAll());
         this.fullscreenBtn?.addEventListener('click', () => this._toggleFullscreen());
 
-        // Búsqueda
-        this.searchInput?.addEventListener('input', Utils.debounce((e) => {
-            this._onSearchInput(e.target.value);
-        }, 200));
+        // Búsqueda con debounce
+        const debouncedSearch = Utils.debounce((value) => {
+            this._onSearchInput(value);
+        }, 300);
+        
+        this.searchInput?.addEventListener('input', (e) => {
+            debouncedSearch(e.target.value);
+        });
 
         // Atajos de teclado
         document.addEventListener('keydown', (e) => {

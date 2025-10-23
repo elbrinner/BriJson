@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "title": "मुफ़्त ऑनलाइन JSON संपादक - BriJson | बिना विज्ञापन के JSON व्यूअर और वैलिडेटर",
+    "description": "मुफ़्त ऑनलाइन JSON संपादक, बिना विज्ञापन के। JSON को इंटरैक्टिव तरीके से देखें, वैलिडेट करें, फ़ॉर्मैट करें और एडिट करें। डेवलपर्स के लिए मुफ़्त टूल, बिना ट्रैकिंग।",
+    "ogTitle": "मुफ़्त ऑनलाइन JSON संपादक - BriJson | बिना विज्ञापन",
+    "ogDescription": "मुफ़्त ऑनलाइन JSON संपादक। JSON को इंटरैक्टिव तरीके से देखें, वैलिडेट करें और एडिट करें। डेवलपर्स के लिए 100% मुफ़्त।",
+    "twitterTitle": "मुफ़्त ऑनलाइन JSON संपादक - BriJson",
+    "twitterDescription": "बिना विज्ञापन का JSON व्यूअर और एडिटर। डेवलपर्स के लिए मुफ़्त।"
+  },
+  "header": {
+    "title": "BriJson - मुफ़्त ऑनलाइन JSON संपादक",
+    "subtitle": "बिना विज्ञापन का मुफ़्त ऑनलाइन JSON संपादक। अपने JSON फ़ाइलें इंटरैक्टिव तरीके से देखें, वैलिडेट करें, फ़ॉर्मैट करें और एडिट करें। डेवलपर्स के लिए 100% मुफ़्त।"
+  },
+  "editor": {
+    "title": "JSON संपादक",
+    "placeholder": "अपना JSON यहाँ पेस्ट करें...\n\nउदाहरण:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  "buttons": {
+    "loadFile": "फ़ाइल लोड करें",
+    "copyJson": "JSON कॉपी करें",
+    "clear": "साफ़ करें",
+    "copy": { "title": "क्लिपबोर्ड पर JSON कॉपी करें" }
+  },
+  "search": { "placeholder": "JSON में खोजें..." },
+  "actions": {
+    "validate": "JSON वैलिडेट करें",
+    "format": "फ़ॉर्मैट",
+    "minify": "मिनिफ़ाई"
+  },
+  
+  "stats": {
+    "title": "आँकड़े",
+    "keys": "कुंजियाँ",
+    "arrays": "ऐरे",
+    "objects": "ऑब्जेक्ट",
+    "primitives": "प्रिमिटिव",
+    "size": "आकार",
+    "depth": "गहराई"
+  },
+  "footer": {
+    "title": "मुफ़्त ऑनलाइन JSON संपादक - BriJson",
+    "subtitle": "बिना विज्ञापन का JSON व्यूअर, वैलिडेटर और एडिटर",
+    "tagline": "100% मुफ़्त JSON संपादक | बिना विज्ञापन | बिना ट्रैकिंग"
+  },
+  "language": { "label": "भाषा" },
+  "confirm": {
+    "clear": "क्या आप वाकई संपादक को साफ़ करना चाहते हैं?",
+    "delete": "क्या आप वाकई \"{name}\" हटाना चाहते हैं?"
+  },
+  "common": {
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "add": "जोड़ें",
+    "rename": "नाम बदलें"
+  },
+  "types": {
+    "string": "स्ट्रिंग",
+    "number": "संख्या",
+    "boolean": "बुलियन",
+    "null": "नल",
+    "object": "ऑब्जेक्ट",
+    "array": "ऐरे"
+  },
+  "context": {
+    "editValue": "मान संपादित करें",
+    "editName": "नाम संपादित करें",
+    "addProperty": "प्रॉपर्टी जोड़ें",
+    "delete": "हटाएं",
+    "copyPath": "पथ कॉपी करें",
+    "copyValue": "मान कॉपी करें"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "\"{key}\" संपादित करें",
+      "propertyTitle": "प्रॉपर्टी संपादित करें",
+      "valueTitle": "मान संपादित करें",
+      "containerTitle": "{type} संपादित करें"
+    },
+    "rename": { "title": "प्रॉपर्टी का नाम बदलें" },
+    "add": {
+      "propertyTitle": "प्रॉपर्टी जोड़ें",
+      "arrayItemTitle": "ऐरे आइटम जोड़ें"
+    },
+    "labels": {
+      "currentValue": "वर्तमान मान:",
+      "propertyName": "प्रॉपर्टी का नाम:",
+      "value": "मान:",
+      "jsonText": "JSON (पाठ):",
+      "currentName": "वर्तमान नाम:",
+      "newName": "नया नाम:"
+    },
+    "placeholders": {
+      "newValue": "नया मान दर्ज करें",
+      "propertyKey": "property_name",
+      "newPropertyName": "नया_नाम",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "प्रॉपर्टी हटाएँ" },
+    "error": {
+      "property_name_empty": "प्रॉपर्टी का नाम खाली नहीं हो सकता",
+      "parse_value": "मान पार्स करते समय त्रुटि: {message}",
+      "process_data": "डेटा प्रोसेस करते समय त्रुटि: {message}",
+      "property_required": "प्रॉपर्टी का नाम आवश्यक है",
+      "number_invalid": "अमान्य संख्यात्मक मान",
+      "boolean_invalid": "बूलियन मान \"true\" या \"false\" होना चाहिए"
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON फ़ॉर्मैट किया गया", "error": "JSON फ़ॉर्मैट करते समय त्रुटि" },
+    "minify": { "ok": "JSON मिनिफ़ाई किया गया", "error": "JSON मिनिफ़ाई करते समय त्रुटि" },
+    "editor": { "empty": "संपादक खाली है", "cleared": "संपादक साफ़ किया गया" },
+    "json": { "valid": "मान्य JSON" },
+    "copy": {
+      "empty": "कॉपी करने के लिए कोई JSON नहीं",
+      "ok": "JSON क्लिपबोर्ड पर कॉपी किया गया",
+      "error": "कॉपी त्रुटि: {message}",
+      "path": "पथ क्लिपबोर्ड पर कॉपी किया गया",
+      "value": "मान क्लिपबोर्ड पर कॉपी किया गया"
+    },
+    "file": {
+      "onlyJson": "केवल JSON फ़ाइलें अनुमत हैं",
+      "loaded": "फ़ाइल \"{name}\" सफलतापूर्वक लोड की गई",
+      "parseError": "JSON पार्स त्रुटि: {message}"
+    },
+    "expand": { "all": "सभी नोड्स विस्तारित किए गए" },
+    "collapse": { "all": "सभी नोड्स समेटे गए" },
+    "fullscreen": { "enter": "ट्री फुलस्क्रीन मोड सक्षम", "exit": "सामान्य मोड पुनर्स्थापित" },
+    "rename": {
+      "onlyProperties": "केवल प्रॉपर्टी का नाम बदला जा सकता है, ऐरे आइटम का नहीं",
+      "ok": "प्रॉपर्टी का नाम \"{old}\" से \"{name}\" में बदला गया",
+      "error": "नाम बदलने में त्रुटि: {message}"
+    },
+    "node": {
+      "deleted": "नोड सफलतापूर्वक हटाया गया",
+      "deleteError": "नोड हटाने में त्रुटि: {message}",
+      "updated": "नोड सफलतापूर्वक अपडेट किया गया",
+      "updateError": "नोड अपडेट करने में त्रुटि: {message}",
+      "added": "नया नोड सफलतापूर्वक जोड़ा गया",
+      "addError": "नोड जोड़ने में त्रुटि: {message}"
+    }
+  },
+  "tree": {
+    "title": "ट्री व्यू",
+    "fullscreen": { "title": "फुल स्क्रीन" },
+    "expandAll": "सब विस्तार करें",
+    "collapseAll": "सब समेटें",
+    "placeholder": "अपना JSON पेस्ट करें और \"JSON वैलिडेट करें\" पर क्लिक करें",
+    "labels": {
+      "object": "ऑब्जेक्ट",
+      "array": "ऐरे"
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "seo": {
+    "title": "مفت آن لائن JSON ایڈیٹر - BriJson | بغیر اشتہارات کے JSON ویوئر اور ویلیڈیٹر",
+    "description": "مفت آن لائن JSON ایڈیٹر، بغیر اشتہارات کے۔ JSON کو انٹرایکٹو طریقے سے دیکھیں، ویلیڈیٹ کریں، فارمیٹ کریں اور ایڈٹ کریں۔ ڈویلپرز کے لیے مفت ٹول، بغیر ٹریکنگ۔",
+    "ogTitle": "مفت آن لائن JSON ایڈیٹر - BriJson | بغیر اشتہارات",
+    "ogDescription": "مفت آن لائن JSON ایڈیٹر بغیر اشتہارات کے۔ JSON کو انٹرایکٹو طریقے سے دیکھیں، ویلیڈیٹ کریں اور ایڈٹ کریں۔ ڈویلپرز کے لیے 100% مفت۔",
+    "twitterTitle": "مفت آن لائن JSON ایڈیٹر - BriJson",
+    "twitterDescription": "بغیر اشتہارات کے JSON ویوئر اور ایڈیٹر۔ ڈویلپرز کے لیے مفت۔"
+  },
+  "header": {
+    "title": "BriJson - مفت آن لائن JSON ایڈیٹر",
+    "subtitle": "بغیر اشتہارات کے مفت آن لائن JSON ایڈیٹر۔ اپنے JSON فائلیں انٹرایکٹو طریقے سے دیکھیں، ویلیڈیٹ کریں، فارمیٹ کریں اور ایڈٹ کریں۔ ڈویلپرز کے لیے 100% مفت۔"
+  },
+  "editor": {
+    "title": "JSON ایڈیٹر",
+    "placeholder": "اپنا JSON یہاں چسپاں کریں...\n\nمثال:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  "confirm": {
+    "clear": "کیا آپ واقعی ایڈیٹر صاف کرنا چاہتے ہیں؟",
+    "delete": "کیا آپ واقعی \"{name}\" کو حذف کرنا چاہتے ہیں؟"
+  },
+  "common": {
+    "save": "محفوظ کریں",
+    "cancel": "منسوخ کریں",
+    "delete": "حذف کریں",
+    "add": "شامل کریں",
+    "rename": "نام تبدیل کریں"
+  },
+  "types": {
+    "string": "سٹرنگ",
+    "number": "نمبر",
+    "boolean": "بولین",
+    "null": "نَل",
+    "object": "آبجیکٹ",
+    "array": "ارے"
+  },
+  "context": {
+    "editValue": "قدر میں ترمیم کریں",
+    "editName": "نام میں ترمیم کریں",
+    "addProperty": "خاصیت شامل کریں",
+    "delete": "حذف کریں",
+    "copyPath": "پاتھ کاپی کریں",
+    "copyValue": "قدر کاپی کریں"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "\"{key}\" میں ترمیم کریں",
+      "propertyTitle": "خاصیت میں ترمیم",
+      "valueTitle": "قدر میں ترمیم",
+      "containerTitle": "{type} میں ترمیم"
+    },
+    "rename": { "title": "خاصیت کا نام تبدیل کریں" },
+    "add": {
+      "propertyTitle": "خاصیت شامل کریں",
+      "arrayItemTitle": "ارے آئٹم شامل کریں"
+    },
+    "labels": {
+      "currentValue": "موجودہ قدر:",
+      "propertyName": "خاصیت کا نام:",
+      "value": "قدر:",
+      "jsonText": "JSON (متن):",
+      "currentName": "موجودہ نام:",
+      "newName": "نیا نام:"
+    },
+    "placeholders": {
+      "newValue": "نئی قدر درج کریں",
+      "propertyKey": "property_name",
+      "newPropertyName": "نیا_نام",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "خاصیت حذف کریں" },
+    "error": {
+      "property_name_empty": "خاصیت کا نام خالی نہیں ہو سکتا",
+      "parse_value": "قدر پارس کرنے میں خرابی: {message}",
+      "process_data": "ڈیٹا پروسیس کرتے وقت خرابی: {message}",
+      "property_required": "خاصیت کا نام درکار ہے",
+      "number_invalid": "غلط عددی قدر",
+      "boolean_invalid": "بولین قدر لازماً \"true\" یا \"false\" ہونی چاہیے"
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON فارمیٹ کر دیا گیا", "error": "JSON فارمیٹ کرنے میں خرابی" },
+    "minify": { "ok": "JSON کم کر دیا گیا", "error": "JSON کم کرنے میں خرابی" },
+    "editor": { "empty": "ایڈیٹر خالی ہے", "cleared": "ایڈیٹر صاف کر دیا گیا" },
+    "json": { "valid": "درست JSON" },
+    "copy": {
+      "empty": "کاپی کرنے کے لیے کوئی JSON نہیں",
+      "ok": "JSON کلپ بورڈ پر کاپی کر دیا گیا",
+      "error": "کاپی کرنے میں خرابی: {message}",
+      "path": "پاتھ کلپ بورڈ پر کاپی کر دیا گیا",
+      "value": "قدر کلپ بورڈ پر کاپی کر دی گئی"
+    },
+    "file": {
+      "onlyJson": "صرف JSON فائلیں منظور ہیں",
+      "loaded": "فائل \"{name}\" کامیابی سے لوڈ ہو گئی",
+      "parseError": "JSON پارس کی خرابی: {message}"
+    },
+    "expand": { "all": "تمام نوڈز پھیلا دیے گئے" },
+    "collapse": { "all": "تمام نوڈز سکیڑ دیے گئے" },
+    "fullscreen": { "enter": "ٹری فل اسکرین موڈ فعال", "exit": "معمول کا موڈ بحال" },
+    "rename": {
+      "onlyProperties": "صرف خصوصیات کا نام تبدیل کیا جا سکتا ہے، ارے آئٹمز کا نہیں",
+      "ok": "خاصیت کا نام \"{old}\" سے \"{name}\" میں تبدیل کر دیا گیا",
+      "error": "نام تبدیل کرنے میں خرابی: {message}"
+    },
+    "node": {
+      "deleted": "نوڈ کامیابی سے حذف ہو گیا",
+      "deleteError": "نوڈ حذف کرنے میں خرابی: {message}",
+      "updated": "نوڈ کامیابی سے اپڈیٹ ہو گیا",
+      "updateError": "نوڈ اپڈیٹ کرنے میں خرابی: {message}",
+      "added": "نوڈ کامیابی سے شامل ہو گیا",
+      "addError": "نوڈ شامل کرنے میں خرابی: {message}"
+    }
+  },
+  "buttons": {
+    "loadFile": "فائل لوڈ کریں",
+    "copyJson": "JSON کاپی کریں",
+    "clear": "صاف کریں",
+    "copy": { "title": "JSON کلپ بورڈ میں کاپی کریں" },
+    "copied": "کاپی کر دیا گیا!"
+  },
+  "search": { "placeholder": "JSON میں تلاش کریں..." },
+  "actions": {
+    "validate": "JSON کی توثیق کریں",
+    "format": "فارمیٹ",
+    "minify": "منیفائی"
+  },
+  "tree": {
+    "title": "ٹری ویو",
+    "fullscreen": { "title": "فل اسکرین" },
+    "expandAll": "سب پھیلائیں",
+    "collapseAll": "سب سمیٹیں",
+    "placeholder": "JSON پیسٹ کریں اور \"JSON کی توثیق کریں\" پر کلک کریں",
+    "labels": {
+      "object": "آبجیکٹ",
+      "array": "ارے"
+    }
+  },
+  "stats": {
+    "title": "اعداد و شمار",
+    "lines": "سطور",
+    "keys": "کلیدیں",
+    "arrays": "ارے",
+    "objects": "آبجیکٹس",
+    "primitives": "پریمیٹو",
+    "size": "سائز",
+    "depth": "گہرائی"
+  },
+  "footer": {
+    "title": "مفت آن لائن JSON ایڈیٹر - BriJson",
+    "subtitle": "بغیر اشتہارات کے JSON ویوئر، ویلیڈیٹر اور ایڈیٹر",
+    "tagline": "100% مفت آن لائن JSON ایڈیٹر | کوئی اشتہار نہیں | کوئی ٹریکنگ نہیں"
+  },
+  "language": { "label": "زبان" }
+}

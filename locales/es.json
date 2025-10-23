@@ -1,0 +1,157 @@
+{
+  "seo": {
+    "title": "Editor JSON Online Gratuito - BriJson | Visualizador y Validador JSON Sin Publicidad",
+    "description": "Editor JSON online gratuito y sin publicidad. Visualiza, valida, formatea y edita archivos JSON de forma interactiva. Herramienta gratuita para desarrolladores sin anuncios ni seguimiento.",
+    "ogTitle": "Editor JSON Online Gratuito - BriJson | Sin Publicidad",
+    "ogDescription": "Editor JSON online gratuito y sin publicidad. Visualiza, valida y edita archivos JSON de forma interactiva. 100% gratis para desarrolladores.",
+    "twitterTitle": "Editor JSON Online Gratuito - BriJson",
+    "twitterDescription": "Visualizador y editor JSON sin publicidad. Herramienta gratuita para desarrolladores."
+  },
+  "header": {
+    "title": "BriJson - Editor JSON Online Gratuito",
+    "subtitle": "Editor JSON online gratuito y sin publicidad. Visualiza, valida, formatea y edita tus archivos JSON de forma interactiva. Herramienta 100% gratuita para desarrolladores."
+  },
+  "editor": {
+    "title": "Editor JSON",
+    "placeholder": "Pega tu JSON aquí...\n\nEjemplo:\n{\n  \"nombre\": \"Juan\",\n  \"edad\": 30,\n  \"activo\": true\n}"
+  },
+  
+  "search": {
+    "placeholder": "Buscar en JSON..."
+  },
+  "actions": {
+    "validate": "Validar JSON",
+    "format": "Formatear",
+    "minify": "Minificar"
+  },
+  "tree": {
+    "title": "Vista de Árbol",
+    "fullscreen": { "title": "Pantalla completa" },
+    "expandAll": "Expandir Todo",
+    "collapseAll": "Colapsar Todo",
+    "placeholder": "Pega tu JSON y haz clic en \"Validar JSON\" para ver el árbol",
+    "labels": {
+      "object": "Objeto",
+      "array": "Array"
+    }
+  },
+  "stats": {
+    "title": "Estadísticas",
+    "lines": "Líneas",
+    "keys": "Claves",
+    "arrays": "Arrays",
+    "objects": "Objetos",
+    "primitives": "Primitivos",
+    "size": "Tamaño",
+    "depth": "Profundidad"
+  },
+  "footer": {
+    "title": "Editor JSON Online Gratuito - BriJson",
+    "subtitle": "Visualizador, validador y editor JSON sin publicidad",
+    "tagline": "Editor JSON online 100% gratuito | Sin anuncios | Sin seguimiento"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "buttons": {
+    "loadFile": "Cargar Archivo",
+    "copyJson": "Copiar JSON",
+    "clear": "Limpiar",
+    "copy": {
+      "title": "Copiar JSON al portapapeles"
+    },
+    "copied": "¡Copiado!"
+  },
+  "notify": {
+    "format": { "ok": "JSON formateado", "error": "Error al formatear JSON" },
+    "minify": { "ok": "JSON minificado", "error": "Error al minificar JSON" },
+    "editor": { "empty": "El editor está vacío", "cleared": "Editor limpiado" },
+    "json": { "valid": "JSON válido" },
+    "copy": { "empty": "No hay JSON para copiar", "ok": "JSON copiado al portapapeles", "error": "Error al copiar: {message}", "path": "Ruta copiada al portapapeles", "value": "Valor copiado al portapapeles" },
+    "file": {
+      "onlyJson": "Solo se permiten archivos JSON",
+      "loaded": "Archivo \"{name}\" cargado correctamente",
+      "parseError": "Error al parsear JSON: {message}"
+    },
+    "expand": { "all": "Todos los nodos expandidos" },
+    "collapse": { "all": "Todos los nodos contraídos" },
+    "fullscreen": { "enter": "Modo árbol completo activado", "exit": "Modo normal restaurado" },
+    "rename": { "onlyProperties": "Solo se puede renombrar propiedades, no elementos de array", "ok": "Propiedad renombrada de \"{old}\" a \"{name}\"", "error": "Error al renombrar: {message}" },
+    "node": {
+      "deleted": "Nodo eliminado correctamente",
+      "deleteError": "Error al eliminar nodo: {message}",
+      "updated": "Nodo actualizado correctamente",
+      "updateError": "Error al actualizar nodo: {message}",
+      "added": "Nodo agregado correctamente",
+      "addError": "Error al agregar nodo: {message}"
+    }
+  },
+  "confirm": {
+    "clear": "¿Estás seguro de que quieres limpiar el editor?",
+    "delete": "¿Estás seguro de que quieres eliminar \"{name}\"?"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "add": "Agregar",
+    "rename": "Renombrar"
+  },
+  "types": {
+    "string": "Cadena",
+    "number": "Número",
+    "boolean": "Booleano",
+    "null": "Nulo",
+    "object": "Objeto",
+    "array": "Array"
+  },
+  "context": {
+    "editValue": "Editar valor",
+    "editName": "Editar nombre",
+    "addProperty": "Agregar propiedad",
+    "delete": "Eliminar",
+    "copyPath": "Copiar ruta",
+    "copyValue": "Copiar valor"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "Editar \"{key}\"",
+      "propertyTitle": "Editar Propiedad",
+      "valueTitle": "Editar Valor",
+      "containerTitle": "Editar {type}"
+    },
+    "rename": {
+      "title": "Renombrar propiedad"
+    },
+    "add": {
+      "propertyTitle": "Agregar Propiedad",
+      "arrayItemTitle": "Agregar Elemento al Array"
+    },
+    "labels": {
+      "currentValue": "Valor actual:",
+      "propertyName": "Nombre de la propiedad:",
+      "value": "Valor:",
+      "jsonText": "JSON (texto):",
+      "currentName": "Nombre actual:",
+      "newName": "Nuevo nombre:"
+    },
+    "placeholders": {
+      "newValue": "Escribe el nuevo valor",
+      "propertyKey": "nombre_propiedad",
+      "newPropertyName": "nuevo_nombre",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": {
+      "deleteProperty": "Eliminar propiedad"
+    },
+    "error": {
+      "property_name_empty": "El nombre de la propiedad no puede estar vacío",
+      "parse_value": "Error al parsear el valor: {message}",
+      "process_data": "Error al procesar los datos: {message}",
+      "property_required": "El nombre de la propiedad es requerido",
+      "number_invalid": "Valor numérico inválido",
+      "boolean_invalid": "El valor booleano debe ser \"true\" o \"false\""
+    }
+  }
+}

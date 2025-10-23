@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Editor JSON Online Gratuito - BriJson | Visualizador y Validador JSON Sin Publicidad</title>
-    <meta name="description" content="Editor JSON online gratuito y sin publicidad. Visualiza, valida, formatea y edita archivos JSON de forma interactiva. Herramienta gratuita para desarrolladores sin anuncios ni seguimiento.">
+    <title data-i18n="seo.title">Editor JSON Online Gratuito - BriJson | Visualizador y Validador JSON Sin Publicidad</title>
+    <meta name="description" content="Editor JSON online gratuito y sin publicidad. Visualiza, valida, formatea y edita archivos JSON de forma interactiva. Herramienta gratuita para desarrolladores sin anuncios ni seguimiento." data-i18n-description="seo.description">
     <meta name="keywords" content="editor json online, editor json gratuito, visualizador json, validador json, formatear json, json viewer, json editor gratis, herramienta json, sin publicidad, json online español">
     <meta name="author" content="BriJson - www.elbrinner.com">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.elbrinner.com/json">
-    
+    <link rel="icon"  href="ico.ico"  type="image/x-icon">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.elbrinner.com/json">
-    <meta property="og:title" content="Editor JSON Online Gratuito - BriJson | Sin Publicidad">
-    <meta property="og:description" content="Editor JSON online gratuito y sin publicidad. Visualiza, valida y edita archivos JSON de forma interactiva. 100% gratis para desarrolladores.">
+    <meta property="og:title" content="Editor JSON Online Gratuito - BriJson | Sin Publicidad" data-i18n-content="seo.ogTitle">
+    <meta property="og:description" content="Editor JSON online gratuito y sin publicidad. Visualiza, valida y edita archivos JSON de forma interactiva. 100% gratis para desarrolladores." data-i18n-content="seo.ogDescription">
     <meta property="og:image" content="https://www.elbrinner.com/json/og-image.png">
     <meta property="og:locale" content="es_ES">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.elbrinner.com/json">
-    <meta name="twitter:title" content="Editor JSON Online Gratuito - BriJson">
-    <meta name="twitter:description" content="Visualizador y editor JSON sin publicidad. Herramienta gratuita para desarrolladores.">
+    <meta name="twitter:title" content="Editor JSON Online Gratuito - BriJson" data-i18n-content="seo.twitterTitle">
+    <meta name="twitter:description" content="Visualizador y editor JSON sin publicidad. Herramienta gratuita para desarrolladores." data-i18n-content="seo.twitterDescription">
     <meta name="twitter:image" content="https://www.elbrinner.com/json/twitter-image.png">
     
     <!-- Additional SEO -->
@@ -80,12 +81,10 @@
         <div class="container mx-auto px-4 py-6">
             <h1 class="text-3xl font-bold flex items-center gap-3">
                 <i class="fas fa-code-branch"></i>
-                BriJson - Editor JSON Online Gratuito
+                <span data-i18n="header.title">BriJson - Editor JSON Online Gratuito</span>
             </h1>
-            <p class="text-blue-100 mt-2">
-                <strong>Editor JSON online gratuito y sin publicidad.</strong> 
-                Visualiza, valida, formatea y edita tus archivos JSON de forma interactiva. 
-                Herramienta 100% gratuita para desarrolladores.
+            <p class="text-blue-100 mt-2" data-i18n="header.subtitle">
+                <strong>Editor JSON online gratuito y sin publicidad.</strong> Visualiza, valida, formatea y edita tus archivos JSON de forma interactiva. Herramienta 100% gratuita para desarrolladores.
             </p>
         </div>
     </header>
@@ -99,21 +98,21 @@
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
                         <i class="fas fa-edit"></i>
-                        Editor JSON
+                        <span data-i18n="editor.title">Editor JSON</span>
                     </h2>
                     <div class="flex gap-2">
                         <input type="file" id="file-input" accept=".json" class="hidden">
                         <button id="load-file-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2">
                             <i class="fas fa-file-import"></i>
-                            Cargar Archivo
+                            <span data-i18n="buttons.loadFile">Cargar Archivo</span>
                         </button>
-                        <button id="copyJsonBtn" class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" title="Copiar JSON al portapapeles">
+                        <button id="copyJsonBtn" class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" data-i18n-title="buttons.copy.title" title="Copiar JSON al portapapeles">
                             <i class="fas fa-copy"></i>
-                            Copiar JSON
+                            <span data-i18n="buttons.copyJson">Copiar JSON</span>
                         </button>
                         <button id="clearBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2">
                             <i class="fas fa-trash"></i>
-                            Limpiar
+                            <span data-i18n="buttons.clear">Limpiar</span>
                         </button>
                     </div>
                 </div>
@@ -122,27 +121,28 @@
                 <textarea 
                     id="json-editor" 
                     class="w-full h-96 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                    data-i18n-placeholder="editor.placeholder"
                     placeholder='Pega tu JSON aquí...&#10;&#10;Ejemplo:&#10;{&#10;  "nombre": "Juan",&#10;  "edad": 30,&#10;  "activo": true&#10;}'
                 ></textarea>
                 
                 <!-- Barra de búsqueda -->
                 <div class="mt-4">
-                    <input type="text" id="search-input" placeholder="Buscar en JSON..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="search-input" data-i18n-placeholder="search.placeholder" placeholder="Buscar en JSON..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 
                 <!-- Botones de Acción -->
                 <div class="mt-4 flex gap-3">
                     <button id="validateBtn" class="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2">
                         <i class="fas fa-check-circle"></i>
-                        Validar JSON
+                        <span data-i18n="actions.validate">Validar JSON</span>
                     </button>
                     <button id="formatBtn" class="flex-1 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2">
                         <i class="fas fa-align-left"></i>
-                        Formatear
+                        <span data-i18n="actions.format">Formatear</span>
                     </button>
                     <button id="minifyBtn" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2">
                         <i class="fas fa-compress"></i>
-                        Minificar
+                        <span data-i18n="actions.minify">Minificar</span>
                     </button>
                 </div>
             </div>
@@ -152,19 +152,19 @@
                 <div class="flex justify-between items-center mb-4 toolbar">
                     <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
                         <i class="fas fa-sitemap"></i>
-                        Vista de Árbol
+                        <span data-i18n="tree.title">Vista de Árbol</span>
                     </h2>
                     <div class="flex gap-2">
-                        <button id="fullscreenBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" title="Pantalla completa">
+                        <button id="fullscreenBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" data-i18n-title="tree.fullscreen.title" title="Pantalla completa">
                             <i class="fas fa-expand"></i>
                         </button>
                         <button id="expandAllBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2">
                             <i class="fas fa-plus-square"></i>
-                            Expandir Todo
+                            <span data-i18n="tree.expandAll">Expandir Todo</span>
                         </button>
                         <button id="collapseAllBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2">
                             <i class="fas fa-minus-square"></i>
-                            Colapsar Todo
+                            <span data-i18n="tree.collapseAll">Colapsar Todo</span>
                         </button>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                 <div id="json-tree" class="border border-gray-300 rounded-lg p-4 h-96 overflow-auto bg-gray-50 json-tree-container">
                     <div class="text-gray-400 text-center py-20">
                         <i class="fas fa-arrow-left text-4xl mb-4"></i>
-                        <p>Pega tu JSON y haz clic en "Validar JSON" para ver el árbol</p>
+                        <p data-i18n="tree.placeholder">Pega tu JSON y haz clic en "Validar JSON" para ver el árbol</p>
                     </div>
                 </div>
 
@@ -181,32 +181,32 @@
                 <div id="json-stats" class="mt-4 stats-container">
                     <h3 class="font-semibold text-gray-700 mb-2 flex items-center gap-2">
                         <i class="fas fa-chart-bar"></i>
-                        Estadísticas
+                        <span data-i18n="stats.title">Estadísticas</span>
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                         <div class="bg-blue-50 p-3 rounded-lg text-center">
                             <div class="text-lg font-bold text-blue-600 stat-value" data-stat="keys">0</div>
-                            <div class="text-xs text-gray-600">Claves</div>
+                            <div class="text-xs text-gray-600" data-i18n="stats.keys">Claves</div>
                         </div>
                         <div class="bg-green-50 p-3 rounded-lg text-center">
                             <div class="text-lg font-bold text-green-600 stat-value" data-stat="arrays">0</div>
-                            <div class="text-xs text-gray-600">Arrays</div>
+                            <div class="text-xs text-gray-600" data-i18n="stats.arrays">Arrays</div>
                         </div>
                         <div class="bg-purple-50 p-3 rounded-lg text-center">
                             <div class="text-lg font-bold text-purple-600 stat-value" data-stat="objects">0</div>
-                            <div class="text-xs text-gray-600">Objetos</div>
+                            <div class="text-xs text-gray-600" data-i18n="stats.objects">Objetos</div>
                         </div>
                         <div class="bg-yellow-50 p-3 rounded-lg text-center">
                             <div class="text-lg font-bold text-yellow-600 stat-value" data-stat="primitives">0</div>
-                            <div class="text-xs text-gray-600">Primitivos</div>
+                            <div class="text-xs text-gray-600" data-i18n="stats.primitives">Primitivos</div>
                         </div>
                         <div class="bg-red-50 p-3 rounded-lg text-center">
                             <div class="text-lg font-bold text-red-600 stat-value" data-stat="size">0 B</div>
-                            <div class="text-xs text-gray-600">Tamaño</div>
+                            <div class="text-xs text-gray-600" data-i18n="stats.size">Tamaño</div>
                         </div>
                         <div class="bg-indigo-50 p-3 rounded-lg text-center">
                             <div class="text-lg font-bold text-indigo-600 stat-value" data-stat="depth">0</div>
-                            <div class="text-xs text-gray-600">Profundidad</div>
+                            <div class="text-xs text-gray-600" data-i18n="stats.depth">Profundidad</div>
                         </div>
                     </div>
                 </div>
@@ -269,17 +269,22 @@
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="text-center mb-4">
-                <h3 class="text-xl font-semibold mb-2">Editor JSON Online Gratuito - BriJson</h3>
-                <p class="text-gray-300 mb-4">Visualizador, validador y editor JSON sin publicidad</p>
+                <h3 class="text-xl font-semibold mb-2" data-i18n="footer.title">Editor JSON Online Gratuito - BriJson</h3>
+                <p class="text-gray-300 mb-4" data-i18n="footer.subtitle">Visualizador, validador y editor JSON sin publicidad</p>
+                <div class="flex items-center justify-center gap-3">
+                    <label for="language-select" class="text-sm text-gray-300" data-i18n="language.label">Idioma</label>
+                    <select id="language-select" class="bg-gray-700 text-white text-sm px-3 py-2 rounded border border-gray-600"></select>
+                </div>
             </div>
             <div class="text-center text-gray-400 text-sm">
                 <p>&copy; 2025 BriJson - <a href="https://www.elbrinner.com" class="text-blue-400 hover:text-blue-300">www.elbrinner.com</a></p>
-                <p class="mt-2">Editor JSON online 100% gratuito | Sin anuncios | Sin seguimiento</p>
+                <p class="mt-2" data-i18n="footer.tagline">Editor JSON online 100% gratuito | Sin anuncios | Sin seguimiento</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript Modules -->
+    <script src="js/i18n.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/json-parser.js"></script>
     <script src="js/tree-renderer.js"></script>

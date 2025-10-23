@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "title": "免费在线 JSON 编辑器 - BriJson | 无广告的 JSON 查看与校验",
+    "description": "免费在线 JSON 编辑器，无广告。交互式查看、校验、格式化与编辑 JSON。为开发者提供的免费工具，无跟踪。",
+    "ogTitle": "免费在线 JSON 编辑器 - BriJson | 无广告",
+    "ogDescription": "免费在线 JSON 编辑器，无广告。交互式查看、校验与编辑 JSON。开发者 100% 免费。",
+    "twitterTitle": "免费在线 JSON 编辑器 - BriJson",
+    "twitterDescription": "无广告 JSON 查看与编辑器。开发者免费工具。"
+  },
+  "header": {
+    "title": "BriJson - 免费在线 JSON 编辑器",
+    "subtitle": "免费、无广告的在线 JSON 编辑器。交互式查看、校验、格式化并编辑你的 JSON 文件。对开发者完全免费。"
+  },
+  "editor": {
+    "title": "JSON 编辑器",
+    "placeholder": "在此粘贴你的 JSON...\n\n示例:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  "buttons": {
+    "loadFile": "加载文件",
+    "copyJson": "复制 JSON",
+    "clear": "清空",
+    "copy": { "title": "复制 JSON 到剪贴板" }
+  },
+  "search": { "placeholder": "在 JSON 中搜索..." },
+  "actions": {
+    "validate": "校验 JSON",
+    "format": "格式化",
+    "minify": "压缩"
+  },
+  
+  "stats": {
+    "title": "统计",
+    "keys": "键",
+    "arrays": "数组",
+    "objects": "对象",
+    "primitives": "原始值",
+    "size": "大小",
+    "depth": "深度"
+  },
+  "footer": {
+    "title": "免费在线 JSON 编辑器 - BriJson",
+    "subtitle": "无广告的 JSON 查看器、校验器与编辑器",
+    "tagline": "100% 免费在线 JSON 编辑器 | 无广告 | 无跟踪"
+  },
+  "language": { "label": "语言" },
+  "confirm": {
+    "clear": "确定要清空编辑器吗？",
+    "delete": "确定要删除 \"{name}\" 吗？"
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "add": "添加",
+    "rename": "重命名"
+  },
+  "types": {
+    "string": "字符串",
+    "number": "数字",
+    "boolean": "布尔值",
+    "null": "空",
+    "object": "对象",
+    "array": "数组"
+  },
+  "context": {
+    "editValue": "编辑值",
+    "editName": "编辑名称",
+    "addProperty": "添加属性",
+    "delete": "删除",
+    "copyPath": "复制路径",
+    "copyValue": "复制值"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "编辑“{key}”",
+      "propertyTitle": "编辑属性",
+      "valueTitle": "编辑值",
+      "containerTitle": "编辑{type}"
+    },
+    "rename": { "title": "重命名属性" },
+    "add": {
+      "propertyTitle": "添加属性",
+      "arrayItemTitle": "添加数组项"
+    },
+    "labels": {
+      "currentValue": "当前值：",
+      "propertyName": "属性名：",
+      "value": "值：",
+      "jsonText": "JSON（文本）：",
+      "currentName": "当前名称：",
+      "newName": "新名称："
+    },
+    "placeholders": {
+      "newValue": "输入新值",
+      "propertyKey": "属性名",
+      "newPropertyName": "新名称",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "删除属性" },
+    "error": {
+      "property_name_empty": "属性名不能为空",
+      "parse_value": "解析值时出错：{message}",
+      "process_data": "处理数据时出错：{message}",
+      "property_required": "需要属性名",
+      "number_invalid": "无效的数字值",
+      "boolean_invalid": "布尔值必须为 \"true\" 或 \"false\""
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON 已格式化", "error": "格式化 JSON 时出错" },
+    "minify": { "ok": "JSON 已压缩", "error": "压缩 JSON 时出错" },
+    "editor": { "empty": "编辑器为空", "cleared": "编辑器已清空" },
+    "json": { "valid": "有效的 JSON" },
+    "copy": {
+      "empty": "没有可复制的 JSON",
+      "ok": "JSON 已复制到剪贴板",
+      "error": "复制错误：{message}",
+      "path": "路径已复制到剪贴板",
+      "value": "值已复制到剪贴板"
+    },
+    "file": {
+      "onlyJson": "仅允许 JSON 文件",
+      "loaded": "文件 \"{name}\" 已成功加载",
+      "parseError": "解析 JSON 时出错：{message}"
+    },
+    "expand": { "all": "所有节点已展开" },
+    "collapse": { "all": "所有节点已折叠" },
+    "fullscreen": { "enter": "树全屏模式已启用", "exit": "已恢复普通模式" },
+    "rename": {
+      "onlyProperties": "只能重命名属性，不能重命名数组项",
+      "ok": "属性已从 \"{old}\" 重命名为 \"{name}\"",
+      "error": "重命名错误：{message}"
+    },
+    "node": {
+      "deleted": "节点已成功删除",
+      "deleteError": "删除节点时出错：{message}",
+      "updated": "节点已成功更新",
+      "updateError": "更新节点时出错：{message}",
+      "added": "节点已成功添加",
+      "addError": "添加节点时出错：{message}"
+    }
+  },
+  "tree": {
+    "title": "树形视图",
+    "fullscreen": { "title": "全屏" },
+    "expandAll": "全部展开",
+    "collapseAll": "全部折叠",
+    "placeholder": "粘贴 JSON 并点击“校验 JSON”查看树",
+    "labels": {
+      "object": "对象",
+      "array": "数组"
+    }
+  }
+}

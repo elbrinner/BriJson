@@ -240,27 +240,27 @@ class Core {
 
         this.statsContainer.innerHTML = `
             <div class="stats-item">
-                <span class="stats-label">Tamaño:</span>
+                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.size')) || 'Tamaño'}:</span>
                 <span class="stats-value">${Utils.formatBytes(stats.size)}</span>
             </div>
             <div class="stats-item">
-                <span class="stats-label">Líneas:</span>
+                <span class="stats-label">${(globalThis.I18n && (I18n.t('stats.lines') || I18n.t('stats.title'))) || 'Líneas'}:</span>
                 <span class="stats-value">${stats.lines}</span>
             </div>
             <div class="stats-item">
-                <span class="stats-label">Claves:</span>
+                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.keys')) || 'Claves'}:</span>
                 <span class="stats-value">${stats.keys}</span>
             </div>
             <div class="stats-item">
-                <span class="stats-label">Objetos:</span>
+                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.objects')) || 'Objetos'}:</span>
                 <span class="stats-value">${stats.objects}</span>
             </div>
             <div class="stats-item">
-                <span class="stats-label">Arrays:</span>
+                <span class="stats-label">${(globalThis.I18n && I18n.t('stats.arrays')) || 'Arrays'}:</span>
                 <span class="stats-value">${stats.arrays}</span>
             </div>
             <div class="stats-item">
-                <span class="stats-label">Profundidad máx.:</span>
+                <span class="stats-label">${(globalThis.I18n && (I18n.t('stats.depth') + ' (max.)')) || 'Profundidad máx.'}:</span>
                 <span class="stats-value">${stats.maxDepth}</span>
             </div>
         `;
@@ -295,25 +295,26 @@ class Core {
             className: 'context-menu'
         });
 
+        const T = (k, p) => (globalThis.I18n ? I18n.t(k, p) : null) || '';
         menu.innerHTML = `
             <div class="context-menu-item" data-action="edit">
-                <i class="fas fa-pen-square"></i> Editar valor
+                <i class="fas fa-pen-square"></i> ${T('context.editValue') || 'Editar valor'}
             </div>
             <div class="context-menu-item" data-action="modify">
-                <i class="fas fa-tag"></i> Editar nombre
+                <i class="fas fa-tag"></i> ${T('context.editName') || 'Editar nombre'}
             </div>
             <div class="context-menu-item" data-action="add">
-                <i class="fas fa-plus"></i> Agregar propiedad
+                <i class="fas fa-plus"></i> ${T('context.addProperty') || 'Agregar propiedad'}
             </div>
             <div class="context-menu-item" data-action="delete">
-                <i class="fas fa-trash"></i> Eliminar
+                <i class="fas fa-trash"></i> ${T('context.delete') || 'Eliminar'}
             </div>
             <div class="context-menu-separator"></div>
             <div class="context-menu-item" data-action="copy-path">
-                <i class="fas fa-route"></i> Copiar ruta
+                <i class="fas fa-route"></i> ${T('context.copyPath') || 'Copiar ruta'}
             </div>
             <div class="context-menu-item" data-action="copy-value">
-                <i class="fas fa-clipboard"></i> Copiar valor
+                <i class="fas fa-clipboard"></i> ${T('context.copyValue') || 'Copiar valor'}
             </div>
         `;
 
@@ -403,12 +404,12 @@ class Core {
                 break;
             case 'copy-path':
                 Utils.copyToClipboard(node.path);
-                this._showNotification('Ruta copiada al portapapeles');
+                this._showNotification((globalThis.I18n && I18n.t('notify.copy.path')) || 'Ruta copiada al portapapeles');
                 break;
             case 'copy-value': {
                 const value = this._getNodeValue(node);
                 Utils.copyToClipboard(JSON.stringify(value, null, 2));
-                this._showNotification('Valor copiado al portapapeles');
+                this._showNotification((globalThis.I18n && I18n.t('notify.copy.value')) || 'Valor copiado al portapapeles');
                 break;
             }
         }
@@ -437,7 +438,7 @@ class Core {
         
         // Solo se puede renombrar propiedades, no elementos de array
         if (node.type !== 'property') {
-            this._showNotification('Solo se puede renombrar propiedades, no elementos de array', 'warning');
+            this._showNotification((globalThis.I18n && I18n.t('notify.rename.onlyProperties')) || 'Solo se puede renombrar propiedades, no elementos de array', 'warning');
             return;
         }
 
@@ -455,9 +456,11 @@ class Core {
         try {
             const newJson = this._renameNodeInJson(this.currentJson, node, newName);
             this._setJsonData(newJson);
-            this._showNotification(`Propiedad renombrada de "${node.key}" a "${newName}"`);
+            const msg = (globalThis.I18n && I18n.t('notify.rename.ok', { old: node.key, name: newName })) || `Propiedad renombrada de "${node.key}" a "${newName}"`;
+            this._showNotification(msg);
         } catch (error) {
-            this._showNotification(`Error al renombrar: ${error.message}`, 'error');
+            const msg = (globalThis.I18n && I18n.t('notify.rename.error', { message: error.message })) || `Error al renombrar: ${error.message}`;
+            this._showNotification(msg, 'error');
         }
     }
 
@@ -559,16 +562,18 @@ class Core {
      * @private
      */
     _deleteNode(node) {
-        if (!confirm(`¿Estás seguro de que quieres eliminar "${node.key || node.path}"?`)) {
+        const q = (globalThis.I18n && I18n.t('confirm.delete', { name: node.key || node.path })) || `¿Estás seguro de que quieres eliminar "${node.key || node.path}"?`;
+        if (!confirm(q)) {
             return;
         }
 
         try {
             const newJson = this._deleteNodeFromJson(this.currentJson, node);
             this._setJsonData(newJson);
-            this._showNotification('Nodo eliminado correctamente');
+            this._showNotification((globalThis.I18n && I18n.t('notify.node.deleted')) || 'Nodo eliminado correctamente');
         } catch (error) {
-            this._showNotification(`Error al eliminar nodo: ${error.message}`, 'error');
+            const msg = (globalThis.I18n && I18n.t('notify.node.deleteError', { message: error.message })) || `Error al eliminar nodo: ${error.message}`;
+            this._showNotification(msg, 'error');
         }
     }
 
@@ -580,9 +585,10 @@ class Core {
         try {
             const newJson = this._updateNodeInJson(this.currentJson, node, newValue);
             this._setJsonData(newJson);
-            this._showNotification('Nodo actualizado correctamente');
+            this._showNotification((globalThis.I18n && I18n.t('notify.node.updated')) || 'Nodo actualizado correctamente');
         } catch (error) {
-            this._showNotification(`Error al actualizar nodo: ${error.message}`, 'error');
+            const msg = (globalThis.I18n && I18n.t('notify.node.updateError', { message: error.message })) || `Error al actualizar nodo: ${error.message}`;
+            this._showNotification(msg, 'error');
         }
     }
 
@@ -594,9 +600,10 @@ class Core {
         try {
             const newJson = this._addNodeToJson(this.currentJson, parentPath, newData, type);
             this._setJsonData(newJson);
-            this._showNotification('Nodo agregado correctamente');
+            this._showNotification((globalThis.I18n && I18n.t('notify.node.added')) || 'Nodo agregado correctamente');
         } catch (error) {
-            this._showNotification(`Error al agregar nodo: ${error.message}`, 'error');
+            const msg = (globalThis.I18n && I18n.t('notify.node.addError', { message: error.message })) || `Error al agregar nodo: ${error.message}`;
+            this._showNotification(msg, 'error');
         }
     }
 
@@ -766,10 +773,10 @@ class Core {
 
         try {
             this.editor.value = JSON.stringify(this.currentJson, null, 2);
-            this._showNotification('JSON formateado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.format.ok')) || 'JSON formateado');
         } catch (error) {
             console.error('Error al formatear JSON:', error);
-            this._showNotification('Error al formatear JSON', 'error');
+            this._showNotification((globalThis.I18n && I18n.t('notify.format.error')) || 'Error al formatear JSON', 'error');
         }
     }
 
@@ -782,10 +789,10 @@ class Core {
 
         try {
             this.editor.value = JSON.stringify(this.currentJson);
-            this._showNotification('JSON minificado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.minify.ok')) || 'JSON minificado');
         } catch (error) {
             console.error('Error al minificar JSON:', error);
-            this._showNotification('Error al minificar JSON', 'error');
+            this._showNotification((globalThis.I18n && I18n.t('notify.minify.error')) || 'Error al minificar JSON', 'error');
         }
     }
 
@@ -797,13 +804,13 @@ class Core {
         const jsonText = this.editor?.value.trim();
 
         if (!jsonText) {
-            this._showNotification('Editor vacío', 'warning');
+            this._showNotification((globalThis.I18n && I18n.t('notify.editor.empty')) || 'Editor vacío', 'warning');
             return;
         }
 
         try {
             JSON.parse(jsonText);
-            this._showNotification('JSON válido', 'success');
+            this._showNotification((globalThis.I18n && I18n.t('notify.json.valid')) || 'JSON válido', 'success');
         } catch (error) {
             this._showValidationError(error.message);
         }
@@ -816,10 +823,10 @@ class Core {
     _clearEditor() {
         if (!this.editor) return;
 
-        if (confirm('¿Estás seguro de que quieres limpiar el editor?')) {
+        if (confirm((globalThis.I18n && I18n.t('confirm.clear')) || '¿Estás seguro de que quieres limpiar el editor?')) {
             this.editor.value = '';
             this._setJsonData({});
-            this._showNotification('Editor limpiado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.editor.cleared')) || 'Editor limpiado');
         }
     }
 
@@ -833,7 +840,7 @@ class Core {
         const jsonText = this.editor.value.trim();
 
         if (!jsonText) {
-            this._showNotification('No hay JSON para copiar', 'warning');
+            this._showNotification((globalThis.I18n && I18n.t('notify.copy.empty')) || 'No hay JSON para copiar', 'warning');
             return;
         }
 
@@ -853,7 +860,7 @@ class Core {
             
             // Cambiar temporalmente el ícono del botón
             const originalHtml = this.copyJsonBtn.innerHTML;
-            this.copyJsonBtn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+            this.copyJsonBtn.innerHTML = `<i class="fas fa-check"></i> ${(globalThis.I18n && I18n.t('buttons.copied')) || '¡Copiado!'}`;
             this.copyJsonBtn.classList.remove('bg-teal-500', 'hover:bg-teal-600');
             this.copyJsonBtn.classList.add('bg-green-500', 'hover:bg-green-600');
             
@@ -863,9 +870,10 @@ class Core {
                 this.copyJsonBtn.classList.add('bg-teal-500', 'hover:bg-teal-600');
             }, 2000);
 
-            this._showNotification('JSON copiado al portapapeles');
+            this._showNotification((globalThis.I18n && I18n.t('notify.copy.ok')) || 'JSON copiado al portapapeles');
         } catch (error) {
-            this._showNotification('Error al copiar: ' + error.message, 'error');
+            const msg = (globalThis.I18n && I18n.t('notify.copy.error', { message: error.message })) || ('Error al copiar: ' + error.message);
+            this._showNotification(msg, 'error');
         }
     }
 
@@ -878,7 +886,7 @@ class Core {
         if (!file) return;
 
         if (!file.name.toLowerCase().endsWith('.json')) {
-            this._showNotification('Solo se permiten archivos JSON', 'error');
+            this._showNotification((globalThis.I18n && I18n.t('notify.file.onlyJson')) || 'Solo se permiten archivos JSON', 'error');
             return;
         }
 
@@ -886,9 +894,11 @@ class Core {
             const text = await file.text();
             const jsonData = JSON.parse(text);
             this._setJsonData(jsonData);
-            this._showNotification(`Archivo "${file.name}" cargado correctamente`);
+            const msg = (globalThis.I18n && I18n.t('notify.file.loaded', { name: file.name })) || `Archivo "${file.name}" cargado correctamente`;
+            this._showNotification(msg);
         } catch (error) {
-            this._showNotification(`Error al parsear JSON: ${error.message}`, 'error');
+            const msg = (globalThis.I18n && I18n.t('notify.file.parseError', { message: error.message })) || `Error al parsear JSON: ${error.message}`;
+            this._showNotification(msg, 'error');
         }
     }
 
@@ -899,7 +909,7 @@ class Core {
     _expandAll() {
         if (this.treeRenderer) {
             this.treeRenderer.expandAll();
-            this._showNotification('Todos los nodos expandidos');
+            this._showNotification((globalThis.I18n && I18n.t('notify.expand.all')) || 'Todos los nodos expandidos');
         }
     }
 
@@ -910,7 +920,7 @@ class Core {
     _collapseAll() {
         if (this.treeRenderer) {
             this.treeRenderer.collapseAll();
-            this._showNotification('Todos los nodos contraídos');
+            this._showNotification((globalThis.I18n && I18n.t('notify.collapse.all')) || 'Todos los nodos contraídos');
         }
     }
 
@@ -931,12 +941,12 @@ class Core {
             // Salir del modo fullscreen
             this._exitTreeOnlyMode();
             this.fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-            this._showNotification('Modo normal restaurado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.exit')) || 'Modo normal restaurado');
         } else {
             // Entrar en modo fullscreen (solo árbol)
             this._enterTreeOnlyMode();
             this.fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-            this._showNotification('Modo árbol completo activado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.enter')) || 'Modo árbol completo activado');
         }
     }
 

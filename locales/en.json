@@ -1,0 +1,159 @@
+{
+  "seo": {
+    "title": "Free Online JSON Editor - BriJson | JSON Viewer and Validator, No Ads",
+    "description": "Free online JSON editor with no ads. View, validate, format, and edit JSON interactively. A free tool for developers with no ads or tracking.",
+    "ogTitle": "Free Online JSON Editor - BriJson | No Ads",
+    "ogDescription": "Free online JSON editor with no ads. View, validate and edit JSON interactively. 100% free for developers.",
+    "twitterTitle": "Free Online JSON Editor - BriJson",
+    "twitterDescription": "JSON viewer and editor with no ads. Free tool for developers."
+  },
+  "header": {
+    "title": "BriJson - Free Online JSON Editor",
+    "subtitle": "Free online JSON editor with no ads. View, validate, format and edit your JSON files interactively. 100% free for developers."
+  },
+  "editor": {
+    "title": "JSON Editor",
+    "placeholder": "Paste your JSON here...\n\nExample:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  
+  "search": {
+    "placeholder": "Search in JSON..."
+  },
+  "actions": {
+    "validate": "Validate JSON",
+    "format": "Format",
+    "minify": "Minify"
+  },
+  
+  "stats": {
+    "title": "Statistics",
+    "lines": "Lines",
+    "keys": "Keys",
+    "arrays": "Arrays",
+    "objects": "Objects",
+    "primitives": "Primitives",
+    "size": "Size",
+    "depth": "Depth"
+  },
+  "footer": {
+    "title": "Free Online JSON Editor - BriJson",
+    "subtitle": "JSON viewer, validator and editor with no ads",
+    "tagline": "100% free online JSON editor | No ads | No tracking"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "buttons": {
+    "loadFile": "Load File",
+    "copyJson": "Copy JSON",
+    "clear": "Clear",
+    "copy": {
+      "title": "Copy JSON to clipboard"
+    },
+    "copied": "Copied!"
+  },
+  
+  "confirm": {
+    "clear": "Are you sure you want to clear the editor?",
+    "delete": "Are you sure you want to delete \"{name}\"?"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "add": "Add",
+    "rename": "Rename"
+  },
+  "types": {
+    "string": "String",
+    "number": "Number",
+    "boolean": "Boolean",
+    "null": "Null",
+    "object": "Object",
+    "array": "Array"
+  },
+  "context": {
+    "editValue": "Edit value",
+    "editName": "Edit name",
+    "addProperty": "Add property",
+    "delete": "Delete",
+    "copyPath": "Copy path",
+    "copyValue": "Copy value"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "Edit \"{key}\"",
+      "propertyTitle": "Edit Property",
+      "valueTitle": "Edit Value",
+      "containerTitle": "Edit {type}"
+    },
+    "rename": {
+      "title": "Rename property"
+    },
+    "add": {
+      "propertyTitle": "Add Property",
+      "arrayItemTitle": "Add Array Item"
+    },
+    "labels": {
+      "currentValue": "Current value:",
+      "propertyName": "Property name:",
+      "value": "Value:",
+      "jsonText": "JSON (text):",
+      "currentName": "Current name:",
+      "newName": "New name:"
+    },
+    "placeholders": {
+      "newValue": "Type the new value",
+      "propertyKey": "property_name",
+      "newPropertyName": "new_name",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": {
+      "deleteProperty": "Delete property"
+    },
+    "error": {
+      "property_name_empty": "Property name cannot be empty",
+      "parse_value": "Error parsing value: {message}",
+      "process_data": "Error processing data: {message}",
+      "property_required": "Property name is required",
+      "number_invalid": "Invalid numeric value",
+      "boolean_invalid": "Boolean value must be \"true\" or \"false\""
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON formatted", "error": "Error formatting JSON" },
+    "minify": { "ok": "JSON minified", "error": "Error minifying JSON" },
+    "editor": { "empty": "Editor is empty", "cleared": "Editor cleared" },
+    "json": { "valid": "Valid JSON" },
+    "copy": { "empty": "No JSON to copy", "ok": "JSON copied to clipboard", "error": "Copy error: {message}", "path": "Path copied to clipboard", "value": "Value copied to clipboard" },
+    "file": {
+      "onlyJson": "Only JSON files are allowed",
+      "loaded": "File \"{name}\" loaded successfully",
+      "parseError": "Error parsing JSON: {message}"
+    },
+    "expand": { "all": "All nodes expanded" },
+    "collapse": { "all": "All nodes collapsed" },
+    "fullscreen": { "enter": "Tree fullscreen mode enabled", "exit": "Normal mode restored" },
+    "rename": { "onlyProperties": "Only properties can be renamed, not array items", "ok": "Property renamed from \"{old}\" to \"{name}\"", "error": "Rename error: {message}" },
+    "node": {
+      "deleted": "Node deleted successfully",
+      "deleteError": "Error deleting node: {message}",
+      "updated": "Node updated successfully",
+      "updateError": "Error updating node: {message}",
+      "added": "Node added successfully",
+      "addError": "Error adding node: {message}"
+    }
+  },
+  "tree": {
+    "title": "Tree View",
+    "fullscreen": { "title": "Fullscreen" },
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All",
+    "placeholder": "Paste your JSON and click \"Validate JSON\" to see the tree",
+    "labels": {
+      "object": "Object",
+      "array": "Array"
+    }
+  }
+}

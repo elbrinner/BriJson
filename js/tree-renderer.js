@@ -268,7 +268,7 @@ class TreeRenderer {
     _renderArrayNode(element, node) {
         const toggle = node.isExpandable ? this._createToggleButton(node.isExpanded) : '';
         const icon = '<i class="fas fa-brackets-square json-icon"></i>';
-        const content = `<span class="json-key">Array</span><span class="json-meta">(${node.length})</span>`;
+    const content = `<span class="json-key">${(globalThis.I18n && I18n.t('tree.labels.array')) || 'Array'}</span><span class="json-meta">(${node.length})</span>`;
 
         element.innerHTML = `${toggle}${icon}${content}`;
     }
@@ -280,7 +280,7 @@ class TreeRenderer {
     _renderObjectNode(element, node) {
         const toggle = node.isExpandable ? this._createToggleButton(node.isExpanded) : '';
         const icon = '<i class="fas fa-braces json-icon"></i>';
-        const content = `<span class="json-key">Object</span><span class="json-meta">(${node.keys.length})</span>`;
+    const content = `<span class="json-key">${(globalThis.I18n && I18n.t('tree.labels.object')) || 'Object'}</span><span class="json-meta">(${node.keys.length})</span>`;
 
         element.innerHTML = `${toggle}${icon}${content}`;
     }

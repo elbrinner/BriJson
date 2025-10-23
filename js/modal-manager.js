@@ -101,20 +101,20 @@ class ModalManager {
             // Modal simplificado para valores simples (string, number, boolean)
             content = `
                 <div class="modal-header">
-                    <h3>Editar "${Utils.escapeHtml(node.key)}"</h3>
+                    <h3>${(globalThis.I18n && I18n.t('modal.edit.simpleTitle', { key: Utils.escapeHtml(node.key) })) || `Editar "${Utils.escapeHtml(node.key)}"`}</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="property-value">Valor actual:</label>
+                        <label for="property-value">${(globalThis.I18n && I18n.t('modal.labels.currentValue')) || 'Valor actual:'}</label>
                         ${this._createSimpleValueInput(node.value, node.valueType, 'property-value')}
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" id="delete-btn">Eliminar propiedad</button>
+                    <button class="btn btn-secondary" id="delete-btn">${(globalThis.I18n && I18n.t('modal.buttons.deleteProperty')) || 'Eliminar propiedad'}</button>
                     <div class="modal-actions">
-                        <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                        <button class="btn btn-primary" id="save-btn">Guardar</button>
+                        <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                        <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.save')) || 'Guardar'}</button>
                     </div>
                 </div>
             `;
@@ -122,24 +122,24 @@ class ModalManager {
             // Modal completo para propiedades con valores complejos
             content = `
                 <div class="modal-header">
-                    <h3>Editar Propiedad</h3>
+                    <h3>${(globalThis.I18n && I18n.t('modal.edit.propertyTitle')) || 'Editar Propiedad'}</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="property-key">Nombre de la propiedad:</label>
+                        <label for="property-key">${(globalThis.I18n && I18n.t('modal.labels.propertyName')) || 'Nombre de la propiedad:'}</label>
                         <input type="text" id="property-key" value="${Utils.escapeHtml(node.key)}" class="form-input">
                     </div>
                     <div class="form-group">
-                        <label for="property-value">Valor:</label>
+                        <label for="property-value">${(globalThis.I18n && I18n.t('modal.labels.value')) || 'Valor:'}</label>
                         ${this._createValueInput(node.value, node.valueType, 'property-value')}
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" id="delete-btn">Eliminar</button>
+                    <button class="btn btn-secondary" id="delete-btn">${(globalThis.I18n && I18n.t('common.delete')) || 'Eliminar'}</button>
                     <div class="modal-actions">
-                        <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                        <button class="btn btn-primary" id="save-btn">Guardar</button>
+                        <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                        <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.save')) || 'Guardar'}</button>
                     </div>
                 </div>
             `;
@@ -147,20 +147,20 @@ class ModalManager {
             // Modal para editar valor primitivo
             content = `
                 <div class="modal-header">
-                    <h3>Editar Valor</h3>
+                    <h3>${(globalThis.I18n && I18n.t('modal.edit.valueTitle')) || 'Editar Valor'}</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="primitive-value">Valor:</label>
+                        <label for="primitive-value">${(globalThis.I18n && I18n.t('modal.labels.value')) || 'Valor:'}</label>
                         ${this._createValueInput(node.value, node.valueType, 'primitive-value')}
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" id="delete-btn">Eliminar</button>
+                    <button class="btn btn-secondary" id="delete-btn">${(globalThis.I18n && I18n.t('common.delete')) || 'Eliminar'}</button>
                     <div class="modal-actions">
-                        <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                        <button class="btn btn-primary" id="save-btn">Guardar</button>
+                        <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                        <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.save')) || 'Guardar'}</button>
                     </div>
                 </div>
             `;
@@ -168,7 +168,7 @@ class ModalManager {
             // Modal para editar objeto/array
             content = `
                 <div class="modal-header">
-                    <h3>Editar ${node.type === 'object' ? 'Objeto' : 'Array'}</h3>
+                    <h3>${(globalThis.I18n && I18n.t('modal.edit.containerTitle', { type: I18n.t(node.type === 'object' ? 'types.object' : 'types.array') })) || `Editar ${node.type === 'object' ? 'Objeto' : 'Array'}`}</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -176,15 +176,15 @@ class ModalManager {
                         <pre>${Utils.escapeHtml(JSON.stringify(node.value || node, null, 2))}</pre>
                     </div>
                     <div class="form-group">
-                        <label for="json-text">JSON (texto):</label>
+                        <label for="json-text">${(globalThis.I18n && I18n.t('modal.labels.jsonText')) || 'JSON (texto):'}</label>
                         <textarea id="json-text" class="form-textarea" rows="10">${Utils.escapeHtml(JSON.stringify(node.value || node, null, 2))}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" id="delete-btn">Eliminar</button>
+                    <button class="btn btn-secondary" id="delete-btn">${(globalThis.I18n && I18n.t('common.delete')) || 'Eliminar'}</button>
                     <div class="modal-actions">
-                        <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                        <button class="btn btn-primary" id="save-btn">Guardar</button>
+                        <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                        <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.save')) || 'Guardar'}</button>
                     </div>
                 </div>
             `;
@@ -209,31 +209,31 @@ class ModalManager {
 
         const content = `
             <div class="modal-header">
-                <h3>Renombrar propiedad</h3>
+                <h3>${(globalThis.I18n && I18n.t('modal.rename.title')) || 'Renombrar propiedad'}</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="property-name">Nombre actual:</label>
+                    <label for="property-name">${(globalThis.I18n && I18n.t('modal.labels.currentName')) || 'Nombre actual:'}</label>
                     <div class="current-value">"${Utils.escapeHtml(node.key)}"</div>
                 </div>
                 <div class="form-group">
-                    <label for="new-property-name">Nuevo nombre:</label>
+                    <label for="new-property-name">${(globalThis.I18n && I18n.t('modal.labels.newName')) || 'Nuevo nombre:'}</label>
                     <input 
                         type="text" 
                         id="new-property-name" 
                         class="form-input" 
                         value="${Utils.escapeHtml(node.key)}"
-                        placeholder="nuevo_nombre"
+                        placeholder="${(globalThis.I18n && I18n.t('modal.placeholders.newPropertyName')) || 'nuevo_nombre'}"
                         autofocus
                     >
-                    <small class="form-hint">Introduce el nuevo nombre para esta propiedad</small>
+                    <small class="form-hint">${(globalThis.I18n && I18n.t('modal.hints.rename')) || 'Introduce el nuevo nombre para esta propiedad'}</small>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="modal-actions">
-                    <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                    <button class="btn btn-primary" id="save-btn">Renombrar</button>
+                    <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                    <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.rename')) || 'Renombrar'}</button>
                 </div>
             </div>
         `;
@@ -260,42 +260,42 @@ class ModalManager {
         if (type === 'property') {
             content = `
                 <div class="modal-header">
-                    <h3>Agregar Propiedad</h3>
+                    <h3>${(globalThis.I18n && I18n.t('modal.add.propertyTitle')) || 'Agregar Propiedad'}</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="new-property-key">Nombre de la propiedad:</label>
-                        <input type="text" id="new-property-key" class="form-input" placeholder="nombre_propiedad">
+                        <label for="new-property-key">${(globalThis.I18n && I18n.t('modal.labels.propertyName')) || 'Nombre de la propiedad:'}</label>
+                        <input type="text" id="new-property-key" class="form-input" placeholder="${(globalThis.I18n && I18n.t('modal.placeholders.propertyKey')) || 'nombre_propiedad'}">
                     </div>
                     <div class="form-group">
-                        <label for="new-property-value">Valor:</label>
+                        <label for="new-property-value">${(globalThis.I18n && I18n.t('modal.labels.value')) || 'Valor:'}</label>
                         ${this._createValueInput('', 'string', 'new-property-value')}
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="modal-actions">
-                        <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                        <button class="btn btn-primary" id="save-btn">Agregar</button>
+                        <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                        <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.add')) || 'Agregar'}</button>
                     </div>
                 </div>
             `;
         } else if (type === 'array-item') {
             content = `
                 <div class="modal-header">
-                    <h3>Agregar Elemento al Array</h3>
+                    <h3>${(globalThis.I18n && I18n.t('modal.add.arrayItemTitle')) || 'Agregar Elemento al Array'}</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="new-array-value">Valor:</label>
+                        <label for="new-array-value">${(globalThis.I18n && I18n.t('modal.labels.value')) || 'Valor:'}</label>
                         ${this._createValueInput('', 'string', 'new-array-value')}
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="modal-actions">
-                        <button class="btn btn-cancel" id="cancel-btn">Cancelar</button>
-                        <button class="btn btn-primary" id="save-btn">Agregar</button>
+                        <button class="btn btn-cancel" id="cancel-btn">${(globalThis.I18n && I18n.t('common.cancel')) || 'Cancelar'}</button>
+                        <button class="btn btn-primary" id="save-btn">${(globalThis.I18n && I18n.t('common.add')) || 'Agregar'}</button>
                     </div>
                 </div>
             `;
@@ -320,7 +320,7 @@ class ModalManager {
 
         switch (type) {
             case 'string':
-                inputHtml = `<input type="text" id="${inputId}" value="${escapedValue}" class="form-input" placeholder="Escribe el nuevo valor">`;
+                inputHtml = `<input type="text" id="${inputId}" value="${escapedValue}" class="form-input" placeholder="${(globalThis.I18n && I18n.t('modal.placeholders.newValue')) || 'Escribe el nuevo valor'}">`;
                 break;
             case 'number':
                 inputHtml = `<input type="number" id="${inputId}" value="${escapedValue}" class="form-input" step="any">`;
@@ -352,12 +352,12 @@ class ModalManager {
 
         const typeSelector = `
             <select class="value-type-selector" data-target="${inputId}">
-                <option value="string" ${type === 'string' ? 'selected' : ''}>String</option>
-                <option value="number" ${type === 'number' ? 'selected' : ''}>Number</option>
-                <option value="boolean" ${type === 'boolean' ? 'selected' : ''}>Boolean</option>
-                <option value="null" ${type === 'null' ? 'selected' : ''}>Null</option>
-                <option value="object">Object</option>
-                <option value="array">Array</option>
+                <option value="string" ${type === 'string' ? 'selected' : ''}>${(globalThis.I18n && I18n.t('types.string')) || 'String'}</option>
+                <option value="number" ${type === 'number' ? 'selected' : ''}>${(globalThis.I18n && I18n.t('types.number')) || 'Number'}</option>
+                <option value="boolean" ${type === 'boolean' ? 'selected' : ''}>${(globalThis.I18n && I18n.t('types.boolean')) || 'Boolean'}</option>
+                <option value="null" ${type === 'null' ? 'selected' : ''}>${(globalThis.I18n && I18n.t('types.null')) || 'Null'}</option>
+                <option value="object">${(globalThis.I18n && I18n.t('types.object')) || 'Object'}</option>
+                <option value="array">${(globalThis.I18n && I18n.t('types.array')) || 'Array'}</option>
             </select>
         `;
 
@@ -383,7 +383,7 @@ class ModalManager {
                 break;
             case 'object':
             case 'array':
-                inputHtml = `<textarea id="${inputId}" class="form-textarea" rows="5" placeholder='${type === 'object' ? '{"key": "value"}' : '[1, 2, 3]'}'>${escapedValue || ''}</textarea>`;
+                inputHtml = `<textarea id="${inputId}" class="form-textarea" rows="5" placeholder='${(globalThis.I18n && (type === 'object' ? I18n.t('modal.placeholders.objectExample') : I18n.t('modal.placeholders.arrayExample'))) || (type === 'object' ? '{"key": "value"}' : '[1, 2, 3]')}'>${escapedValue || ''}</textarea>`;
                 break;
             default:
                 inputHtml = `<input type="text" id="${inputId}" value="${escapedValue}" class="form-input">`;
@@ -523,7 +523,7 @@ class ModalManager {
             const newName = nameInput?.value.trim();
             
             if (!newName) {
-                alert('El nombre de la propiedad no puede estar vacío');
+                alert((globalThis.I18n && I18n.t('modal.error.property_name_empty')) || 'El nombre de la propiedad no puede estar vacío');
                 nameInput?.focus();
                 return;
             }
@@ -605,7 +605,7 @@ class ModalManager {
                 try {
                     parsedValue = this._parseValue(rawValue, type);
                 } catch (e) {
-                    alert(`Error al parsear el valor: ${e.message}`);
+                    alert(((globalThis.I18n && I18n.t('modal.error.parse_value', { message: e.message })) || `Error al parsear el valor: ${e.message}`));
                     return null;
                 }
 
@@ -632,7 +632,7 @@ class ModalManager {
                 try {
                     parsedValue = this._parseValue(rawValue, type);
                 } catch (e) {
-                    alert(`Error al parsear el valor: ${e.message}`);
+                    alert(((globalThis.I18n && I18n.t('modal.error.parse_value', { message: e.message })) || `Error al parsear el valor: ${e.message}`));
                     return null;
                 }
 
@@ -648,7 +648,7 @@ class ModalManager {
                 }
             }
         } catch (e) {
-            alert(`Error al procesar los datos: ${e.message}`);
+            alert(((globalThis.I18n && I18n.t('modal.error.process_data', { message: e.message })) || `Error al procesar los datos: ${e.message}`));
             return null;
         }
     }
@@ -664,7 +664,7 @@ class ModalManager {
                 const valueInput = modal.querySelector('#new-property-value');
 
                 if (!keyInput || !valueInput || !keyInput.value.trim()) {
-                    alert('El nombre de la propiedad es requerido');
+                    alert((globalThis.I18n && I18n.t('modal.error.property_required')) || 'El nombre de la propiedad es requerido');
                     return null;
                 }
 
@@ -675,7 +675,7 @@ class ModalManager {
                 try {
                     parsedValue = this._parseValue(rawValue, selectedType);
                 } catch (e) {
-                    alert(`Error al parsear el valor: ${e.message}`);
+                    alert(((globalThis.I18n && I18n.t('modal.error.parse_value', { message: e.message })) || `Error al parsear el valor: ${e.message}`));
                     return null;
                 }
 
@@ -693,12 +693,12 @@ class ModalManager {
                 try {
                     return this._parseValue(rawValue, selectedType);
                 } catch (e) {
-                    alert(`Error al parsear el valor: ${e.message}`);
+                    alert(((globalThis.I18n && I18n.t('modal.error.parse_value', { message: e.message })) || `Error al parsear el valor: ${e.message}`));
                     return null;
                 }
             }
         } catch (e) {
-            alert(`Error al procesar los datos: ${e.message}`);
+            alert(((globalThis.I18n && I18n.t('modal.error.process_data', { message: e.message })) || `Error al procesar los datos: ${e.message}`));
             return null;
         }
         return null;
@@ -723,13 +723,13 @@ class ModalManager {
                 return rawValue;
             case 'number': {
                 const num = Number(rawValue);
-                if (Number.isNaN(num)) throw new Error('Valor numérico inválido');
+                if (Number.isNaN(num)) throw new Error(((globalThis.I18n && I18n.t('modal.error.number_invalid')) || 'Valor numérico inválido'));
                 return num;
             }
             case 'boolean':
                 if (rawValue === 'true') return true;
                 if (rawValue === 'false') return false;
-                throw new Error('Valor booleano debe ser "true" o "false"');
+                throw new Error(((globalThis.I18n && I18n.t('modal.error.boolean_invalid')) || 'Valor booleano debe ser "true" o "false"'));
             case 'null':
                 return null;
             case 'object':

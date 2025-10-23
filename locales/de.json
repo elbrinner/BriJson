@@ -1,0 +1,156 @@
+{
+  "seo": {
+    "title": "Kostenloser Online-JSON-Editor - BriJson | JSON-Viewer und -Validator ohne Werbung",
+    "description": "Kostenloser Online-JSON-Editor ohne Werbung. JSON interaktiv anzeigen, validieren, formatieren und bearbeiten. Kostenloses Tool für Entwickler ohne Tracking.",
+    "ogTitle": "Kostenloser Online-JSON-Editor - BriJson | Ohne Werbung",
+    "ogDescription": "Kostenloser Online-JSON-Editor ohne Werbung. JSON interaktiv anzeigen, validieren und bearbeiten. 100% kostenlos für Entwickler.",
+    "twitterTitle": "Kostenloser Online-JSON-Editor - BriJson",
+    "twitterDescription": "JSON-Viewer und -Editor ohne Werbung. Kostenloses Tool für Entwickler."
+  },
+  "header": {
+    "title": "BriJson - Kostenloser Online-JSON-Editor",
+    "subtitle": "Kostenloser Online-JSON-Editor ohne Werbung. Zeigen, validieren, formatieren und bearbeiten Sie Ihre JSON-Dateien interaktiv. 100% kostenlos für Entwickler."
+  },
+  "editor": {
+    "title": "JSON-Editor",
+    "placeholder": "Fügen Sie hier Ihr JSON ein...\n\nBeispiel:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  "buttons": {
+    "loadFile": "Datei laden",
+    "copyJson": "JSON kopieren",
+    "clear": "Leeren",
+    "copy": { "title": "JSON in die Zwischenablage kopieren" },
+    "copied": "Kopiert!"
+  },
+  "search": { "placeholder": "In JSON suchen..." },
+  "actions": {
+    "validate": "JSON validieren",
+    "format": "Formatieren",
+    "minify": "Minimieren"
+  },
+  "confirm": {
+    "clear": "Möchten Sie den Editor wirklich leeren?",
+    "delete": "Möchten Sie „{name}“ wirklich löschen?"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "add": "Hinzufügen",
+    "rename": "Umbenennen"
+  },
+  "types": {
+    "string": "String",
+    "number": "Zahl",
+    "boolean": "Boolean",
+    "null": "Null",
+    "object": "Objekt",
+    "array": "Array"
+  },
+  "context": {
+    "editValue": "Wert bearbeiten",
+    "editName": "Namen bearbeiten",
+    "addProperty": "Eigenschaft hinzufügen",
+    "delete": "Löschen",
+    "copyPath": "Pfad kopieren",
+    "copyValue": "Wert kopieren"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "\"{key}\" bearbeiten",
+      "propertyTitle": "Eigenschaft bearbeiten",
+      "valueTitle": "Wert bearbeiten",
+      "containerTitle": "{type} bearbeiten"
+    },
+    "rename": { "title": "Eigenschaft umbenennen" },
+    "add": {
+      "propertyTitle": "Eigenschaft hinzufügen",
+      "arrayItemTitle": "Array-Element hinzufügen"
+    },
+    "labels": {
+      "currentValue": "Aktueller Wert:",
+      "propertyName": "Eigenschaftsname:",
+      "value": "Wert:",
+      "jsonText": "JSON (Text):",
+      "currentName": "Aktueller Name:",
+      "newName": "Neuer Name:"
+    },
+    "placeholders": {
+      "newValue": "Neuen Wert eingeben",
+      "propertyKey": "property_name",
+      "newPropertyName": "neuer_name",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "Eigenschaft löschen" },
+    "error": {
+      "property_name_empty": "Eigenschaftsname darf nicht leer sein",
+      "parse_value": "Fehler beim Parsen des Werts: {message}",
+      "process_data": "Fehler bei der Datenverarbeitung: {message}",
+      "property_required": "Eigenschaftsname ist erforderlich",
+      "number_invalid": "Ungültiger numerischer Wert",
+      "boolean_invalid": "Boolescher Wert muss \"true\" oder \"false\" sein"
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON formatiert", "error": "Fehler beim Formatieren von JSON" },
+    "minify": { "ok": "JSON minimiert", "error": "Fehler beim Minimieren von JSON" },
+    "editor": { "empty": "Editor ist leer", "cleared": "Editor geleert" },
+    "json": { "valid": "Gültiges JSON" },
+    "copy": {
+      "empty": "Kein JSON zum Kopieren",
+      "ok": "JSON in die Zwischenablage kopiert",
+      "error": "Fehler beim Kopieren: {message}",
+      "path": "Pfad in die Zwischenablage kopiert",
+      "value": "Wert in die Zwischenablage kopiert"
+    },
+    "file": {
+      "onlyJson": "Nur JSON-Dateien sind erlaubt",
+      "loaded": "Datei \"{name}\" erfolgreich geladen",
+      "parseError": "Fehler beim Parsen von JSON: {message}"
+    },
+    "expand": { "all": "Alle Knoten erweitert" },
+    "collapse": { "all": "Alle Knoten reduziert" },
+    "fullscreen": { "enter": "Baum-Vollbildmodus aktiviert", "exit": "Normalmodus wiederhergestellt" },
+    "rename": {
+      "onlyProperties": "Nur Eigenschaften können umbenannt werden, nicht Array-Elemente",
+      "ok": "Eigenschaft von \"{old}\" in \"{name}\" umbenannt",
+      "error": "Fehler beim Umbenennen: {message}"
+    },
+    "node": {
+      "deleted": "Knoten erfolgreich gelöscht",
+      "deleteError": "Fehler beim Löschen des Knotens: {message}",
+      "updated": "Knoten erfolgreich aktualisiert",
+      "updateError": "Fehler beim Aktualisieren des Knotens: {message}",
+      "added": "Knoten erfolgreich hinzugefügt",
+      "addError": "Fehler beim Hinzufügen des Knotens: {message}"
+    }
+  },
+  "tree": {
+    "title": "Baumansicht",
+    "fullscreen": { "title": "Vollbild" },
+    "expandAll": "Alle erweitern",
+    "collapseAll": "Alle reduzieren",
+    "placeholder": "Fügen Sie Ihr JSON ein und klicken Sie auf \"JSON validieren\"",
+    "labels": {
+      "object": "Objekt",
+      "array": "Array"
+    }
+  },
+  "stats": {
+    "title": "Statistiken",
+    "lines": "Zeilen",
+    "keys": "Schlüssel",
+    "arrays": "Arrays",
+    "objects": "Objekte",
+    "primitives": "Primitive",
+    "size": "Größe",
+    "depth": "Tiefe"
+  },
+  "footer": {
+    "title": "Kostenloser Online-JSON-Editor - BriJson",
+    "subtitle": "JSON-Viewer, -Validator und -Editor ohne Werbung",
+    "tagline": "100% kostenloser Online-JSON-Editor | Keine Werbung | Kein Tracking"
+  },
+  "language": { "label": "Sprache" }
+}

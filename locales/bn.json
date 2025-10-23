@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "title": "বিনামূল্যের অনলাইন JSON এডিটর - BriJson | বিজ্ঞাপনমুক্ত JSON ভিউয়ার ও ভ্যালিডেটর",
+    "description": "বিজ্ঞাপনমুক্ত বিনামূল্যের অনলাইন JSON এডিটর। ইন্টারঅ্যাক্টিভভাবে JSON দেখুন, যাচাই করুন, ফরম্যাট করুন ও সম্পাদনা করুন। ডেভেলপারদের জন্য ফ্রি, কোনো ট্র্যাকিং নয়।",
+    "ogTitle": "বিনামূল্যের অনলাইন JSON এডিটর - BriJson | বিজ্ঞাপনমুক্ত",
+    "ogDescription": "বিজ্ঞাপনমুক্ত বিনামূল্যের JSON এডিটর। ইন্টারঅ্যাক্টিভভাবে JSON দেখুন, যাচাই করুন ও সম্পাদনা করুন। ডেভেলপারদের জন্য 100% ফ্রি।",
+    "twitterTitle": "বিনামূল্যের অনলাইন JSON এডিটর - BriJson",
+    "twitterDescription": "বিজ্ঞাপনমুক্ত JSON ভিউয়ার ও এডিটর। ডেভেলপারদের জন্য ফ্রি।"
+  },
+  "header": {
+    "title": "BriJson - বিনামূল্যের অনলাইন JSON এডিটর",
+    "subtitle": "বিজ্ঞাপনমুক্ত বিনামূল্যের অনলাইন JSON এডিটর। ইন্টারঅ্যাক্টিভভাবে আপনার JSON ফাইল দেখুন, যাচাই করুন, ফরম্যাট করুন ও সম্পাদনা করুন। ডেভেলপারদের জন্য 100% ফ্রি।"
+  },
+  "editor": {
+    "title": "JSON এডিটর",
+    "placeholder": "এখানে আপনার JSON পেস্ট করুন...\n\nউদাহরণ:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  "buttons": {
+    "loadFile": "ফাইল লোড করুন",
+    "copyJson": "JSON কপি করুন",
+    "clear": "মুছে ফেলুন",
+    "copy": { "title": "ক্লিপবোর্ডে JSON কপি করুন" }
+  },
+  "search": { "placeholder": "JSON-এ অনুসন্ধান করুন..." },
+  "actions": {
+    "validate": "JSON যাচাই করুন",
+    "format": "ফরম্যাট",
+    "minify": "মিনিফাই"
+  },
+  
+  "stats": {
+    "title": "পরিসংখ্যান",
+    "keys": "কী",
+    "arrays": "অ্যারে",
+    "objects": "অবজেক্ট",
+    "primitives": "প্রিমিটিভ",
+    "size": "আকার",
+    "depth": "গভীরতা"
+  },
+  "footer": {
+    "title": "বিনামূল্যের অনলাইন JSON এডিটর - BriJson",
+    "subtitle": "বিজ্ঞাপনমুক্ত JSON ভিউয়ার, ভ্যালিডেটর ও এডিটর",
+    "tagline": "100% বিনামূল্যের অনলাইন JSON এডিটর | বিজ্ঞাপন নেই | ট্র্যাকিং নেই"
+  },
+  "language": { "label": "ভাষা" },
+  "confirm": {
+    "clear": "আপনি কি সত্যিই এডিটরটি সাফ করতে চান?",
+    "delete": "আপনি কি সত্যিই \"{name}\" মুছে ফেলতে চান?"
+  },
+  "common": {
+    "save": "সংরক্ষণ",
+    "cancel": "বাতিল",
+    "delete": "মুছে ফেলুন",
+    "add": "যোগ করুন",
+    "rename": "নাম পরিবর্তন"
+  },
+  "types": {
+    "string": "স্ট্রিং",
+    "number": "সংখ্যা",
+    "boolean": "বুলিয়ান",
+    "null": "নাল",
+    "object": "অবজেক্ট",
+    "array": "অ্যারে"
+  },
+  "context": {
+    "editValue": "মান সম্পাদনা করুন",
+    "editName": "নাম সম্পাদনা করুন",
+    "addProperty": "প্রপার্টি যোগ করুন",
+    "delete": "মুছে ফেলুন",
+    "copyPath": "পাথ কপি করুন",
+    "copyValue": "মান কপি করুন"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "\"{key}\" সম্পাদনা করুন",
+      "propertyTitle": "প্রপার্টি সম্পাদনা",
+      "valueTitle": "মান সম্পাদনা",
+      "containerTitle": "{type} সম্পাদনা"
+    },
+    "rename": { "title": "প্রপার্টির নাম পরিবর্তন" },
+    "add": {
+      "propertyTitle": "প্রপার্টি যোগ করুন",
+      "arrayItemTitle": "অ্যারে আইটেম যোগ করুন"
+    },
+    "labels": {
+      "currentValue": "বর্তমান মান:",
+      "propertyName": "প্রপার্টির নাম:",
+      "value": "মান:",
+      "jsonText": "JSON (টেক্সট):",
+      "currentName": "বর্তমান নাম:",
+      "newName": "নতুন নাম:"
+    },
+    "placeholders": {
+      "newValue": "নতুন মান লিখুন",
+      "propertyKey": "property_name",
+      "newPropertyName": "নতুন_নাম",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "প্রপার্টি মুছে ফেলুন" },
+    "error": {
+      "property_name_empty": "প্রপার্টির নাম খালি হতে পারে না",
+      "parse_value": "মান পার্স করতে ত্রুটি: {message}",
+      "process_data": "ডেটা প্রক্রিয়াকরণে ত্রুটি: {message}",
+      "property_required": "প্রপার্টির নাম আবশ্যক",
+      "number_invalid": "অবৈধ সংখ্যাগত মান",
+      "boolean_invalid": "বুলিয়ান মান অবশ্যই \"true\" বা \"false\" হতে হবে"
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON ফরম্যাট করা হয়েছে", "error": "JSON ফরম্যাট করতে ত্রুটি" },
+    "minify": { "ok": "JSON মিনিফাই করা হয়েছে", "error": "JSON মিনিফাই করতে ত্রুটি" },
+    "editor": { "empty": "এডিটর খালি", "cleared": "এডিটর সাফ করা হয়েছে" },
+    "json": { "valid": "বৈধ JSON" },
+    "copy": {
+      "empty": "কপি করার জন্য কোনো JSON নেই",
+      "ok": "JSON ক্লিপবোর্ডে কপি করা হয়েছে",
+      "error": "কপি করতে ত্রুটি: {message}",
+      "path": "পাথ ক্লিপবোর্ডে কপি করা হয়েছে",
+      "value": "মান ক্লিপবোর্ডে কপি করা হয়েছে"
+    },
+    "file": {
+      "onlyJson": "শুধুমাত্র JSON ফাইল অনুমোদিত",
+      "loaded": "ফাইল \"{name}\" সফলভাবে লোড করা হয়েছে",
+      "parseError": "JSON পার্স ত্রুটি: {message}"
+    },
+    "expand": { "all": "সমস্ত নোড প্রসারিত করা হয়েছে" },
+    "collapse": { "all": "সমস্ত নোড সংকুচিত করা হয়েছে" },
+    "fullscreen": { "enter": "ট্রি ফুলস্ক্রিন মোড সক্রিয়", "exit": "স্বাভাবিক মোড পুনরুদ্ধার" },
+    "rename": {
+      "onlyProperties": "শুধুমাত্র প্রপার্টির নাম পরিবর্তন করা যাবে, অ্যারে আইটেম নয়",
+      "ok": "প্রপার্টির নাম \"{old}\" থেকে \"{name}\" এ পরিবর্তন করা হয়েছে",
+      "error": "নাম পরিবর্তনে ত্রুটি: {message}"
+    },
+    "node": {
+      "deleted": "নোড সফলভাবে মুছে ফেলা হয়েছে",
+      "deleteError": "নোড মুছে ফেলতে ত্রুটি: {message}",
+      "updated": "নোড সফলভাবে আপডেট করা হয়েছে",
+      "updateError": "নোড আপডেটে ত্রুটি: {message}",
+      "added": "নোড সফলভাবে যোগ করা হয়েছে",
+      "addError": "নোড যোগ করতে ত্রুটি: {message}"
+    }
+  },
+  "tree": {
+    "title": "ট্রি ভিউ",
+    "fullscreen": { "title": "ফুলস্ক্রিন" },
+    "expandAll": "সব প্রসারিত করুন",
+    "collapseAll": "সব সংকুচিত করুন",
+    "placeholder": "JSON পেস্ট করুন এবং \"JSON যাচাই করুন\" ক্লিক করুন",
+    "labels": {
+      "object": "অবজেক্ট",
+      "array": "অ্যারে"
+    }
+  }
+}

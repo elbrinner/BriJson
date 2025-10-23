@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "title": "Éditeur JSON en ligne gratuit - BriJson | Visionneuse et validateur JSON sans publicité",
+    "description": "Éditeur JSON en ligne gratuit et sans publicité. Affichez, validez, formatez et éditez des JSON de manière interactive. Outil gratuit pour les développeurs, sans suivi.",
+    "ogTitle": "Éditeur JSON en ligne gratuit - BriJson | Sans publicité",
+    "ogDescription": "Éditeur JSON en ligne gratuit et sans publicité. Affichez, validez et éditez des JSON de manière interactive. 100% gratuit pour les développeurs.",
+    "twitterTitle": "Éditeur JSON en ligne gratuit - BriJson",
+    "twitterDescription": "Visionneuse et éditeur JSON sans publicité. Outil gratuit pour les développeurs."
+  },
+  "header": {
+    "title": "BriJson - Éditeur JSON en ligne gratuit",
+    "subtitle": "Éditeur JSON en ligne gratuit et sans publicité. Affichez, validez, formatez et éditez vos fichiers JSON de manière interactive. 100% gratuit pour les développeurs."
+  },
+  "editor": {
+    "title": "Éditeur JSON",
+    "placeholder": "Collez votre JSON ici...\n\nExemple:\n{\n  \"nom\": \"Jean\",\n  \"âge\": 30,\n  \"actif\": true\n}"
+  },
+  "buttons": {
+    "loadFile": "Charger un fichier",
+    "copyJson": "Copier JSON",
+    "clear": "Effacer",
+    "copy": { "title": "Copier le JSON dans le presse-papiers" }
+  },
+  "search": { "placeholder": "Rechercher dans le JSON..." },
+  "actions": {
+    "validate": "Valider le JSON",
+    "format": "Formater",
+    "minify": "Minifier"
+  },
+  
+  "stats": {
+    "title": "Statistiques",
+    "keys": "Clés",
+    "arrays": "Tableaux",
+    "objects": "Objets",
+    "primitives": "Primitifs",
+    "size": "Taille",
+    "depth": "Profondeur"
+  },
+  "footer": {
+    "title": "Éditeur JSON en ligne gratuit - BriJson",
+    "subtitle": "Visionneuse, validateur et éditeur JSON sans publicité",
+    "tagline": "Éditeur JSON en ligne 100% gratuit | Sans publicité | Sans suivi"
+  },
+  "language": { "label": "Langue" },
+  "confirm": {
+    "clear": "Voulez-vous vraiment effacer l'éditeur ?",
+    "delete": "Voulez-vous vraiment supprimer \"{name}\" ?"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "add": "Ajouter",
+    "rename": "Renommer"
+  },
+  "types": {
+    "string": "Chaîne",
+    "number": "Nombre",
+    "boolean": "Booléen",
+    "null": "Null",
+    "object": "Objet",
+    "array": "Tableau"
+  },
+  "context": {
+    "editValue": "Modifier la valeur",
+    "editName": "Modifier le nom",
+    "addProperty": "Ajouter une propriété",
+    "delete": "Supprimer",
+    "copyPath": "Copier le chemin",
+    "copyValue": "Copier la valeur"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "Modifier \"{key}\"",
+      "propertyTitle": "Modifier la propriété",
+      "valueTitle": "Modifier la valeur",
+      "containerTitle": "Modifier {type}"
+    },
+    "rename": { "title": "Renommer la propriété" },
+    "add": {
+      "propertyTitle": "Ajouter une propriété",
+      "arrayItemTitle": "Ajouter un élément au tableau"
+    },
+    "labels": {
+      "currentValue": "Valeur actuelle :",
+      "propertyName": "Nom de la propriété :",
+      "value": "Valeur :",
+      "jsonText": "JSON (texte) :",
+      "currentName": "Nom actuel :",
+      "newName": "Nouveau nom :"
+    },
+    "placeholders": {
+      "newValue": "Saisissez la nouvelle valeur",
+      "propertyKey": "nom_propriete",
+      "newPropertyName": "nouveau_nom",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "Supprimer la propriété" },
+    "error": {
+      "property_name_empty": "Le nom de la propriété ne peut pas être vide",
+      "parse_value": "Erreur d'analyse de la valeur : {message}",
+      "process_data": "Erreur de traitement des données : {message}",
+      "property_required": "Le nom de la propriété est requis",
+      "number_invalid": "Valeur numérique invalide",
+      "boolean_invalid": "La valeur booléenne doit être \"true\" ou \"false\""
+    }
+  },
+  "notify": {
+    "format": { "ok": "JSON formaté", "error": "Erreur lors du formatage du JSON" },
+    "minify": { "ok": "JSON minifié", "error": "Erreur lors de la minification du JSON" },
+    "editor": { "empty": "L'éditeur est vide", "cleared": "Éditeur effacé" },
+    "json": { "valid": "JSON valide" },
+    "copy": {
+      "empty": "Aucun JSON à copier",
+      "ok": "JSON copié dans le presse-papiers",
+      "error": "Erreur de copie : {message}",
+      "path": "Chemin copié dans le presse-papiers",
+      "value": "Valeur copiée dans le presse-papiers"
+    },
+    "file": {
+      "onlyJson": "Seuls les fichiers JSON sont autorisés",
+      "loaded": "Fichier \"{name}\" chargé avec succès",
+      "parseError": "Erreur d'analyse du JSON : {message}"
+    },
+    "expand": { "all": "Tous les nœuds développés" },
+    "collapse": { "all": "Tous les nœuds réduits" },
+    "fullscreen": { "enter": "Mode plein écran activé pour l'arbre", "exit": "Mode normal rétabli" },
+    "rename": {
+      "onlyProperties": "Seules les propriétés peuvent être renommées, pas les éléments de tableau",
+      "ok": "Propriété renommée de \"{old}\" à \"{name}\"",
+      "error": "Erreur de renommage : {message}"
+    },
+    "node": {
+      "deleted": "Nœud supprimé avec succès",
+      "deleteError": "Erreur lors de la suppression du nœud : {message}",
+      "updated": "Nœud mis à jour avec succès",
+      "updateError": "Erreur lors de la mise à jour du nœud : {message}",
+      "added": "Nœud ajouté avec succès",
+      "addError": "Erreur lors de l'ajout du nœud : {message}"
+    }
+  },
+  "tree": {
+    "title": "Vue en arborescence",
+    "fullscreen": { "title": "Plein écran" },
+    "expandAll": "Tout développer",
+    "collapseAll": "Tout réduire",
+    "placeholder": "Collez votre JSON et cliquez sur \"Valider le JSON\" pour voir l'arbre",
+    "labels": {
+      "object": "Objet",
+      "array": "Tableau"
+    }
+  }
+}

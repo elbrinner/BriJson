@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "title": "محرر JSON مجاني عبر الإنترنت - BriJson | عارض ومُحقق JSON بدون إعلانات",
+    "description": "محرر JSON مجاني عبر الإنترنت بدون إعلانات. اعرض وتحقق ونسّق وعدّل JSON بشكل تفاعلي. أداة مجانية للمطورين بدون تتبع.",
+    "ogTitle": "محرر JSON مجاني عبر الإنترنت - BriJson | بدون إعلانات",
+    "ogDescription": "محرر JSON مجاني عبر الإنترنت بدون إعلانات. اعرض وتحقق وعدّل JSON بشكل تفاعلي. 100% مجانًا للمطورين.",
+    "twitterTitle": "محرر JSON مجاني عبر الإنترنت - BriJson",
+    "twitterDescription": "عارض ومحرر JSON بدون إعلانات. أداة مجانية للمطورين."
+  },
+  "header": {
+    "title": "BriJson - محرر JSON مجاني عبر الإنترنت",
+    "subtitle": "محرر JSON مجاني عبر الإنترنت بدون إعلانات. اعرض وتحقق ونسّق وعدّل ملفات JSON الخاصة بك بشكل تفاعلي. 100% مجاني للمطورين."
+  },
+  "editor": {
+    "title": "محرر JSON",
+    "placeholder": "الصق JSON هنا...\n\nمثال:\n{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"active\": true\n}"
+  },
+  "buttons": {
+    "loadFile": "تحميل ملف",
+    "copyJson": "نسخ JSON",
+    "clear": "مسح",
+    "copy": { "title": "نسخ JSON إلى الحافظة" }
+  },
+  "search": { "placeholder": "ابحث في JSON..." },
+  "actions": {
+    "validate": "تحقق من JSON",
+    "format": "تنسيق",
+    "minify": "تصغير"
+  },
+  
+  "stats": {
+    "title": "إحصائيات",
+    "keys": "المفاتيح",
+    "arrays": "المصفوفات",
+    "objects": "الكائنات",
+    "primitives": "البدائيات",
+    "size": "الحجم",
+    "depth": "العمق"
+  },
+  "footer": {
+    "title": "محرر JSON مجاني عبر الإنترنت - BriJson",
+    "subtitle": "عارض ومُحقق ومحرر JSON بدون إعلانات",
+    "tagline": "محرر JSON مجاني 100% عبر الإنترنت | بدون إعلانات | بدون تتبع"
+  },
+  "language": { "label": "اللغة" },
+  "confirm": {
+    "clear": "هل أنت متأكد أنك تريد مسح المحرر؟",
+    "delete": "هل أنت متأكد أنك تريد حذف \"{name}\"؟"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "add": "إضافة",
+    "rename": "إعادة تسمية"
+  },
+  "types": {
+    "string": "سلسلة",
+    "number": "رقم",
+    "boolean": "قيمة منطقية",
+    "null": "فارغ",
+    "object": "كائن",
+    "array": "مصفوفة"
+  },
+  "context": {
+    "editValue": "تعديل القيمة",
+    "editName": "تعديل الاسم",
+    "addProperty": "إضافة خاصية",
+    "delete": "حذف",
+    "copyPath": "نسخ المسار",
+    "copyValue": "نسخ القيمة"
+  },
+  "modal": {
+    "edit": {
+      "simpleTitle": "تعديل \"{key}\"",
+      "propertyTitle": "تعديل الخاصية",
+      "valueTitle": "تعديل القيمة",
+      "containerTitle": "تعديل {type}"
+    },
+    "rename": { "title": "إعادة تسمية الخاصية" },
+    "add": {
+      "propertyTitle": "إضافة خاصية",
+      "arrayItemTitle": "إضافة عنصر إلى المصفوفة"
+    },
+    "labels": {
+      "currentValue": "القيمة الحالية:",
+      "propertyName": "اسم الخاصية:",
+      "value": "القيمة:",
+      "jsonText": "JSON (نص):",
+      "currentName": "الاسم الحالي:",
+      "newName": "اسم جديد:"
+    },
+    "placeholders": {
+      "newValue": "أدخل القيمة الجديدة",
+      "propertyKey": "اسم_الخاصية",
+      "newPropertyName": "اسم_جديد",
+      "objectExample": "{\"key\": \"value\"}",
+      "arrayExample": "[1, 2, 3]"
+    },
+    "buttons": { "deleteProperty": "حذف الخاصية" },
+    "error": {
+      "property_name_empty": "لا يمكن أن يكون اسم الخاصية فارغًا",
+      "parse_value": "خطأ في تحليل القيمة: {message}",
+      "process_data": "خطأ في معالجة البيانات: {message}",
+      "property_required": "اسم الخاصية مطلوب",
+      "number_invalid": "قيمة رقمية غير صالحة",
+      "boolean_invalid": "يجب أن تكون القيمة المنطقية \"true\" أو \"false\""
+    }
+  },
+  "notify": {
+    "format": { "ok": "تم تنسيق JSON", "error": "خطأ أثناء تنسيق JSON" },
+    "minify": { "ok": "تم تصغير JSON", "error": "خطأ أثناء تصغير JSON" },
+    "editor": { "empty": "المحرر فارغ", "cleared": "تم مسح المحرر" },
+    "json": { "valid": "JSON صالح" },
+    "copy": {
+      "empty": "لا يوجد JSON للنسخ",
+      "ok": "تم نسخ JSON إلى الحافظة",
+      "error": "خطأ في النسخ: {message}",
+      "path": "تم نسخ المسار إلى الحافظة",
+      "value": "تم نسخ القيمة إلى الحافظة"
+    },
+    "file": {
+      "onlyJson": "يُسمح فقط بملفات JSON",
+      "loaded": "تم تحميل الملف \"{name}\" بنجاح",
+      "parseError": "خطأ في تحليل JSON: {message}"
+    },
+    "expand": { "all": "تم توسيع جميع العقد" },
+    "collapse": { "all": "تم طي جميع العقد" },
+    "fullscreen": { "enter": "تم تفعيل وضع ملء الشاشة للشجرة", "exit": "تم استعادة الوضع العادي" },
+    "rename": {
+      "onlyProperties": "يمكن إعادة تسمية الخصائص فقط، وليس عناصر المصفوفة",
+      "ok": "تمت إعادة تسمية الخاصية من \"{old}\" إلى \"{name}\"",
+      "error": "خطأ في إعادة التسمية: {message}"
+    },
+    "node": {
+      "deleted": "تم حذف العقدة بنجاح",
+      "deleteError": "خطأ أثناء حذف العقدة: {message}",
+      "updated": "تم تحديث العقدة بنجاح",
+      "updateError": "خطأ أثناء تحديث العقدة: {message}",
+      "added": "تمت إضافة العقدة بنجاح",
+      "addError": "خطأ أثناء إضافة العقدة: {message}"
+    }
+  },
+  "tree": {
+    "title": "عرض شجري",
+    "fullscreen": { "title": "ملء الشاشة" },
+    "expandAll": "توسيع الكل",
+    "collapseAll": "طي الكل",
+    "placeholder": "الصق JSON واضغط \"تحقق من JSON\" لرؤية الشجرة",
+    "labels": {
+      "object": "كائن",
+      "array": "مصفوفة"
+    }
+  }
+}

@@ -72,16 +72,20 @@
       // Autodetección solo si no hay preferencia almacenada
       const nav = (typeof navigator !== 'undefined' && (navigator.language || (navigator.languages && navigator.languages[0]))) || '';
       this.lang = normalize(stored || nav || DEFAULT_LANG);
-      await this.load(this.lang);
+      // Persistir solo si no hay preferencia previa (primera vez)
+      await this.load(this.lang, { persist: !stored });
       this._setupSelector();
       this.apply();
     }
 
-    async load(lang){
+    async load(lang, opts){
+      const { persist = false } = opts || {};
       this.lang = normalize(lang);
       setLangAttributes(this.lang);
       this.dict = await fetchLocale(this.lang);
-      localStorage.setItem('i18n.lang', this.lang);
+      if (persist) {
+        localStorage.setItem('i18n.lang', this.lang);
+      }
     }
 
     t(key, params){
@@ -142,7 +146,8 @@
     }
 
     async setLanguage(lang){
-      await this.load(lang);
+      // Cambios del usuario: persistir siempre
+      await this.load(lang, { persist: true });
       this.apply();
       this._updateSelectorValue();
     }

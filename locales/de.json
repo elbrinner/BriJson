@@ -153,4 +153,33 @@
     "tagline": "100% kostenloser Online-JSON-Editor | Keine Werbung | Kein Tracking"
   },
   "language": { "label": "Sprache" }
+,
+  "content": {
+    "hero": {
+      "title": "Kostenloser Online-JSON-Editor – Ohne Werbung",
+      "p1": "<strong>BriJson</strong> ist ein <strong>kostenloser Online‑JSON‑Editor</strong> für Entwickler, die ein schnelles, effizientes Tool <strong>ohne aufdringliche Werbung</strong> benötigen. Im Gegensatz zu anderen JSON‑Viewern voller Anzeigen bietet BriJson ein aufgeräumtes und professionelles Erlebnis."
+    },
+    "why": {
+      "title": "Warum unseren kostenlosen Online‑JSON‑Editor wählen?",
+      "li1": "<strong>100% Kostenlos:</strong> Alle Funktionen ohne Kosten verfügbar",
+      "li2": "<strong>Keine Werbung:</strong> Arbeiten Sie ohne Ablenkungen und lästige Banner",
+      "li3": "<strong>Kein Tracking:</strong> Ihre Privatsphäre ist wichtig, wir verfolgen Ihre Daten nicht",
+      "li4": "<strong>JSON‑Validator in Echtzeit:</strong> Erkennt Syntaxfehler sofort",
+      "li5": "<strong>JSON formatieren und minimieren:</strong> Optimieren Sie Ihre Dateien mit einem Klick",
+      "li6": "<strong>Baumansicht:</strong> Komplexe JSONs visuell erkunden",
+      "li7": "<strong>Interaktive Bearbeitung:</strong> Werte ändern, Eigenschaften hinzufügen und löschen",
+      "li8": "<strong>Integrierte Suche:</strong> Schlüssel und Werte schnell finden"
+    },
+    "features": {
+      "title": "Funktionen des Online‑JSON‑Editors",
+      "p1": "Unser <strong>kostenloser Online‑JSON‑Editor</strong> enthält alle Werkzeuge, die Sie für die Arbeit mit JSON‑Dateien benötigen: Syntaxvalidierung, automatische Formatierung, Minimierung, hierarchische Baumansicht, interaktive Knotenbearbeitung, Inhaltssuche, Dateistatistiken und vieles mehr. Das alles <strong>ohne Werbung und komplett kostenlos</strong>."
+    },
+    "devtool": {
+      "title": "JSON‑Tool für Entwickler",
+      "p1": "Perfekt für Entwickler, Programmierer, API‑Designer und alle, die mit JSON‑Daten arbeiten. Unterstützt JSON‑Dateien jeder Größe, mit Syntax‑Highlighting, automatischer Erster‑Ebene‑Erweiterung und einer intuitiven Oberfläche, die Ihren Workflow beschleunigt."
+    },
+    "tip": {
+      "html": "<strong>💡 Tipp:</strong> Nutzen Sie <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd>, um Ihr JSON direkt in den Editor einzufügen und sofort loszulegen. Keine Registrierung, keine Downloads, keine Werbung."
+    }
+  }
 }

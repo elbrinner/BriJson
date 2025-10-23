@@ -19,7 +19,8 @@
     "loadFile": "Carregar arquivo",
     "copyJson": "Copiar JSON",
     "clear": "Limpar",
-    "copy": { "title": "Copiar JSON para a área de transferência" }
+    "copy": { "title": "Copiar JSON para a área de transferência" },
+    "copied": "Copiado!"
   },
   "search": { "placeholder": "Pesquisar no JSON..." },
   "actions": {
@@ -30,6 +31,7 @@
   
   "stats": {
     "title": "Estatísticas",
+    "lines": "Linhas",
     "keys": "Chaves",
     "arrays": "Arrays",
     "objects": "Objetos",
@@ -150,6 +152,34 @@
     "labels": {
       "object": "Objeto",
       "array": "Array"
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Editor JSON Online Gratuito - Sem Anúncios",
+      "p1": "<strong>BriJson</strong> é um <strong>editor JSON online gratuito</strong> feito para desenvolvedores que precisam de uma ferramenta rápida e eficiente, <strong>sem publicidade invasiva</strong>. Ao contrário de outros visualizadores JSON cheios de anúncios, o BriJson oferece uma experiência limpa e profissional."
+    },
+    "why": {
+      "title": "Por que escolher nosso editor JSON online gratuito?",
+      "li1": "<strong>100% Gratuito:</strong> Todos os recursos disponíveis sem custo",
+      "li2": "<strong>Sem anúncios:</strong> Trabalhe sem distrações nem banners irritantes",
+      "li3": "<strong>Sem rastreamento:</strong> Sua privacidade importa, não rastreamos seus dados",
+      "li4": "<strong>Validador JSON em tempo real:</strong> Detecta erros de sintaxe instantaneamente",
+      "li5": "<strong>Formatar e minificar JSON:</strong> Otimize seus arquivos com um clique",
+      "li6": "<strong>Visualizador em árvore:</strong> Explore JSONs complexos de forma visual",
+      "li7": "<strong>Edição interativa:</strong> Modifique valores, adicione e exclua propriedades",
+      "li8": "<strong>Pesquisa integrada:</strong> Encontre chaves e valores rapidamente"
+    },
+    "features": {
+      "title": "Recursos do Editor JSON Online",
+      "p1": "Nosso <strong>editor JSON online gratuito</strong> inclui todas as ferramentas de que você precisa para trabalhar com arquivos JSON: validação de sintaxe, formatação automática, minificação, visualização em árvore hierárquica, edição interativa de nós, busca de conteúdo, estatísticas do arquivo e muito mais. Tudo isso <strong>sem anúncios e completamente grátis</strong>."
+    },
+    "devtool": {
+      "title": "Ferramenta JSON para Desenvolvedores",
+      "p1": "Perfeita para desenvolvedores, programadores, designers de APIs e qualquer pessoa que trabalhe com dados JSON. Suporta arquivos JSON de qualquer tamanho, com realce de sintaxe, expansão automática do primeiro nível e uma interface intuitiva que acelera seu fluxo de trabalho."
+    },
+    "tip": {
+      "html": "<strong>💡 Dica:</strong> Use <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> para colar seu JSON diretamente no editor e começar a trabalhar imediatamente. Sem cadastro, sem downloads, sem anúncios."
     }
   }
 }

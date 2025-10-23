@@ -19,7 +19,8 @@
     "loadFile": "加载文件",
     "copyJson": "复制 JSON",
     "clear": "清空",
-    "copy": { "title": "复制 JSON 到剪贴板" }
+    "copy": { "title": "复制 JSON 到剪贴板" },
+    "copied": "已复制！"
   },
   "search": { "placeholder": "在 JSON 中搜索..." },
   "actions": {
@@ -30,6 +31,7 @@
   
   "stats": {
     "title": "统计",
+    "lines": "行数",
     "keys": "键",
     "arrays": "数组",
     "objects": "对象",
@@ -150,6 +152,34 @@
     "labels": {
       "object": "对象",
       "array": "数组"
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "免费在线 JSON 编辑器——无广告",
+      "p1": "<strong>BriJson</strong> 是一款面向开发者的<strong>免费在线 JSON 编辑器</strong>，提供<strong>无干扰广告</strong>的快速高效体验。不同于被广告充斥的其他 JSON 查看器，BriJson 为你带来简洁、专业的使用感受。"
+    },
+    "why": {
+      "title": "为什么选择我们的免费在线 JSON 编辑器？",
+      "li1": "<strong>100% 免费：</strong> 所有功能均可免费使用",
+      "li2": "<strong>无广告：</strong> 专注工作，无横幅打扰",
+      "li3": "<strong>不追踪：</strong> 重视你的隐私，我们不追踪你的数据",
+      "li4": "<strong>实时 JSON 校验：</strong> 立刻发现语法错误",
+      "li5": "<strong>JSON 格式化与压缩：</strong> 一键优化你的文件",
+      "li6": "<strong>树形查看：</strong> 直观浏览复杂 JSON",
+      "li7": "<strong>交互式编辑：</strong> 修改值、添加与删除属性",
+      "li8": "<strong>内置搜索：</strong> 快速定位键与值"
+    },
+    "features": {
+      "title": "在线 JSON 编辑器功能",
+      "p1": "我们的<strong>免费在线 JSON 编辑器</strong>提供处理 JSON 文件所需的一切：语法校验、自动格式化、压缩、分级树形视图、交互式节点编辑、内容搜索、文件统计等。以上功能<strong>无广告且完全免费</strong>。"
+    },
+    "devtool": {
+      "title": "面向开发者的 JSON 工具",
+      "p1": "适合开发者、程序员、API 设计者以及任何处理 JSON 数据的人。支持任意大小的 JSON 文件，具备语法高亮、首层自动展开，以及直观的界面，加速你的工作流。"
+    },
+    "tip": {
+      "html": "<strong>💡 提示：</strong> 使用 <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> 可直接将 JSON 粘贴到编辑器，立即开始工作。无需注册、无需下载、无广告。"
     }
   }
 }

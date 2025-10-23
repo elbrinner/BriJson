@@ -155,5 +155,33 @@
       "object": "Object",
       "array": "Array"
     }
+  },
+  "content": {
+    "hero": {
+      "title": "Free Online JSON Editor - No Ads",
+      "p1": "<strong>BriJson</strong> is a <strong>free online JSON editor</strong> designed for developers who need a fast, efficient tool with <strong>no intrusive advertising</strong>. Unlike other JSON viewers cluttered with ads, BriJson offers you a clean and professional experience."
+    },
+    "why": {
+      "title": "Why choose our free online JSON editor?",
+      "li1": "<strong>100% Free:</strong> All features available at no cost",
+      "li2": "<strong>No ads:</strong> Work without distractions or annoying banners",
+      "li3": "<strong>No tracking:</strong> Your privacy matters, we don’t track your data",
+      "li4": "<strong>Real-time JSON validator:</strong> Detects syntax errors instantly",
+      "li5": "<strong>Format and minify JSON:</strong> Optimize your files with a single click",
+      "li6": "<strong>Tree viewer:</strong> Explore complex JSON visually",
+      "li7": "<strong>Interactive editing:</strong> Modify values, add and delete properties",
+      "li8": "<strong>Integrated search:</strong> Find keys and values quickly"
+    },
+    "features": {
+      "title": "Features of the Online JSON Editor",
+      "p1": "Our <strong>free online JSON editor</strong> includes all the tools you need to work with JSON files: syntax validation, auto formatting, minification, hierarchical tree view, interactive node editing, content search, file statistics and much more. All of this <strong>without ads and completely free</strong>."
+    },
+    "devtool": {
+      "title": "JSON Tool for Developers",
+      "p1": "Perfect for developers, programmers, API designers and anyone working with JSON data. Supports JSON files of any size, with syntax highlighting, automatic first-level expansion, and an intuitive interface that speeds up your workflow."
+    },
+    "tip": {
+      "html": "<strong>💡 Tip:</strong> Use <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> to paste your JSON directly into the editor and start working right away. No signup, no downloads, no ads."
+    }
   }
 }

@@ -19,7 +19,8 @@
     "loadFile": "Charger un fichier",
     "copyJson": "Copier JSON",
     "clear": "Effacer",
-    "copy": { "title": "Copier le JSON dans le presse-papiers" }
+    "copy": { "title": "Copier le JSON dans le presse-papiers" },
+    "copied": "Copié !"
   },
   "search": { "placeholder": "Rechercher dans le JSON..." },
   "actions": {
@@ -30,6 +31,7 @@
   
   "stats": {
     "title": "Statistiques",
+    "lines": "Lignes",
     "keys": "Clés",
     "arrays": "Tableaux",
     "objects": "Objets",
@@ -150,6 +152,34 @@
     "labels": {
       "object": "Objet",
       "array": "Tableau"
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Éditeur JSON en ligne gratuit - Sans publicité",
+      "p1": "<strong>BriJson</strong> est un <strong>éditeur JSON en ligne gratuit</strong> destiné aux développeurs qui ont besoin d’un outil rapide et efficace, <strong>sans publicité intrusive</strong>. Contrairement à d’autres visionneuses JSON encombrées de publicités, BriJson vous offre une expérience claire et professionnelle."
+    },
+    "why": {
+      "title": "Pourquoi choisir notre éditeur JSON en ligne gratuit ?",
+      "li1": "<strong>100% Gratuit :</strong> Toutes les fonctionnalités disponibles sans coût",
+      "li2": "<strong>Sans publicité :</strong> Travaillez sans distractions ni bannières gênantes",
+      "li3": "<strong>Sans suivi :</strong> Votre vie privée compte, nous ne traquons pas vos données",
+      "li4": "<strong>Validateur JSON en temps réel :</strong> Détecte instantanément les erreurs de syntaxe",
+      "li5": "<strong>Formater et minifier le JSON :</strong> Optimisez vos fichiers en un clic",
+      "li6": "<strong>Visionneuse en arbre :</strong> Explorez visuellement des JSON complexes",
+      "li7": "<strong>Édition interactive :</strong> Modifiez des valeurs, ajoutez et supprimez des propriétés",
+      "li8": "<strong>Recherche intégrée :</strong> Trouvez rapidement clés et valeurs"
+    },
+    "features": {
+      "title": "Fonctionnalités de l’éditeur JSON en ligne",
+      "p1": "Notre <strong>éditeur JSON en ligne gratuit</strong> inclut tous les outils nécessaires pour travailler avec des fichiers JSON : validation de syntaxe, formatage automatique, minification, vue arborescente hiérarchique, édition interactive des nœuds, recherche de contenu, statistiques du fichier et bien plus encore. Tout cela <strong>sans publicité et entièrement gratuit</strong>."
+    },
+    "devtool": {
+      "title": "Outil JSON pour développeurs",
+      "p1": "Parfait pour les développeurs, programmeurs, concepteurs d’API et toute personne travaillant avec des données JSON. Prend en charge des fichiers JSON de toute taille, avec surlignage de syntaxe, expansion automatique du premier niveau et une interface intuitive qui accélère votre flux de travail."
+    },
+    "tip": {
+      "html": "<strong>💡 Astuce :</strong> Utilisez <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> pour coller votre JSON directement dans l’éditeur et commencer à travailler immédiatement. Pas d’inscription, pas de téléchargement, pas de publicité."
     }
   }
 }

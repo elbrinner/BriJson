@@ -8,6 +8,9 @@ class Core {
     modalManager = null;
     currentJson = null;
     searchTimeout = null;
+    // Control de ruido para errores de validación (evitar spam mientras el usuario escribe)
+    _lastValidationErrorMsg = '';
+    _lastValidationErrorAt = 0;
 
     constructor() {
         this._init();
@@ -62,7 +65,7 @@ class Core {
         // Botones de acción
         this.formatBtn?.addEventListener('click', () => this._formatJson());
         this.minifyBtn?.addEventListener('click', () => this._minifyJson());
-        this.validateBtn?.addEventListener('click', () => this._validateJson());
+    this.validateBtn?.addEventListener('click', () => this._validateJson());
         this.clearBtn?.addEventListener('click', () => this._clearEditor());
         this.copyJsonBtn?.addEventListener('click', () => this._copyJsonToClipboard());
 
@@ -224,8 +227,8 @@ class Core {
             const parsed = JSON.parse(jsonText);
             this._setJsonData(parsed, false); // No actualizar editor para evitar bucles
         } catch (error) {
-            // JSON inválido, mostrar error pero no actualizar árbol
-            this._showValidationError(error.message);
+            // JSON inválido, mostrar error pero no actualizar árbol (sin mover el cursor mientras escribe)
+            this._showValidationError(error.message, { focus: false });
         }
     }
 
@@ -832,7 +835,8 @@ class Core {
             JSON.parse(jsonText);
             this._showNotification((globalThis.I18n && I18n.t('notify.json.valid')) || 'Valid JSON', 'success');
         } catch (error) {
-            this._showValidationError(error.message);
+            // Cuando el usuario pulsa "Validar JSON" mostramos detalles y movemos el cursor
+            this._showValidationError(error.message, { focus: true });
         }
     }
 
@@ -1239,13 +1243,88 @@ class Core {
      * Muestra error de validación
      * @private
      */
-    _showValidationError(message) {
+    _showValidationError(message, options) {
         const editor = this.editor;
         if (!editor) return;
 
         editor.classList.add('json-error');
-        // Podríamos mostrar un tooltip o mensaje de error aquí
-        console.error('JSON validation error:', message);
+        const now = Date.now();
+        const minInterval = 1500; // ms
+
+        // Intentar extraer posición (línea/columna/offset)
+        const text = editor.value || '';
+        const posInfo = this._extractJsonErrorPosition(message, text);
+
+        // Construir mensaje con i18n si existe clave específica
+        let msg = '';
+        if (posInfo && globalThis.I18n !== undefined && typeof I18n.t === 'function') {
+            const t = I18n.t('notify.json.invalidAt', { message, line: posInfo.line, column: posInfo.column });
+            msg = t && t !== 'notify.json.invalidAt' ? t : '';
+        }
+        if (!msg) {
+            if (posInfo) {
+                msg = `Invalid JSON (line ${posInfo.line}, column ${posInfo.column}): ${message}`;
+            } else {
+                const t2 = (globalThis.I18n && typeof I18n.t === 'function') ? I18n.t('notify.json.invalid', { message }) : null;
+                msg = (t2 && t2 !== 'notify.json.invalid') ? t2 : `Invalid JSON: ${message}`;
+            }
+        }
+
+        // Evitar spam: solo mostrar si cambió el mensaje o pasó el intervalo mínimo
+        if (msg !== this._lastValidationErrorMsg || (now - this._lastValidationErrorAt) > minInterval) {
+            this._showNotification(msg, 'error');
+            this._lastValidationErrorMsg = msg;
+            this._lastValidationErrorAt = now;
+        }
+
+        // Solo mover el cursor cuando la validación se solicitó explícitamente
+    const shouldFocus = !!(options?.focus);
+        if (shouldFocus && posInfo && Number.isFinite(posInfo.position)) {
+            const p = Math.min(Math.max(posInfo.position, 0), text.length);
+            try {
+                editor.focus();
+                editor.setSelectionRange(p, p);
+            } catch {}
+        }
+    }
+
+    /**
+     * Extrae posición de error desde el mensaje del parser y el texto original
+     * @param {string} message
+     * @param {string} text
+     * @returns {{ position:number, line:number, column:number }|null}
+     */
+    _extractJsonErrorPosition(message, text) {
+        if (!message) return null;
+        // 1) Si ya viene con "line X column Y"
+        const lc = /line\s+(\d+)\s+column\s+(\d+)/i.exec(message);
+        if (lc) {
+            // Algunas implementaciones no dan el offset; podemos calcular aproximado con búsqueda por líneas
+            const line = Number.parseInt(lc[1], 10) || 1;
+            const column = Number.parseInt(lc[2], 10) || 1;
+            let position = 0;
+            const lines = text.split('\n');
+            for (let i = 0; i < Math.max(0, line - 1) && i < lines.length; i++) position += lines[i].length + 1; // +1 por el \n
+            position += Math.max(0, column - 1);
+            return { position, line, column };
+        }
+        // 2) Buscar "position N"
+        const posMatch = /position\s+(\d+)/i.exec(message);
+        if (posMatch) {
+            const position = Number.parseInt(posMatch[1], 10) || 0;
+            // Calcular línea/columna a partir del offset (0-based)
+            const safePos = Math.min(Math.max(position, 0), text.length);
+            let line = 1, col = 1;
+            for (let i = 0, c = 1; i < safePos; i++) {
+                if (text.codePointAt(i) === 10) { // \n
+                    line++; c = 1; col = 1;
+                } else {
+                    c++; col = c;
+                }
+            }
+            return { position: safePos, line, column: col };
+        }
+        return null;
     }
 
     /**

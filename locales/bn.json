@@ -113,7 +113,7 @@
     "format": { "ok": "JSON ফরম্যাট করা হয়েছে", "error": "JSON ফরম্যাট করতে ত্রুটি" },
     "minify": { "ok": "JSON মিনিফাই করা হয়েছে", "error": "JSON মিনিফাই করতে ত্রুটি" },
     "editor": { "empty": "এডিটর খালি", "cleared": "এডিটর সাফ করা হয়েছে" },
-    "json": { "valid": "বৈধ JSON" },
+  "json": { "valid": "বৈধ JSON", "invalid": "অবৈধ JSON: {message}", "invalidAt": "অবৈধ JSON (লাইন {line}, কলাম {column}): {message}" },
     "copy": {
       "empty": "কপি করার জন্য কোনো JSON নেই",
       "ok": "JSON ক্লিপবোর্ডে কপি করা হয়েছে",

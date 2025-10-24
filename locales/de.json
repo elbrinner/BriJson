@@ -96,7 +96,7 @@
     "format": { "ok": "JSON formatiert", "error": "Fehler beim Formatieren von JSON" },
     "minify": { "ok": "JSON minimiert", "error": "Fehler beim Minimieren von JSON" },
     "editor": { "empty": "Editor ist leer", "cleared": "Editor geleert" },
-    "json": { "valid": "Gültiges JSON" },
+    "json": { "valid": "Gültiges JSON", "invalid": "Ungültiges JSON: {message}", "invalidAt": "Ungültiges JSON (Zeile {line}, Spalte {column}): {message}" },
     "copy": {
       "empty": "Kein JSON zum Kopieren",
       "ok": "JSON in die Zwischenablage kopiert",

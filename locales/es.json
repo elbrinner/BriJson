@@ -67,7 +67,7 @@
     "format": { "ok": "JSON formateado", "error": "Error al formatear JSON" },
     "minify": { "ok": "JSON minificado", "error": "Error al minificar JSON" },
     "editor": { "empty": "El editor está vacío", "cleared": "Editor limpiado" },
-    "json": { "valid": "JSON válido" },
+  "json": { "valid": "JSON válido", "invalid": "JSON inválido: {message}", "invalidAt": "JSON inválido (línea {line}, columna {column}): {message}" },
     "copy": { "empty": "No hay JSON para copiar", "ok": "JSON copiado al portapapeles", "error": "Error al copiar: {message}", "path": "Ruta copiada al portapapeles", "value": "Valor copiado al portapapeles" },
     "file": {
       "onlyJson": "Solo se permiten archivos JSON",

@@ -113,7 +113,7 @@
     "format": { "ok": "JSON फ़ॉर्मैट किया गया", "error": "JSON फ़ॉर्मैट करते समय त्रुटि" },
     "minify": { "ok": "JSON मिनिफ़ाई किया गया", "error": "JSON मिनिफ़ाई करते समय त्रुटि" },
     "editor": { "empty": "संपादक खाली है", "cleared": "संपादक साफ़ किया गया" },
-    "json": { "valid": "मान्य JSON" },
+  "json": { "valid": "मान्य JSON", "invalid": "अमान्य JSON: {message}", "invalidAt": "अमान्य JSON (पंक्ति {line}, स्तंभ {column}): {message}" },
     "copy": {
       "empty": "कॉपी करने के लिए कोई JSON नहीं",
       "ok": "JSON क्लिपबोर्ड पर कॉपी किया गया",

@@ -83,7 +83,7 @@
     "format": { "ok": "JSON فارمیٹ کر دیا گیا", "error": "JSON فارمیٹ کرنے میں خرابی" },
     "minify": { "ok": "JSON کم کر دیا گیا", "error": "JSON کم کرنے میں خرابی" },
     "editor": { "empty": "ایڈیٹر خالی ہے", "cleared": "ایڈیٹر صاف کر دیا گیا" },
-    "json": { "valid": "درست JSON" },
+  "json": { "valid": "درست JSON", "invalid": "غیر موزوں JSON: {message}", "invalidAt": "غیر موزوں JSON (سطر {line}، کالم {column}): {message}" },
     "copy": {
       "empty": "کاپی کرنے کے لیے کوئی JSON نہیں",
       "ok": "JSON کلپ بورڈ پر کاپی کر دیا گیا",

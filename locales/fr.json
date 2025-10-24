@@ -124,7 +124,7 @@
     "format": { "ok": "JSON formaté", "error": "Erreur lors du formatage du JSON" },
     "minify": { "ok": "JSON minifié", "error": "Erreur lors de la minification du JSON" },
     "editor": { "empty": "L'éditeur est vide", "cleared": "Éditeur effacé" },
-    "json": { "valid": "JSON valide" },
+  "json": { "valid": "JSON valide", "invalid": "JSON invalide : {message}", "invalidAt": "JSON invalide (ligne {line}, colonne {column}) : {message}" },
     "copy": {
       "empty": "Aucun JSON à copier",
       "ok": "JSON copié dans le presse-papiers",

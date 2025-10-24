@@ -126,7 +126,7 @@
     "format": { "ok": "JSON formatted", "error": "Error formatting JSON" },
     "minify": { "ok": "JSON minified", "error": "Error minifying JSON" },
     "editor": { "empty": "Editor is empty", "cleared": "Editor cleared" },
-    "json": { "valid": "Valid JSON" },
+  "json": { "valid": "Valid JSON", "invalid": "Invalid JSON: {message}", "invalidAt": "Invalid JSON (line {line}, column {column}): {message}" },
     "copy": { "empty": "No JSON to copy", "ok": "JSON copied to clipboard", "error": "Copy error: {message}", "path": "Path copied to clipboard", "value": "Value copied to clipboard" },
     "file": {
       "onlyJson": "Only JSON files are allowed",

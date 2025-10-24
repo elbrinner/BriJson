@@ -113,7 +113,7 @@
     "format": { "ok": "JSON formatado", "error": "Erro ao formatar o JSON" },
     "minify": { "ok": "JSON minificado", "error": "Erro ao minificar o JSON" },
     "editor": { "empty": "O editor está vazio", "cleared": "Editor limpo" },
-    "json": { "valid": "JSON válido" },
+  "json": { "valid": "JSON válido", "invalid": "JSON inválido: {message}", "invalidAt": "JSON inválido (linha {line}, coluna {column}): {message}" },
     "copy": {
       "empty": "Não há JSON para copiar",
       "ok": "JSON copiado para a área de transferência",

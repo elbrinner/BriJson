@@ -113,7 +113,7 @@
     "format": { "ok": "JSON 已格式化", "error": "格式化 JSON 时出错" },
     "minify": { "ok": "JSON 已压缩", "error": "压缩 JSON 时出错" },
     "editor": { "empty": "编辑器为空", "cleared": "编辑器已清空" },
-    "json": { "valid": "有效的 JSON" },
+  "json": { "valid": "有效的 JSON", "invalid": "无效的 JSON：{message}", "invalidAt": "无效的 JSON（第 {line} 行，第 {column} 列）：{message}" },
     "copy": {
       "empty": "没有可复制的 JSON",
       "ok": "JSON 已复制到剪贴板",

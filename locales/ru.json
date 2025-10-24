@@ -113,7 +113,7 @@
     "format": { "ok": "JSON отформатирован", "error": "Ошибка форматирования JSON" },
     "minify": { "ok": "JSON минифицирован", "error": "Ошибка минификации JSON" },
     "editor": { "empty": "Редактор пуст", "cleared": "Редактор очищен" },
-    "json": { "valid": "Допустимый JSON" },
+  "json": { "valid": "Допустимый JSON", "invalid": "Недопустимый JSON: {message}", "invalidAt": "Недопустимый JSON (строка {line}, столбец {column}): {message}" },
     "copy": {
       "empty": "Нет JSON для копирования",
       "ok": "JSON скопирован в буфер обмена",

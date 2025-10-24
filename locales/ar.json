@@ -113,7 +113,7 @@
     "format": { "ok": "تم تنسيق JSON", "error": "خطأ أثناء تنسيق JSON" },
     "minify": { "ok": "تم تصغير JSON", "error": "خطأ أثناء تصغير JSON" },
     "editor": { "empty": "المحرر فارغ", "cleared": "تم مسح المحرر" },
-    "json": { "valid": "JSON صالح" },
+  "json": { "valid": "JSON صالح", "invalid": "JSON غير صالح: {message}", "invalidAt": "JSON غير صالح (السطر {line}، العمود {column}): {message}" },
     "copy": {
       "empty": "لا يوجد JSON للنسخ",
       "ok": "تم نسخ JSON إلى الحافظة",

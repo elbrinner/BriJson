@@ -47,8 +47,10 @@
   "buttons": {
     "loadFile": "Charger un fichier",
     "copyJson": "Copier JSON",
+    "downloadJson": "Télécharger JSON",
     "clear": "Effacer",
     "copy": { "title": "Copier le JSON dans le presse-papiers" },
+    "download": { "title": "Télécharger le JSON en fichier" },
     "copied": "Copié !"
   },
 

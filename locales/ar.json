@@ -18,8 +18,10 @@
   "buttons": {
     "loadFile": "تحميل ملف",
     "copyJson": "نسخ JSON",
+    "downloadJson": "تنزيل JSON",
     "clear": "مسح",
     "copy": { "title": "نسخ JSON إلى الحافظة" },
+    "download": { "title": "تنزيل JSON كملف" },
     "copied": "تم النسخ!"
   },
   "search": { "placeholder": "ابحث في JSON...", "next": { "title": "التطابق التالي (Enter/F3/Cmd+G)" } },

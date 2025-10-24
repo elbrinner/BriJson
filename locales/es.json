@@ -57,9 +57,13 @@
   "buttons": {
     "loadFile": "Cargar Archivo",
     "copyJson": "Copiar JSON",
+    "downloadJson": "Descargar JSON",
     "clear": "Limpiar",
     "copy": {
       "title": "Copiar JSON al portapapeles"
+    },
+    "download": {
+      "title": "Descargar JSON como archivo"
     },
     "copied": "¡Copiado!"
   },

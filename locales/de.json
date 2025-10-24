@@ -18,8 +18,10 @@
   "buttons": {
     "loadFile": "Datei laden",
     "copyJson": "JSON kopieren",
+    "downloadJson": "JSON herunterladen",
     "clear": "Leeren",
     "copy": { "title": "JSON in die Zwischenablage kopieren" },
+    "download": { "title": "JSON als Datei herunterladen" },
     "copied": "Kopiert!"
   },
   "search": { "placeholder": "In JSON suchen...", "next": { "title": "Nächster Treffer (Enter/F3/Cmd+G)" } },

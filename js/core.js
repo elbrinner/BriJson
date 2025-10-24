@@ -43,6 +43,7 @@ class Core {
         this.validateBtn = document.getElementById('validateBtn');
         this.clearBtn = document.getElementById('clearBtn');
         this.copyJsonBtn = document.getElementById('copyJsonBtn');
+    this.downloadJsonBtn = document.getElementById('downloadJsonBtn');
         this.loadFileBtn = document.getElementById('load-file-btn');
         this.fileInput = document.getElementById('file-input');
         this.expandAllBtn = document.getElementById('expandAllBtn');
@@ -68,6 +69,7 @@ class Core {
     this.validateBtn?.addEventListener('click', () => this._validateJson());
         this.clearBtn?.addEventListener('click', () => this._clearEditor());
         this.copyJsonBtn?.addEventListener('click', () => this._copyJsonToClipboard());
+    this.downloadJsonBtn?.addEventListener('click', () => this._downloadJson());
 
         // Carga de archivos
         this.loadFileBtn?.addEventListener('click', () => this.fileInput?.click());
@@ -131,6 +133,56 @@ class Core {
                 this._triggerNextFromShortcut();
             }
         });
+    }
+
+    /**
+     * Descarga el contenido actual del editor como archivo .json
+     * @private
+     */
+    _downloadJson() {
+        if (!this.editor || !this.downloadJsonBtn) return;
+
+        const text = (this.editor.value || '').trim();
+        if (!text) {
+            this._showNotification((globalThis.I18n && I18n.t('notify.editor.empty')) || 'Editor is empty', 'warning');
+            return;
+        }
+
+        // Si es válido, formatear bonito; si no, descargar tal cual
+        let dataToSave = text;
+        try {
+            const parsed = JSON.parse(text);
+            dataToSave = JSON.stringify(parsed, null, 2);
+        } catch { /* mantener texto crudo si no es válido */ }
+
+        const blob = new Blob([dataToSave], { type: 'application/json;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+
+        // Nombre de archivo con timestamp: brijson-YYYYMMDD-HHMMSS.json
+        const pad = (n) => String(n).padStart(2, '0');
+        const d = new Date();
+        const fileName = `brijson-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}.json`;
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            URL.revokeObjectURL(url);
+            a.remove();
+        }, 0);
+
+        // Feedback visual rápido en el botón
+        const originalHtml = this.downloadJsonBtn.innerHTML;
+        this.downloadJsonBtn.innerHTML = `<i class="fas fa-check"></i> ${ (globalThis.I18n && I18n.t('buttons.downloadJson')) || 'Download JSON' }`;
+        this.downloadJsonBtn.classList.remove('bg-emerald-500','hover:bg-emerald-600');
+        this.downloadJsonBtn.classList.add('bg-green-500','hover:bg-green-600');
+        setTimeout(() => {
+            this.downloadJsonBtn.innerHTML = originalHtml;
+            this.downloadJsonBtn.classList.remove('bg-green-500','hover:bg-green-600');
+            this.downloadJsonBtn.classList.add('bg-emerald-500','hover:bg-emerald-600');
+        }, 2000);
     }
 
     /**

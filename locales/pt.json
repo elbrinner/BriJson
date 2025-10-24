@@ -18,18 +18,24 @@
   "buttons": {
     "loadFile": "Carregar arquivo",
     "copyJson": "Copiar JSON",
+    "downloadJson": "Baixar JSON",
     "clear": "Limpar",
     "copy": { "title": "Copiar JSON para a área de transferência" },
+    "download": { "title": "Baixar JSON como arquivo" },
     "copied": "Copiado!"
   },
   "search": { "placeholder": "Pesquisar no JSON...", "next": { "title": "Próxima ocorrência (Enter/F3/Cmd+G)" } },
   "actions": {
     "validate": "Validar JSON",
     "format": "Formatar",
+    "downloadJson": "Baixar JSON",
     "minify": "Minificar"
   },
   
   "stats": {
+    "download": {
+      "title": "Baixar JSON como arquivo"
+    },
     "title": "Estatísticas",
     "lines": "Linhas",
     "keys": "Chaves",

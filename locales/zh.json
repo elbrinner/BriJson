@@ -18,8 +18,10 @@
   "buttons": {
     "loadFile": "加载文件",
     "copyJson": "复制 JSON",
+    "downloadJson": "下载 JSON",
     "clear": "清空",
     "copy": { "title": "复制 JSON 到剪贴板" },
+    "download": { "title": "将 JSON 作为文件下载" },
     "copied": "已复制！"
   },
   "search": { "placeholder": "在 JSON 中搜索...", "next": { "title": "下一个匹配项 (Enter/F3/Cmd+G)" } },

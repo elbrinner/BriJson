@@ -18,8 +18,10 @@
   "buttons": {
     "loadFile": "Загрузить файл",
     "copyJson": "Копировать JSON",
+    "downloadJson": "Скачать JSON",
     "clear": "Очистить",
     "copy": { "title": "Копировать JSON в буфер обмена" },
+    "download": { "title": "Скачать JSON как файл" },
     "copied": "Скопировано!"
   },
   "search": { "placeholder": "Поиск в JSON...", "next": { "title": "Следующее совпадение (Enter/F3/Cmd+G)" } },

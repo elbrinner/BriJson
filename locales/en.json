@@ -47,9 +47,13 @@
   "buttons": {
     "loadFile": "Load File",
     "copyJson": "Copy JSON",
+    "downloadJson": "Download JSON",
     "clear": "Clear",
     "copy": {
       "title": "Copy JSON to clipboard"
+    },
+    "download": {
+      "title": "Download JSON as file"
     },
     "copied": "Copied!"
   },

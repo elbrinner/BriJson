@@ -116,8 +116,10 @@
   "buttons": {
     "loadFile": "فائل لوڈ کریں",
     "copyJson": "JSON کاپی کریں",
+    "downloadJson": "JSON ڈاؤن لوڈ کریں",
     "clear": "صاف کریں",
     "copy": { "title": "JSON کلپ بورڈ میں کاپی کریں" },
+    "download": { "title": "JSON کو فائل کے طور پر ڈاؤن لوڈ کریں" },
     "copied": "کاپی کر دیا گیا!"
   },
   "search": { "placeholder": "JSON میں تلاش کریں...", "next": { "title": "اگلا مطابق (Enter/F3/Cmd+G)" } },

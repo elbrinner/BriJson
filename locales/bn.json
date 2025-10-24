@@ -18,8 +18,10 @@
   "buttons": {
     "loadFile": "ফাইল লোড করুন",
     "copyJson": "JSON কপি করুন",
+    "downloadJson": "JSON ডাউনলোড করুন",
     "clear": "মুছে ফেলুন",
     "copy": { "title": "ক্লিপবোর্ডে JSON কপি করুন" },
+    "download": { "title": "JSON ফাইল হিসেবে ডাউনলোড করুন" },
     "copied": "কপি করা হয়েছে!"
   },
   "search": { "placeholder": "JSON-এ অনুসন্ধান করুন...", "next": { "title": "পরবর্তী মিলে (Enter/F3/Cmd+G)" } },

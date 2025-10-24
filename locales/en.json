@@ -17,7 +17,8 @@
   },
   
   "search": {
-    "placeholder": "Search in JSON..."
+    "placeholder": "Search in JSON...",
+    "next": { "title": "Next match (Enter/F3/Cmd+G)" }
   },
   "actions": {
     "validate": "Validate JSON",
@@ -182,6 +183,51 @@
     },
     "tip": {
       "html": "<strong>💡 Tip:</strong> Use <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> to paste your JSON directly into the editor and start working right away. No signup, no downloads, no ads."
+    },
+    "edit": {
+      "title": "How to edit and add nodes and values",
+      "p1": "In the tree view you can <strong>edit values</strong>, <strong>rename properties</strong> and <strong>add/remove nodes</strong> using double-click or the <em>context menu</em>.",
+      "steps": {
+        "title": "Quick steps",
+        "li1": "Click a node in the tree to select it.",
+        "li2": "Edit a value with a <strong>double-click</strong> or choose <em>Edit value</em> from the context menu.",
+        "li3": "To add, open the context menu and choose <em>Add property</em> (for objects) or <em>Add item</em> (for arrays).",
+        "li4": "Use <em>Rename</em> to change a property name (not available for array items).",
+        "li5": "Use <em>Delete</em> to remove the selected node (with confirmation).",
+        "li6": "Save your changes with the modal <em>Save</em> button."
+      },
+      "actions": {
+        "title": "Available actions",
+        "li1": "Edit value, edit name (properties), copy path or copy value.",
+        "li2": "Add property (object) or item (array) with supported types: string, number, boolean, null, object, array.",
+        "li3": "Delete nodes with confirmation to prevent mistakes."
+      },
+      "tips": {
+        "title": "Tips",
+        "li1": "In modals, <kbd>Enter</kbd> confirms and <kbd>Esc</kbd> cancels.",
+        "li2": "The validator helps detect syntax errors before formatting or minifying.",
+        "li3": "Use <em>Copy JSON</em> to take the result to your clipboard.",
+        "li4": "Enable tree <em>Fullscreen</em> to work more comfortably with large JSON files."
+      },
+      "note": "Note: Changes are applied to the JSON in your browser memory. We don't upload files to any server. To keep your work, copy the JSON or download the file from your editor."
+    },
+    "searchGuide": {
+      "title": "How to search in JSON",
+      "p1": "The search finds <strong>matches in keys and values</strong> across the entire JSON. It's <em>case-insensitive</em> by default and traverses nested structures.",
+      "how": {
+        "title": "How it works",
+        "li1": "As you type, it searches for matches in <strong>property names</strong> and <strong>values</strong>.",
+        "li2": "If a result is inside collapsed nodes, the tree <strong>automatically expands</strong> to reveal it.",
+        "li3": "Matches are <strong>highlighted</strong> and you can navigate with the <em>Next</em> button.",
+        "li4": "Navigation is sequential; when reaching the end it wraps to the beginning."
+      },
+      "tips": {
+        "title": "Tips",
+        "li1": "Use the <em>Next</em> <i class=\"fas fa-chevron-down\"></i> button to jump between matches.",
+        "li2": "If you don't see results, check spelling or try part of the term.",
+        "li3": "Combine with <em>Expand All</em> to explore large structures."
+      },
+      "note": "Note: Search is case-insensitive by default. It searches in both keys and values, including numbers and booleans."
     }
   }
 }

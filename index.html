@@ -69,7 +69,7 @@
       ],
       "creator": {
         "@type": "Organization",
-        "name": "BriJson",
+        "name": "Elbrinner Fernandess",
         "url": "https://www.elbrinner.com"
       }
     }
@@ -106,7 +106,7 @@
                             <i class="fas fa-file-import"></i>
                             <span data-i18n="buttons.loadFile">Cargar Archivo</span>
                         </button>
-                        <button id="copyJsonBtn" class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" data-i18n-title="buttons.copy.title" title="Copiar JSON al portapapeles">
+                        <button id="copyJsonBtn" class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" data-i18n-title="buttons.copy.title" title="Copy JSON to clipboard">
                             <i class="fas fa-copy"></i>
                             <span data-i18n="buttons.copyJson">Copiar JSON</span>
                         </button>
@@ -155,10 +155,10 @@
                         <span data-i18n="tree.title">Vista de Árbol</span>
                     </h2>
                     <div class="flex gap-2">
-                        <button id="nextMatchBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-full text-sm transition flex items-center gap-2" data-i18n-title="search.next.title" title="Siguiente coincidencia">
+                        <button id="nextMatchBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-full text-sm transition flex items-center gap-2" data-i18n-title="search.next.title" title="Next match">
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <button id="fullscreenBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" data-i18n-title="tree.fullscreen.title" title="Pantalla completa">
+                        <button id="fullscreenBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2" data-i18n-title="tree.fullscreen.title" title="Fullscreen">
                             <i class="fas fa-expand"></i>
                         </button>
                         <button id="expandAllBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md text-sm transition flex items-center gap-2">
@@ -264,6 +264,73 @@
                         directamente en el editor y comenzar a trabajar de inmediato. Sin registro, sin descargas, sin publicidad.
                     </p>
                 </div>
+
+                <!-- How to edit/add nodes and values -->
+                <div class="mt-10">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3" data-i18n="content.edit.title">Cómo editar y agregar nodos y valores</h3>
+                    <p class="text-gray-600 mb-4" data-i18n-html="content.edit.p1">
+                        En la vista de árbol puedes <strong>editar valores</strong>, <strong>renombrar propiedades</strong> y 
+                        <strong>agregar/eliminar nodos</strong> usando doble clic o el <em>menú contextual</em>.
+                    </p>
+
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2" data-i18n="content.edit.steps.title">Pasos rápidos</h4>
+                    <ol class="list-decimal list-inside text-gray-600 space-y-1 mb-4">
+                        <li data-i18n-html="content.edit.steps.li1">Haz clic en un nodo del árbol para seleccionarlo.</li>
+                        <li data-i18n-html="content.edit.steps.li2">Edita un valor con <strong>doble clic</strong> o elige <em>Editar valor</em> desde el menú contextual.</li>
+                        <li data-i18n-html="content.edit.steps.li3">Para agregar, abre el menú contextual y elige <em>Agregar propiedad</em> (en objetos) o <em>Agregar elemento</em> (en arrays).</li>
+                        <li data-i18n-html="content.edit.steps.li4">Usa <em>Renombrar</em> para cambiar el nombre de una propiedad (no aplica a elementos de array).</li>
+                        <li data-i18n-html="content.edit.steps.li5">Usa <em>Eliminar</em> para borrar el nodo seleccionado (con confirmación).</li>
+                        <li data-i18n-html="content.edit.steps.li6">Guarda los cambios con el botón <em>Guardar</em> del modal.</li>
+                    </ol>
+
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2" data-i18n="content.edit.actions.title">Acciones disponibles</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                        <li data-i18n-html="content.edit.actions.li1">Editar valor, editar nombre (propiedades), copiar ruta o valor.</li>
+                        <li data-i18n-html="content.edit.actions.li2">Agregar propiedad (objeto) o elemento (array) con soporte para tipos: cadena, número, booleano, null, objeto, array.</li>
+                        <li data-i18n-html="content.edit.actions.li3">Eliminar nodos con confirmación para evitar errores.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2" data-i18n="content.edit.tips.title">Consejos</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                        <li data-i18n-html="content.edit.tips.li1">En los modales, <kbd>Enter</kbd> confirma y <kbd>Esc</kbd> cancela.</li>
+                        <li data-i18n-html="content.edit.tips.li2">El validador te ayuda a detectar errores de sintaxis antes de formatear o minificar.</li>
+                        <li data-i18n-html="content.edit.tips.li3">Usa <em>Copiar JSON</em> para llevarte el resultado al portapapeles.</li>
+                        <li data-i18n-html="content.edit.tips.li4">Activa <em>Pantalla completa</em> del árbol para trabajar más cómodo con JSON grandes.</li>
+                    </ul>
+
+                    <p class="text-gray-600" data-i18n-html="content.edit.note">
+                        Nota: Los cambios se aplican al JSON en memoria del navegador. No subimos archivos a ningún servidor.
+                        Para guardar, copia el JSON o descarga el archivo desde tu editor.
+                    </p>
+                </div>
+
+                <!-- Search guide -->
+                <div class="mt-10">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3" data-i18n="content.searchGuide.title">Cómo buscar en el JSON</h3>
+                    <p class="text-gray-600 mb-4" data-i18n-html="content.searchGuide.p1">
+                        El buscador encuentra <strong>coincidencias en claves y valores</strong> en todo el JSON. Es 
+                        <em>insensible a mayúsculas/minúsculas</em> por defecto y recorre estructuras anidadas.
+                    </p>
+
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2" data-i18n="content.searchGuide.how.title">Cómo funciona</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                        <li data-i18n-html="content.searchGuide.how.li1">Mientras escribes, se buscan coincidencias en <strong>nombres de propiedad</strong> y <strong>valores</strong>.</li>
+                        <li data-i18n-html="content.searchGuide.how.li2">Si el resultado está dentro de nodos colapsados, el árbol <strong>se expande automáticamente</strong> para mostrarlo.</li>
+                        <li data-i18n-html="content.searchGuide.how.li3">Las coincidencias se <strong>resaltan</strong> visualmente y puedes navegar con el botón <em>Siguiente</em>.</li>
+                        <li data-i18n-html="content.searchGuide.how.li4">El recorrido es secuencial; al llegar al final vuelve al inicio.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2" data-i18n="content.searchGuide.tips.title">Consejos</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                        <li data-i18n-html="content.searchGuide.tips.li1">Usa el botón <em>Siguiente</em> <i class="fas fa-chevron-down"></i> para saltar entre coincidencias.</li>
+                        <li data-i18n-html="content.searchGuide.tips.li2">Si no ves resultados, verifica la ortografía o prueba con una parte del término.</li>
+                        <li data-i18n-html="content.searchGuide.tips.li3">Puedes combinarlo con <em>Expandir todo</em> para explorar grandes estructuras.</li>
+                    </ul>
+
+                    <p class="text-gray-600" data-i18n-html="content.searchGuide.note">
+                        Nota: La búsqueda es no sensible a mayúsculas por defecto. Busca tanto en claves como en valores, incluyendo números y booleanos.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -281,7 +348,7 @@
             </div>
             <div class="text-center text-gray-400 text-sm">
                 <p>&copy; 2025 BriJson - <a href="https://www.elbrinner.com" class="text-blue-400 hover:text-blue-300">www.elbrinner.com</a></p>
-                <p class="mt-2" data-i18n="footer.tagline">Editor JSON online 100% gratuito | Sin anuncios | Sin seguimiento</p>
+                <p class="mt-2" data-i18n="footer.tagline">Editor JSON online 100% gratuito | Sin anuncios | Sin seguimiento | <a href="https://github.com/elbrinner/BriJson" class="text-blue-400 hover:text-blue-300">Open Source GitHub</a></p>
             </div>
         </div>
     </footer>

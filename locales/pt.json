@@ -22,7 +22,7 @@
     "copy": { "title": "Copiar JSON para a área de transferência" },
     "copied": "Copiado!"
   },
-  "search": { "placeholder": "Pesquisar no JSON..." },
+  "search": { "placeholder": "Pesquisar no JSON...", "next": { "title": "Próxima ocorrência (Enter/F3/Cmd+G)" } },
   "actions": {
     "validate": "Validar JSON",
     "format": "Formatar",
@@ -180,6 +180,51 @@
     },
     "tip": {
       "html": "<strong>💡 Dica:</strong> Use <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> para colar seu JSON diretamente no editor e começar a trabalhar imediatamente. Sem cadastro, sem downloads, sem anúncios."
+    },
+    "edit": {
+      "title": "Como editar e adicionar nós e valores",
+      "p1": "Na visualização em árvore você pode <strong>editar valores</strong>, <strong>renomear propriedades</strong> e <strong>adicionar/remover nós</strong> com duplo clique ou pelo <em>menu de contexto</em>.",
+      "steps": {
+        "title": "Passos rápidos",
+        "li1": "Clique em um nó da árvore para selecioná‑lo.",
+        "li2": "Edite um valor com <strong>duplo clique</strong> ou escolha <em>Editar valor</em> no menu de contexto.",
+        "li3": "Para adicionar, abra o menu de contexto e escolha <em>Adicionar propriedade</em> (em objetos) ou <em>Adicionar item</em> (em arrays).",
+        "li4": "Use <em>Renomear</em> para alterar o nome de uma propriedade (não disponível para itens de array).",
+        "li5": "Use <em>Excluir</em> para remover o nó selecionado (com confirmação).",
+        "li6": "Salve as alterações com o botão <em>Salvar</em> do modal."
+      },
+      "actions": {
+        "title": "Ações disponíveis",
+        "li1": "Editar valor, editar nome (propriedades), copiar caminho ou valor.",
+        "li2": "Adicionar propriedade (objeto) ou item (array) com tipos suportados: string, número, booleano, null, objeto, array.",
+        "li3": "Excluir nós com confirmação para evitar enganos."
+      },
+      "tips": {
+        "title": "Dicas",
+        "li1": "Nos modais, <kbd>Enter</kbd> confirma e <kbd>Esc</kbd> cancela.",
+        "li2": "O validador ajuda a detectar erros de sintaxe antes de formatar ou minificar.",
+        "li3": "Use <em>Copiar JSON</em> para levar o resultado à área de transferência.",
+        "li4": "Ative <em>Tela cheia</em> da árvore para trabalhar melhor com JSONs grandes."
+      },
+      "note": "Observação: As alterações são aplicadas ao JSON na memória do navegador. Não fazemos upload de arquivos. Para manter seu trabalho, copie o JSON ou baixe o arquivo a partir do seu editor."
+    },
+    "searchGuide": {
+      "title": "Como pesquisar no JSON",
+      "p1": "A pesquisa encontra <strong>ocorrências em chaves e valores</strong> em todo o JSON. Por padrão é <em>insensível a maiúsculas/minúsculas</em> e percorre estruturas aninhadas.",
+      "how": {
+        "title": "Como funciona",
+        "li1": "Enquanto você digita, procura por ocorrências em <strong>nomes de propriedades</strong> e <strong>valores</strong>.",
+        "li2": "Se o resultado estiver em nós recolhidos, a árvore <strong>se expande automaticamente</strong> para revelá‑lo.",
+        "li3": "As ocorrências são <strong>realçadas</strong> e você pode navegar com o botão <em>Próxima</em>.",
+        "li4": "A navegação é sequencial; ao chegar ao fim, volta ao início."
+      },
+      "tips": {
+        "title": "Dicas",
+        "li1": "Use o botão <em>Próxima</em> <i class=\"fas fa-chevron-down\"></i> para pular entre as ocorrências.",
+        "li2": "Se não aparecerem resultados, verifique a grafia ou tente parte do termo.",
+        "li3": "Combine com <em>Expandir tudo</em> para explorar estruturas grandes."
+      },
+      "note": "Observação: A pesquisa é, por padrão, insensível a maiúsculas/minúsculas. Ela busca tanto em chaves quanto em valores, incluindo números e booleanos."
     }
   }
 }

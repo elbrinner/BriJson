@@ -23,6 +23,15 @@ class TreeRenderer {
     }
 
     /**
+     * Helper de traducción con fallback
+     */
+    _t(key, params, fallback){
+        const v = (globalThis.I18n && I18n.t(key, params)) || null;
+        if (!v || v === key) return fallback || '';
+        return v;
+    }
+
+    /**
      * Inicializa el renderer
      * @private
      */
@@ -269,7 +278,8 @@ class TreeRenderer {
     _renderArrayNode(element, node) {
         const toggle = node.isExpandable ? this._createToggleButton(node.isExpanded) : '';
         const icon = '<i class="fas fa-brackets-square json-icon"></i>';
-    const content = `<span class="json-key">${(globalThis.I18n && I18n.t('tree.labels.array')) || 'Array'}</span><span class="json-meta">(${node.length})</span>`;
+        const label = this._t('tree.labels.array', null, 'Array');
+        const content = `<span class="json-key">${label}</span><span class="json-meta">(${node.length})</span>`;
 
         element.innerHTML = `${toggle}${icon}${content}`;
     }
@@ -281,7 +291,8 @@ class TreeRenderer {
     _renderObjectNode(element, node) {
         const toggle = node.isExpandable ? this._createToggleButton(node.isExpanded) : '';
         const icon = '<i class="fas fa-braces json-icon"></i>';
-    const content = `<span class="json-key">${(globalThis.I18n && I18n.t('tree.labels.object')) || 'Object'}</span><span class="json-meta">(${node.keys.length})</span>`;
+        const label = this._t('tree.labels.object', null, 'Object');
+        const content = `<span class="json-key">${label}</span><span class="json-meta">(${node.keys.length})</span>`;
 
         element.innerHTML = `${toggle}${icon}${content}`;
     }

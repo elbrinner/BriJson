@@ -22,7 +22,7 @@
     "copy": { "title": "JSON in die Zwischenablage kopieren" },
     "copied": "Kopiert!"
   },
-  "search": { "placeholder": "In JSON suchen..." },
+  "search": { "placeholder": "In JSON suchen...", "next": { "title": "Nächster Treffer (Enter/F3/Cmd+G)" } },
   "actions": {
     "validate": "JSON validieren",
     "format": "Formatieren",
@@ -180,6 +180,51 @@
     },
     "tip": {
       "html": "<strong>💡 Tipp:</strong> Nutzen Sie <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd>, um Ihr JSON direkt in den Editor einzufügen und sofort loszulegen. Keine Registrierung, keine Downloads, keine Werbung."
+    },
+    "edit": {
+      "title": "Wie man Knoten und Werte bearbeitet und hinzufügt",
+      "p1": "In der Baumansicht können Sie <strong>Werte bearbeiten</strong>, <strong>Eigenschaften umbenennen</strong> und <strong>Knoten hinzufügen/entfernen</strong> – per Doppelklick oder über das <em>Kontextmenü</em>.",
+      "steps": {
+        "title": "Schnelle Schritte",
+        "li1": "Klicken Sie auf einen Knoten im Baum, um ihn auszuwählen.",
+        "li2": "Bearbeiten Sie einen Wert per <strong>Doppelklick</strong> oder wählen Sie <em>Wert bearbeiten</em> im Kontextmenü.",
+        "li3": "Zum Hinzufügen öffnen Sie das Kontextmenü und wählen <em>Eigenschaft hinzufügen</em> (bei Objekten) oder <em>Element hinzufügen</em> (bei Arrays).",
+        "li4": "Mit <em>Umbenennen</em> ändern Sie den Eigenschaftsnamen (nicht für Array‑Elemente verfügbar).",
+        "li5": "Mit <em>Löschen</em> entfernen Sie den ausgewählten Knoten (mit Bestätigung).",
+        "li6": "Speichern Sie Änderungen mit dem Button <em>Speichern</em> im Modal."
+      },
+      "actions": {
+        "title": "Verfügbare Aktionen",
+        "li1": "Wert bearbeiten, Namen bearbeiten (Eigenschaften), Pfad oder Wert kopieren.",
+        "li2": "Eigenschaft (Objekt) oder Element (Array) hinzufügen; unterstützte Typen: String, Zahl, Boolean, Null, Objekt, Array.",
+        "li3": "Knoten mit Bestätigung löschen, um Fehler zu vermeiden."
+      },
+      "tips": {
+        "title": "Tipps",
+        "li1": "In Modals bestätigt <kbd>Enter</kbd> und <kbd>Esc</kbd> bricht ab.",
+        "li2": "Der Validator hilft, Syntaxfehler vor dem Formatieren oder Minimieren zu erkennen.",
+        "li3": "Nutzen Sie <em>JSON kopieren</em>, um das Ergebnis in die Zwischenablage zu übernehmen.",
+        "li4": "Aktivieren Sie <em>Vollbild</em> für die Baumansicht, um mit großen JSON‑Dateien komfortabler zu arbeiten."
+      },
+      "note": "Hinweis: Änderungen werden im JSON im Browser‑Speicher angewendet. Wir laden keine Dateien hoch. Um Ihre Arbeit zu sichern, kopieren Sie das JSON oder laden Sie die Datei aus Ihrem Editor herunter."
+    },
+    "searchGuide": {
+      "title": "Wie man im JSON sucht",
+      "p1": "Die Suche findet <strong>Treffer in Schlüsseln und Werten</strong> im gesamten JSON. Sie ist standardmäßig <em>groß-/kleinschreibungsunabhängig</em> und durchläuft verschachtelte Strukturen.",
+      "how": {
+        "title": "Funktionsweise",
+        "li1": "Während der Eingabe wird in <strong>Eigenschaftsnamen</strong> und <strong>Werten</strong> gesucht.",
+        "li2": "Befindet sich ein Ergebnis in eingeklappten Knoten, wird der Baum <strong>automatisch erweitert</strong>.",
+        "li3": "Treffer werden <strong>hervorgehoben</strong> und Sie navigieren mit dem Button <em>Nächster</em>.",
+        "li4": "Die Navigation ist sequenziell; am Ende springt sie wieder an den Anfang."
+      },
+      "tips": {
+        "title": "Tipps",
+        "li1": "Verwenden Sie den Button <em>Nächster</em> <i class=\"fas fa-chevron-down\"></i>, um zwischen Treffern zu springen.",
+        "li2": "Wenn keine Ergebnisse sichtbar sind, prüfen Sie die Schreibweise oder versuchen Sie einen Teilbegriff.",
+        "li3": "Kombinieren Sie mit <em>Alle erweitern</em>, um große Strukturen zu erkunden."
+      },
+      "note": "Hinweis: Die Suche ist standardmäßig nicht case‑sensitiv. Sie durchsucht Schlüssel und Werte, einschließlich Zahlen und Booleans."
     }
   }
 }

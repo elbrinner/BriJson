@@ -85,23 +85,47 @@ class Core {
             debouncedSearch(e.target.value);
         });
 
+        // Atajo en buscador: Enter = siguiente coincidencia
+        this.searchInput?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const q = e.target.value?.trim();
+                if (q) {
+                    e.preventDefault();
+                    // Asegurar resultados actualizados y saltar a la siguiente
+                    this._onSearchInput(q);
+                    this._gotoNextMatch();
+                }
+            }
+        });
+
         // Atajos de teclado
         document.addEventListener('keydown', (e) => {
+            // Combos con Ctrl/Cmd
             if (e.ctrlKey || e.metaKey) {
-                switch (e.key) {
+                switch (e.key.toLowerCase()) {
                     case 'o':
                         e.preventDefault();
                         this.fileInput?.click();
-                        break;
+                        return;
                     case 's':
                         e.preventDefault();
                         this._formatJson();
-                        break;
+                        return;
                     case 'f':
                         e.preventDefault();
-                        this.searchInput?.focus();
-                        break;
+                        (document.getElementById('fullscreen-search-input') || this.searchInput)?.focus();
+                        return;
+                    case 'g': // Cmd/Ctrl + G = siguiente coincidencia
+                        e.preventDefault();
+                        this._triggerNextFromShortcut();
+                        return;
                 }
+            }
+
+            // F3 = siguiente coincidencia (estándar)
+            if (e.key === 'F3') {
+                e.preventDefault();
+                this._triggerNextFromShortcut();
             }
         });
     }
@@ -287,26 +311,30 @@ class Core {
             className: 'context-menu'
         });
 
-        const T = (k, p) => (globalThis.I18n ? I18n.t(k, p) : null) || '';
+        const T = (k, p, fallback) => {
+            const v = globalThis.I18n ? I18n.t(k, p) : null;
+            if (!v || v === k) return fallback || '';
+            return v;
+        };
         menu.innerHTML = `
             <div class="context-menu-item" data-action="edit">
-                <i class="fas fa-pen-square"></i> ${T('context.editValue') || 'Editar valor'}
+                <i class="fas fa-pen-square"></i> ${T('context.editValue', null, 'Edit value')}
             </div>
             <div class="context-menu-item" data-action="modify">
-                <i class="fas fa-tag"></i> ${T('context.editName') || 'Editar nombre'}
+                <i class="fas fa-tag"></i> ${T('context.editName', null, 'Rename')}
             </div>
             <div class="context-menu-item" data-action="add">
-                <i class="fas fa-plus"></i> ${T('context.addProperty') || 'Agregar propiedad'}
+                <i class="fas fa-plus"></i> ${T('context.addProperty', null, 'Add property')}
             </div>
             <div class="context-menu-item" data-action="delete">
-                <i class="fas fa-trash"></i> ${T('context.delete') || 'Eliminar'}
+                <i class="fas fa-trash"></i> ${T('context.delete', null, 'Delete')}
             </div>
             <div class="context-menu-separator"></div>
             <div class="context-menu-item" data-action="copy-path">
-                <i class="fas fa-route"></i> ${T('context.copyPath') || 'Copiar ruta'}
+                <i class="fas fa-route"></i> ${T('context.copyPath', null, 'Copy path')}
             </div>
             <div class="context-menu-item" data-action="copy-value">
-                <i class="fas fa-clipboard"></i> ${T('context.copyValue') || 'Copiar valor'}
+                <i class="fas fa-clipboard"></i> ${T('context.copyValue', null, 'Copy value')}
             </div>
         `;
 
@@ -396,12 +424,12 @@ class Core {
                 break;
             case 'copy-path':
                 Utils.copyToClipboard(node.path);
-                this._showNotification((globalThis.I18n && I18n.t('notify.copy.path')) || 'Ruta copiada al portapapeles');
+                this._showNotification((globalThis.I18n && I18n.t('notify.copy.path')) || 'Path copied to clipboard');
                 break;
             case 'copy-value': {
                 const value = this._getNodeValue(node);
                 Utils.copyToClipboard(JSON.stringify(value, null, 2));
-                this._showNotification((globalThis.I18n && I18n.t('notify.copy.value')) || 'Valor copiado al portapapeles');
+                this._showNotification((globalThis.I18n && I18n.t('notify.copy.value')) || 'Value copied to clipboard');
                 break;
             }
         }
@@ -430,7 +458,7 @@ class Core {
         
         // Solo se puede renombrar propiedades, no elementos de array
         if (node.type !== 'property') {
-            this._showNotification((globalThis.I18n && I18n.t('notify.rename.onlyProperties')) || 'Solo se puede renombrar propiedades, no elementos de array', 'warning');
+                this._showNotification((globalThis.I18n && I18n.t('notify.rename.onlyProperties')) || 'Only properties can be renamed, not array items', 'warning');
             return;
         }
 
@@ -448,10 +476,10 @@ class Core {
         try {
             const newJson = this._renameNodeInJson(this.currentJson, node, newName);
             this._setJsonData(newJson);
-            const msg = (globalThis.I18n && I18n.t('notify.rename.ok', { old: node.key, name: newName })) || `Propiedad renombrada de "${node.key}" a "${newName}"`;
+            const msg = (globalThis.I18n && I18n.t('notify.rename.ok', { old: node.key, name: newName })) || `Property renamed from "${node.key}" to "${newName}"`;
             this._showNotification(msg);
         } catch (error) {
-            const msg = (globalThis.I18n && I18n.t('notify.rename.error', { message: error.message })) || `Error al renombrar: ${error.message}`;
+            const msg = (globalThis.I18n && I18n.t('notify.rename.error', { message: error.message })) || `Rename error: ${error.message}`;
             this._showNotification(msg, 'error');
         }
     }
@@ -465,7 +493,7 @@ class Core {
         const jsonCopy = JSON.parse(JSON.stringify(json));
         
         if (pathParts.length === 0) {
-            throw new Error('No se puede renombrar el nodo raíz');
+            throw new Error('Cannot rename root node');
         }
 
         // Navegar hasta el padre
@@ -484,7 +512,7 @@ class Core {
         const oldKey = typeof lastPart === 'string' ? lastPart : lastPart.key;
         
         if (current[newName] !== undefined && newName !== oldKey) {
-            throw new Error(`Ya existe una propiedad con el nombre "${newName}"`);
+            throw new Error(`A property named "${newName}" already exists`);
         }
 
         // Crear nueva propiedad y eliminar la antigua
@@ -554,7 +582,7 @@ class Core {
      * @private
      */
     _deleteNode(node) {
-        const q = (globalThis.I18n && I18n.t('confirm.delete', { name: node.key || node.path })) || `¿Estás seguro de que quieres eliminar "${node.key || node.path}"?`;
+    const q = (globalThis.I18n && I18n.t('confirm.delete', { name: node.key || node.path })) || `Are you sure you want to delete "${node.key || node.path}"?`;
         if (!confirm(q)) {
             return;
         }
@@ -562,9 +590,9 @@ class Core {
         try {
             const newJson = this._deleteNodeFromJson(this.currentJson, node);
             this._setJsonData(newJson);
-            this._showNotification((globalThis.I18n && I18n.t('notify.node.deleted')) || 'Nodo eliminado correctamente');
+            this._showNotification((globalThis.I18n && I18n.t('notify.node.deleted')) || 'Node deleted successfully');
         } catch (error) {
-            const msg = (globalThis.I18n && I18n.t('notify.node.deleteError', { message: error.message })) || `Error al eliminar nodo: ${error.message}`;
+            const msg = (globalThis.I18n && I18n.t('notify.node.deleteError', { message: error.message })) || `Error deleting node: ${error.message}`;
             this._showNotification(msg, 'error');
         }
     }
@@ -577,9 +605,9 @@ class Core {
         try {
             const newJson = this._updateNodeInJson(this.currentJson, node, newValue);
             this._setJsonData(newJson);
-            this._showNotification((globalThis.I18n && I18n.t('notify.node.updated')) || 'Nodo actualizado correctamente');
+            this._showNotification((globalThis.I18n && I18n.t('notify.node.updated')) || 'Node updated successfully');
         } catch (error) {
-            const msg = (globalThis.I18n && I18n.t('notify.node.updateError', { message: error.message })) || `Error al actualizar nodo: ${error.message}`;
+            const msg = (globalThis.I18n && I18n.t('notify.node.updateError', { message: error.message })) || `Error updating node: ${error.message}`;
             this._showNotification(msg, 'error');
         }
     }
@@ -592,9 +620,9 @@ class Core {
         try {
             const newJson = this._addNodeToJson(this.currentJson, parentPath, newData, type);
             this._setJsonData(newJson);
-            this._showNotification((globalThis.I18n && I18n.t('notify.node.added')) || 'Nodo agregado correctamente');
+            this._showNotification((globalThis.I18n && I18n.t('notify.node.added')) || 'Node added successfully');
         } catch (error) {
-            const msg = (globalThis.I18n && I18n.t('notify.node.addError', { message: error.message })) || `Error al agregar nodo: ${error.message}`;
+            const msg = (globalThis.I18n && I18n.t('notify.node.addError', { message: error.message })) || `Error adding node: ${error.message}`;
             this._showNotification(msg, 'error');
         }
     }
@@ -765,10 +793,10 @@ class Core {
 
         try {
             this.editor.value = JSON.stringify(this.currentJson, null, 2);
-            this._showNotification((globalThis.I18n && I18n.t('notify.format.ok')) || 'JSON formateado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.format.ok')) || 'JSON formatted');
         } catch (error) {
             console.error('Error al formatear JSON:', error);
-            this._showNotification((globalThis.I18n && I18n.t('notify.format.error')) || 'Error al formatear JSON', 'error');
+            this._showNotification((globalThis.I18n && I18n.t('notify.format.error')) || 'Error formatting JSON', 'error');
         }
     }
 
@@ -781,10 +809,10 @@ class Core {
 
         try {
             this.editor.value = JSON.stringify(this.currentJson);
-            this._showNotification((globalThis.I18n && I18n.t('notify.minify.ok')) || 'JSON minificado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.minify.ok')) || 'JSON minified');
         } catch (error) {
             console.error('Error al minificar JSON:', error);
-            this._showNotification((globalThis.I18n && I18n.t('notify.minify.error')) || 'Error al minificar JSON', 'error');
+            this._showNotification((globalThis.I18n && I18n.t('notify.minify.error')) || 'Error minifying JSON', 'error');
         }
     }
 
@@ -796,13 +824,13 @@ class Core {
         const jsonText = this.editor?.value.trim();
 
         if (!jsonText) {
-            this._showNotification((globalThis.I18n && I18n.t('notify.editor.empty')) || 'Editor vacío', 'warning');
+            this._showNotification((globalThis.I18n && I18n.t('notify.editor.empty')) || 'Editor is empty', 'warning');
             return;
         }
 
         try {
             JSON.parse(jsonText);
-            this._showNotification((globalThis.I18n && I18n.t('notify.json.valid')) || 'JSON válido', 'success');
+            this._showNotification((globalThis.I18n && I18n.t('notify.json.valid')) || 'Valid JSON', 'success');
         } catch (error) {
             this._showValidationError(error.message);
         }
@@ -815,10 +843,10 @@ class Core {
     _clearEditor() {
         if (!this.editor) return;
 
-        if (confirm((globalThis.I18n && I18n.t('confirm.clear')) || '¿Estás seguro de que quieres limpiar el editor?')) {
+    if (confirm((globalThis.I18n && I18n.t('confirm.clear')) || 'Are you sure you want to clear the editor?')) {
             this.editor.value = '';
             this._setJsonData({});
-            this._showNotification((globalThis.I18n && I18n.t('notify.editor.cleared')) || 'Editor limpiado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.editor.cleared')) || 'Editor cleared');
         }
     }
 
@@ -832,7 +860,7 @@ class Core {
         const jsonText = this.editor.value.trim();
 
         if (!jsonText) {
-            this._showNotification((globalThis.I18n && I18n.t('notify.copy.empty')) || 'No hay JSON para copiar', 'warning');
+            this._showNotification((globalThis.I18n && I18n.t('notify.copy.empty')) || 'No JSON to copy', 'warning');
             return;
         }
 
@@ -852,7 +880,7 @@ class Core {
             
             // Cambiar temporalmente el ícono del botón
             const originalHtml = this.copyJsonBtn.innerHTML;
-            this.copyJsonBtn.innerHTML = `<i class="fas fa-check"></i> ${(globalThis.I18n && I18n.t('buttons.copied')) || '¡Copiado!'}`;
+            this.copyJsonBtn.innerHTML = `<i class="fas fa-check"></i> ${(globalThis.I18n && I18n.t('buttons.copied')) || 'Copied!'}`;
             this.copyJsonBtn.classList.remove('bg-teal-500', 'hover:bg-teal-600');
             this.copyJsonBtn.classList.add('bg-green-500', 'hover:bg-green-600');
             
@@ -862,9 +890,9 @@ class Core {
                 this.copyJsonBtn.classList.add('bg-teal-500', 'hover:bg-teal-600');
             }, 2000);
 
-            this._showNotification((globalThis.I18n && I18n.t('notify.copy.ok')) || 'JSON copiado al portapapeles');
+            this._showNotification((globalThis.I18n && I18n.t('notify.copy.ok')) || 'JSON copied to clipboard');
         } catch (error) {
-            const msg = (globalThis.I18n && I18n.t('notify.copy.error', { message: error.message })) || ('Error al copiar: ' + error.message);
+            const msg = (globalThis.I18n && I18n.t('notify.copy.error', { message: error.message })) || ('Copy error: ' + error.message);
             this._showNotification(msg, 'error');
         }
     }
@@ -878,7 +906,7 @@ class Core {
         if (!file) return;
 
         if (!file.name.toLowerCase().endsWith('.json')) {
-            this._showNotification((globalThis.I18n && I18n.t('notify.file.onlyJson')) || 'Solo se permiten archivos JSON', 'error');
+            this._showNotification((globalThis.I18n && I18n.t('notify.file.onlyJson')) || 'Only JSON files are allowed', 'error');
             return;
         }
 
@@ -886,10 +914,10 @@ class Core {
             const text = await file.text();
             const jsonData = JSON.parse(text);
             this._setJsonData(jsonData);
-            const msg = (globalThis.I18n && I18n.t('notify.file.loaded', { name: file.name })) || `Archivo "${file.name}" cargado correctamente`;
+            const msg = (globalThis.I18n && I18n.t('notify.file.loaded', { name: file.name })) || `File "${file.name}" loaded successfully`;
             this._showNotification(msg);
         } catch (error) {
-            const msg = (globalThis.I18n && I18n.t('notify.file.parseError', { message: error.message })) || `Error al parsear JSON: ${error.message}`;
+            const msg = (globalThis.I18n && I18n.t('notify.file.parseError', { message: error.message })) || `JSON parse error: ${error.message}`;
             this._showNotification(msg, 'error');
         }
     }
@@ -901,7 +929,7 @@ class Core {
     _expandAll() {
         if (this.treeRenderer) {
             this.treeRenderer.expandAll();
-            this._showNotification((globalThis.I18n && I18n.t('notify.expand.all')) || 'Todos los nodos expandidos');
+            this._showNotification((globalThis.I18n && I18n.t('notify.expand.all')) || 'All nodes expanded');
         }
     }
 
@@ -912,7 +940,7 @@ class Core {
     _collapseAll() {
         if (this.treeRenderer) {
             this.treeRenderer.collapseAll();
-            this._showNotification((globalThis.I18n && I18n.t('notify.collapse.all')) || 'Todos los nodos contraídos');
+            this._showNotification((globalThis.I18n && I18n.t('notify.collapse.all')) || 'All nodes collapsed');
         }
     }
 
@@ -933,12 +961,12 @@ class Core {
             // Salir del modo fullscreen
             this._exitTreeOnlyMode();
             this.fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-            this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.exit')) || 'Modo normal restaurado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.exit')) || 'Normal mode restored');
         } else {
             // Entrar en modo fullscreen (solo árbol)
             this._enterTreeOnlyMode();
             this.fullscreenBtn.innerHTML = '<i class="fas fa-xmark"></i>';
-            this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.enter')) || 'Modo árbol completo activado');
+            this._showNotification((globalThis.I18n && I18n.t('notify.fullscreen.enter')) || 'Tree-only mode enabled');
         }
     }
 
@@ -1009,24 +1037,49 @@ class Core {
                     input.type = 'text';
                     input.id = 'fullscreen-search-input';
                     input.dataset.i18nPlaceholder = 'search.placeholder';
-                    input.placeholder = (globalThis.I18n && I18n.t('search.placeholder')) || 'Buscar en JSON...';
+                    // Traducción segura con fallback si I18n devuelve la clave
+                    const phRaw = globalThis.I18n ? I18n.t('search.placeholder') : null;
+                    input.placeholder = (!phRaw || phRaw === 'search.placeholder') ? 'Search in JSON...' : phRaw;
                     input.className = 'w-56 md:w-72 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500';
                     // No margen extra; usamos gap del contenedor
 
                     const handler = Utils.debounce((value) => this._onSearchInput(value), 300);
                     input.addEventListener('input', (e) => handler(e.target.value));
 
+                    // Enter en buscador fullscreen = siguiente
+                    input.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            const q = e.target.value?.trim();
+                            if (q) {
+                                e.preventDefault();
+                                this._onSearchInput(q);
+                                this._gotoNextMatch();
+                            }
+                        }
+                    });
+
                     // Insertar el buscador inmediatamente antes del grupo de botones
                     const buttonsGroup = this.expandAllBtn?.parentElement || toolbar.lastElementChild;
-                    toolbar.insertBefore(input, buttonsGroup);
+                    if (buttonsGroup?.before) {
+                        buttonsGroup.before(input);
+                    } else {
+                        toolbar.insertBefore(input, buttonsGroup);
+                    }
 
                     // Mover el botón de siguiente junto al buscador para una composición elegante
                     const nextBtn = document.getElementById('nextMatchBtn');
                     if (nextBtn) {
                         nextBtn.style.padding = '8px';
                         nextBtn.style.borderRadius = '9999px';
-                        toolbar.insertBefore(nextBtn, buttonsGroup);
+                        if (buttonsGroup?.before) {
+                            buttonsGroup.before(nextBtn);
+                        } else {
+                            toolbar.insertBefore(nextBtn, buttonsGroup);
+                        }
                     }
+
+                    // Aplicar i18n a elementos recién insertados
+                    try { globalThis.I18n && I18n.apply(); } catch {}
                 }
 
                 // Compactar espacio entre botones
@@ -1153,6 +1206,25 @@ class Core {
     }
 
     /**
+     * Dispara la navegación a la siguiente coincidencia desde un atajo global
+     * @private
+     */
+    _triggerNextFromShortcut() {
+        // Preferir el input de fullscreen si existe
+        const fs = document.getElementById('fullscreen-search-input');
+        const q = (fs || this.searchInput)?.value?.trim();
+
+        if (q) {
+            // Actualizar resultados y avanzar
+            this._onSearchInput(q);
+            this._gotoNextMatch();
+        } else {
+            // Si no hay término, enfocar el buscador para que el usuario escriba
+            (fs || this.searchInput)?.focus();
+        }
+    }
+
+    /**
      * Limpia el árbol
      * @private
      */
@@ -1192,26 +1264,47 @@ class Core {
      * @private
      */
     _showNotification(message, type = 'info') {
-        // Crear notificación simple
+        // Contenedor apilado inferior-derecha
+        let container = document.getElementById('notification-container');
+        if (!container) {
+            container = Utils.createElement('div', { id: 'notification-container', className: 'notification-container' });
+            document.body.appendChild(container);
+        }
+
+        // Crear notificación
         const notification = Utils.createElement('div', {
             className: `notification notification-${type}`
         });
 
+        // Si llega una clave tipo 'notify.x.y', intentar traducirla
+        let text = message;
+        if (typeof message === 'string' && message.includes('.') && !message.includes(' ') && globalThis.I18n) {
+            const maybe = I18n.t(message);
+            if (maybe && maybe !== message) text = maybe;
+        }
+
         notification.innerHTML = `
-            <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
+            <span class="notification-message">${text}</span>
+            <button class="notification-close" aria-label="Close">&times;</button>
         `;
 
-        document.body.appendChild(notification);
+        container.appendChild(notification);
 
-        // Auto-remover después de 3 segundos
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
+        const ttlByType = { info: 3000, success: 3500, warning: 5000, error: 6000 };
+        const ttl = ttlByType[type] ?? 3000;
 
-        // Click para cerrar
+        const remove = () => {
+            notification.classList.add('notification-hide');
+            setTimeout(() => notification.remove(), 300);
+        };
+
+        // Auto-remover según tipo
+        const timer = setTimeout(remove, ttl);
+
+        // Cierre manual
         notification.querySelector('.notification-close').addEventListener('click', () => {
-            notification.remove();
+            clearTimeout(timer);
+            remove();
         });
     }
 

@@ -15,27 +15,24 @@
     "title": "Éditeur JSON",
     "placeholder": "Collez votre JSON ici...\n\nExemple:\n{\n  \"nom\": \"Jean\",\n  \"âge\": 30,\n  \"actif\": true\n}"
   },
-  "buttons": {
-    "loadFile": "Charger un fichier",
-    "copyJson": "Copier JSON",
-    "clear": "Effacer",
-    "copy": { "title": "Copier le JSON dans le presse-papiers" },
-    "copied": "Copié !"
+
+  "search": {
+    "placeholder": "Rechercher dans le JSON...",
+    "next": { "title": "Correspondance suivante (Entrée/F3/Cmd+G)" }
   },
-  "search": { "placeholder": "Rechercher dans le JSON..." },
   "actions": {
     "validate": "Valider le JSON",
     "format": "Formater",
     "minify": "Minifier"
   },
-  
+
   "stats": {
     "title": "Statistiques",
     "lines": "Lignes",
     "keys": "Clés",
     "arrays": "Tableaux",
     "objects": "Objets",
-    "primitives": "Primitifs",
+    "primitives": "Primitives",
     "size": "Taille",
     "depth": "Profondeur"
   },
@@ -44,10 +41,20 @@
     "subtitle": "Visionneuse, validateur et éditeur JSON sans publicité",
     "tagline": "Éditeur JSON en ligne 100% gratuit | Sans publicité | Sans suivi"
   },
-  "language": { "label": "Langue" },
+  "language": {
+    "label": "Langue"
+  },
+  "buttons": {
+    "loadFile": "Charger un fichier",
+    "copyJson": "Copier JSON",
+    "clear": "Effacer",
+    "copy": { "title": "Copier le JSON dans le presse-papiers" },
+    "copied": "Copié !"
+  },
+
   "confirm": {
-    "clear": "Voulez-vous vraiment effacer l'éditeur ?",
-    "delete": "Voulez-vous vraiment supprimer \"{name}\" ?"
+    "clear": "Êtes-vous sûr de vouloir effacer l'éditeur ?",
+    "delete": "Êtes-vous sûr de vouloir supprimer \"{name}\" ?"
   },
   "common": {
     "save": "Enregistrer",
@@ -79,7 +86,9 @@
       "valueTitle": "Modifier la valeur",
       "containerTitle": "Modifier {type}"
     },
-    "rename": { "title": "Renommer la propriété" },
+    "rename": {
+      "title": "Renommer la propriété"
+    },
     "add": {
       "propertyTitle": "Ajouter une propriété",
       "arrayItemTitle": "Ajouter un élément au tableau"
@@ -99,11 +108,13 @@
       "objectExample": "{\"key\": \"value\"}",
       "arrayExample": "[1, 2, 3]"
     },
-    "buttons": { "deleteProperty": "Supprimer la propriété" },
+    "buttons": {
+      "deleteProperty": "Supprimer la propriété"
+    },
     "error": {
       "property_name_empty": "Le nom de la propriété ne peut pas être vide",
-      "parse_value": "Erreur d'analyse de la valeur : {message}",
-      "process_data": "Erreur de traitement des données : {message}",
+      "parse_value": "Erreur lors de l'analyse de la valeur : {message}",
+      "process_data": "Erreur lors du traitement des données : {message}",
       "property_required": "Le nom de la propriété est requis",
       "number_invalid": "Valeur numérique invalide",
       "boolean_invalid": "La valeur booléenne doit être \"true\" ou \"false\""
@@ -149,10 +160,7 @@
     "expandAll": "Tout développer",
     "collapseAll": "Tout réduire",
     "placeholder": "Collez votre JSON et cliquez sur \"Valider le JSON\" pour voir l'arbre",
-    "labels": {
-      "object": "Objet",
-      "array": "Tableau"
-    }
+    "labels": { "object": "Objet", "array": "Tableau" }
   },
   "content": {
     "hero": {
@@ -180,6 +188,51 @@
     },
     "tip": {
       "html": "<strong>💡 Astuce :</strong> Utilisez <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> pour coller votre JSON directement dans l’éditeur et commencer à travailler immédiatement. Pas d’inscription, pas de téléchargement, pas de publicité."
+    },
+    "edit": {
+      "title": "Comment modifier et ajouter des nœuds et des valeurs",
+      "p1": "Dans la vue en arborescence, vous pouvez <strong>modifier des valeurs</strong>, <strong>renommer des propriétés</strong> et <strong>ajouter/supprimer des nœuds</strong> à l’aide d’un double‑clic ou du <em>menu contextuel</em>.",
+      "steps": {
+        "title": "Étapes rapides",
+        "li1": "Cliquez sur un nœud de l’arbre pour le sélectionner.",
+        "li2": "Modifiez une valeur avec un <strong>double‑clic</strong> ou choisissez <em>Modifier la valeur</em> dans le menu contextuel.",
+        "li3": "Pour ajouter, ouvrez le menu contextuel et choisissez <em>Ajouter une propriété</em> (objets) ou <em>Ajouter un élément</em> (tableaux).",
+        "li4": "Utilisez <em>Renommer</em> pour changer le nom d’une propriété (non disponible pour les éléments de tableau).",
+        "li5": "Utilisez <em>Supprimer</em> pour retirer le nœud sélectionné (avec confirmation).",
+        "li6": "Validez vos modifications avec le bouton <em>Enregistrer</em> de la fenêtre modale."
+      },
+      "actions": {
+        "title": "Actions disponibles",
+        "li1": "Modifier la valeur, modifier le nom (propriétés), copier le chemin ou la valeur.",
+        "li2": "Ajouter une propriété (objet) ou un élément (tableau) avec types pris en charge : chaîne, nombre, booléen, null, objet, tableau.",
+        "li3": "Supprimer des nœuds avec confirmation pour éviter les erreurs."
+      },
+      "tips": {
+        "title": "Astuces",
+        "li1": "Dans les modales, <kbd>Entrée</kbd> confirme et <kbd>Échap</kbd> annule.",
+        "li2": "Le validateur aide à détecter les erreurs de syntaxe avant de formater ou de minifier.",
+        "li3": "Utilisez <em>Copier JSON</em> pour envoyer le résultat dans votre presse‑papiers.",
+        "li4": "Activez le <em>Plein écran</em> de l’arbre pour travailler plus confortablement avec de gros JSON."
+      },
+      "note": "Remarque : Les modifications sont appliquées au JSON en mémoire dans votre navigateur. Nous ne téléversons pas vos fichiers. Pour conserver votre travail, copiez le JSON ou téléchargez le fichier depuis votre éditeur."
+    },
+    "searchGuide": {
+      "title": "Comment rechercher dans le JSON",
+      "p1": "La recherche trouve des <strong>correspondances dans les clés et les valeurs</strong> dans tout le JSON. Elle est <em>insensible à la casse</em> par défaut et parcourt les structures imbriquées.",
+      "how": {
+        "title": "Fonctionnement",
+        "li1": "Au fur et à mesure de la saisie, des correspondances sont recherchées dans les <strong>noms de propriétés</strong> et les <strong>valeurs</strong>.",
+        "li2": "Si un résultat se trouve dans des nœuds réduits, l’arbre se <strong>développe automatiquement</strong> pour le révéler.",
+        "li3": "Les correspondances sont <strong>surlignées</strong> et vous pouvez naviguer avec le bouton <em>Suivant</em>.",
+        "li4": "La navigation est séquentielle ; en atteignant la fin, elle revient au début."
+      },
+      "tips": {
+        "title": "Astuces",
+        "li1": "Utilisez le bouton <em>Suivant</em> <i class=\"fas fa-chevron-down\"></i> pour passer d’un résultat à l’autre.",
+        "li2": "Si vous ne voyez pas de résultats, vérifiez l’orthographe ou essayez une partie du terme.",
+        "li3": "Combinez avec <em>Tout développer</em> pour explorer de grandes structures."
+      },
+      "note": "Remarque : La recherche est insensible à la casse par défaut. Elle s’effectue à la fois dans les clés et les valeurs, y compris les nombres et les booléens."
     }
   }
 }

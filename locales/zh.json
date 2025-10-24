@@ -22,7 +22,7 @@
     "copy": { "title": "复制 JSON 到剪贴板" },
     "copied": "已复制！"
   },
-  "search": { "placeholder": "在 JSON 中搜索..." },
+  "search": { "placeholder": "在 JSON 中搜索...", "next": { "title": "下一个匹配项 (Enter/F3/Cmd+G)" } },
   "actions": {
     "validate": "校验 JSON",
     "format": "格式化",
@@ -180,6 +180,51 @@
     },
     "tip": {
       "html": "<strong>💡 提示：</strong> 使用 <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> 可直接将 JSON 粘贴到编辑器，立即开始工作。无需注册、无需下载、无广告。"
+    },
+    "edit": {
+      "title": "如何编辑与添加节点和值",
+      "p1": "在树形视图中，你可以通过双击或使用<em>上下文菜单</em>来<strong>编辑值</strong>、<strong>重命名属性</strong>以及<strong>添加/删除节点</strong>。",
+      "steps": {
+        "title": "快速步骤",
+        "li1": "点击树中的某个节点以选中它。",
+        "li2": "通过<strong>双击</strong>编辑一个值，或在上下文菜单中选择<em>编辑值</em>。",
+        "li3": "若要添加，在上下文菜单中选择<em>添加属性</em>（对象）或<em>添加项</em>（数组）。",
+        "li4": "使用<em>重命名</em>更改属性名称（不适用于数组项）。",
+        "li5": "使用<em>删除</em>移除选中的节点（带确认）。",
+        "li6": "在模态框中点击<em>保存</em>按钮以保存更改。"
+      },
+      "actions": {
+        "title": "可用操作",
+        "li1": "编辑值、编辑名称（属性）、复制路径或复制值。",
+        "li2": "为对象添加属性或为数组添加项，支持类型：string、number、boolean、null、object、array。",
+        "li3": "删除节点时带确认，以避免误操作。"
+      },
+      "tips": {
+        "title": "提示",
+        "li1": "在模态框中，<kbd>Enter</kbd>确认，<kbd>Esc</kbd>取消。",
+        "li2": "在格式化或压缩前，校验器有助于发现语法错误。",
+        "li3": "使用<em>复制 JSON</em>将结果带到剪贴板。",
+        "li4": "启用树的<em>全屏</em>以更舒适地处理大型 JSON。"
+      },
+      "note": "注意：更改会应用到浏览器内存中的 JSON。我们不会将文件上传到任何服务器。要保留你的工作，请复制 JSON 或从编辑器下载文件。"
+    },
+    "searchGuide": {
+      "title": "如何在 JSON 中搜索",
+      "p1": "搜索会在整个 JSON 中的<strong>键和值</strong>里查找匹配。默认<em>不区分大小写</em>，并遍历嵌套结构。",
+      "how": {
+        "title": "工作方式",
+        "li1": "输入时，会在<strong>属性名</strong>和<strong>值</strong>中查找匹配。",
+        "li2": "如果结果位于折叠的节点内，树会<strong>自动展开</strong>以显示它。",
+        "li3": "匹配会被<strong>高亮</strong>，你可以通过<em>下一个</em>按钮进行导航。",
+        "li4": "导航是顺序的；到达末尾时会回到开头。"
+      },
+      "tips": {
+        "title": "提示",
+        "li1": "使用<em>下一个</em>按钮 <i class=\"fas fa-chevron-down\"></i> 在匹配项之间跳转。",
+        "li2": "如果没有结果，请检查拼写或尝试只输入部分词语。",
+        "li3": "可与<em>全部展开</em>结合以探索大型结构。"
+      },
+      "note": "注意：搜索默认不区分大小写。它会在键和值（包括数字和布尔值）中进行匹配。"
     }
   }
 }

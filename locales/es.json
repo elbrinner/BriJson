@@ -17,7 +17,8 @@
   },
   
   "search": {
-    "placeholder": "Buscar en JSON..."
+    "placeholder": "Buscar en JSON...",
+    "next": { "title": "Siguiente coincidencia (Enter/F3/Cmd+G)" }
   },
   "actions": {
     "validate": "Validar JSON",
@@ -181,6 +182,51 @@
     },
     "tip": {
       "html": "<strong>💡 Tip:</strong> Usa <kbd class=\"bg-white px-2 py-1 rounded border\">Ctrl/Cmd + V</kbd> para pegar tu JSON directamente en el editor y comenzar a trabajar de inmediato. Sin registro, sin descargas, sin publicidad."
+    },
+    "edit": {
+      "title": "Cómo editar y agregar nodos y valores",
+      "p1": "En la vista de árbol puedes <strong>editar valores</strong>, <strong>renombrar propiedades</strong> y <strong>agregar/eliminar nodos</strong> usando doble clic o el <em>menú contextual</em>.",
+      "steps": {
+        "title": "Pasos rápidos",
+        "li1": "Haz clic en un nodo del árbol para seleccionarlo.",
+        "li2": "Edita un valor con <strong>doble clic</strong> o elige <em>Editar valor</em> desde el menú contextual.",
+        "li3": "Para agregar, abre el menú contextual y elige <em>Agregar propiedad</em> (en objetos) o <em>Agregar elemento</em> (en arrays).",
+        "li4": "Usa <em>Renombrar</em> para cambiar el nombre de una propiedad (no aplica a elementos de array).",
+        "li5": "Usa <em>Eliminar</em> para borrar el nodo seleccionado (con confirmación).",
+        "li6": "Guarda los cambios con el botón <em>Guardar</em> del modal."
+      },
+      "actions": {
+        "title": "Acciones disponibles",
+        "li1": "Editar valor, editar nombre (propiedades), copiar ruta o valor.",
+        "li2": "Agregar propiedad (objeto) o elemento (array) con soporte para tipos: cadena, número, booleano, null, objeto, array.",
+        "li3": "Eliminar nodos con confirmación para evitar errores."
+      },
+      "tips": {
+        "title": "Consejos",
+        "li1": "En los modales, <kbd>Enter</kbd> confirma y <kbd>Esc</kbd> cancela.",
+        "li2": "El validador te ayuda a detectar errores de sintaxis antes de formatear o minificar.",
+        "li3": "Usa <em>Copiar JSON</em> para llevarte el resultado al portapapeles.",
+        "li4": "Activa <em>Pantalla completa</em> del árbol para trabajar más cómodo con JSON grandes."
+      },
+      "note": "Nota: Los cambios se aplican al JSON en memoria del navegador. No subimos archivos a ningún servidor. Para guardar, copia el JSON o descarga el archivo desde tu editor."
+    },
+    "searchGuide": {
+      "title": "Cómo buscar en el JSON",
+      "p1": "El buscador encuentra <strong>coincidencias en claves y valores</strong> en todo el JSON. Es <em>insensible a mayúsculas/minúsculas</em> por defecto y recorre estructuras anidadas.",
+      "how": {
+        "title": "Cómo funciona",
+        "li1": "Mientras escribes, se buscan coincidencias en <strong>nombres de propiedad</strong> y <strong>valores</strong>.",
+        "li2": "Si el resultado está dentro de nodos colapsados, el árbol <strong>se expande automáticamente</strong> para mostrarlo.",
+        "li3": "Las coincidencias se <strong>resaltan</strong> visualmente y puedes navegar con el botón <em>Siguiente</em>.",
+        "li4": "El recorrido es secuencial; al llegar al final vuelve al inicio."
+      },
+      "tips": {
+        "title": "Consejos",
+        "li1": "Usa el botón <em>Siguiente</em> <i class=\"fas fa-chevron-down\"></i> para saltar entre coincidencias.",
+        "li2": "Si no ves resultados, verifica la ortografía o prueba con una parte del término.",
+        "li3": "Puedes combinarlo con <em>Expandir todo</em> para explorar grandes estructuras."
+      },
+      "note": "Nota: La búsqueda es no sensible a mayúsculas por defecto. Busca tanto en claves como en valores, incluyendo números y booleanos."
     }
   }
 }

@@ -89,6 +89,7 @@
     constructor(){
       this.lang = DEFAULT_LANG;
       this.dict = {};
+      this.baseDict = {}; // en.json como fallback
     }
 
     async init(){
@@ -109,7 +110,9 @@
       const { persist = false } = opts || {};
       this.lang = normalize(lang);
       setLangAttributes(this.lang);
-      this.dict = await fetchLocale(this.lang);
+      // Cargar diccionario base (en) para fallback y el específico del idioma
+      this.baseDict = await fetchLocale(DEFAULT_LANG);
+      this.dict = this.lang === DEFAULT_LANG ? this.baseDict : await fetchLocale(this.lang);
       if (persist) {
         localStorage.setItem('i18n.lang', this.lang);
       }
@@ -118,6 +121,9 @@
     t(key, params){
       const raw = key.split('.').reduce((o,k)=> o?.[k], this.dict);
       if (typeof raw === 'string') return interpolate(raw, params);
+      // Intentar fallback en inglés (baseDict)
+      const fb = key.split('.').reduce((o,k)=> o?.[k], this.baseDict);
+      if (typeof fb === 'string') return interpolate(fb, params);
       // Fallback: return key itself for debugging
       return key;
     }
